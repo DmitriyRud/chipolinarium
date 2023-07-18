@@ -33,6 +33,7 @@ app.use(session(sessionConfig));
 
 app.use('/', indexRouter);
 
+
 app.get('/404', (req, res) => {
   res.send('Page not found');
 });

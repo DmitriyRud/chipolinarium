@@ -1,0 +1,57 @@
+.swiper {
+    min-width: 600px;
+    max-height: 600px;
+    margin-bottom: 50px;
+}
+.image-slider {
+    text-align: center;
+}
+.image-slider img{
+    max-width: 100%;
+}
+.slide1{
+    position: relative
+}
+.slide1-text{
+    position:absolute;
+    width: 30%;
+    height: 10%;
+    background-color: antiquewhite;
+    top: 30%;
+    left: 40%;
+}
+.slider-title{
+
+}
+.slide2{
+    position: relative
+}
+.slide2-container{
+    position: absolute;
+background-color: antiquewhite;
+width: 30%;
+    height: 10%;
+    top: 30%;
+    left: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+.home-title-text{
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+.home-title{
+    margin-bottom: 40px;
+}
+.home-price{
+margin-bottom: 40px;
+}
+.advantages-inner{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+   
+}
+.advantages-item{
+   max-width: 30%; 
+}
