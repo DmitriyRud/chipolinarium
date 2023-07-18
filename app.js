@@ -10,6 +10,8 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
 const indexRouter = require('./src/routers/indexRouter');
+const aboutRouter = require('./src/routers/aboutRouter');
+const adminPanel = require('./src/routers/adminPanelRouter');
 
 const sessionConfig = {
   name: process.env.COOKIE_NAME,
@@ -32,7 +34,8 @@ app.use(express.json());
 app.use(session(sessionConfig));
 
 app.use('/', indexRouter);
-
+app.use('/about', aboutRouter);
+app.use('/adminPanel', adminPanel);
 app.get('/404', (req, res) => {
   res.send('Page not found');
 });

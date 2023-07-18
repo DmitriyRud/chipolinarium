@@ -19,7 +19,7 @@ module.exports = function Layout({ children }) {
           integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
           crossOrigin="anonymous"
         />
-        <title>EXAM</title>
+        <title>Чиполинарий</title>
       </head>
       <body>
         <div className="mainContainer">{children}</div>
