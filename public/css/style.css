@@ -37,6 +37,28 @@
   max-width: 20%;
 }
 
+.footer_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer_up {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.info_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 10%;
+}
+
+a {
+  text-decoration: none;
+}
+
 @media (max-width: 900px) {
   .header_container {
     flex-direction: column-reverse;
