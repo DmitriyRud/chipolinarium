@@ -1,10 +1,9 @@
 const router = require('express').Router();
-const bcrypt = require('bcrypt');
+const renderTemplate = require('../lib/renderTemplate');
+const Home = require('../views/Home');
 
-//const renderTemplate = require('../lib/renderTemplate');
-
-router.get('/', async (req, res) => {
-  res.send('все работает');
+router.get('/', (req, res) => {
+  renderTemplate(Home, {}, res);
 });
 
 module.exports = router;

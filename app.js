@@ -42,6 +42,8 @@ app.use(session(sessionConfig));
 
 app.use('/', indexRouter);
 
+
+
 app.use('/contacts', contactsRouter);
 app.use('/feedback', feedBackRouter);
 app.use('/accountPanel', accountPanelRouter);
@@ -50,6 +52,7 @@ app.use('/delivery', deliveryRouter);
 
 app.use('/about', aboutRouter);
 app.use('/adminPanel', adminPanel);
+
 
 app.get('/404', (req, res) => {
   res.send('Page not found');
