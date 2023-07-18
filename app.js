@@ -10,6 +10,10 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
 const indexRouter = require('./src/routers/indexRouter');
+const contactsRouter = require('./src/routers/contactsRouter');
+const feedBackRouter = require('./src/routers/feedbackRouter');
+const accountPanelRouter = require('./src/routers/accountPanelRouter');
+const deliveryRouter = require('./src/routers/deliveryRouter');
 
 const sessionConfig = {
   name: process.env.COOKIE_NAME,
@@ -32,6 +36,10 @@ app.use(express.json());
 app.use(session(sessionConfig));
 
 app.use('/', indexRouter);
+app.use('/contacts', contactsRouter);
+app.use('/feedback', feedBackRouter);
+app.use('/accountPanel', accountPanelRouter);
+app.use('/delivery', deliveryRouter);
 
 app.get('/404', (req, res) => {
   res.send('Page not found');
