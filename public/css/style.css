@@ -1,7 +1,50 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
-.container{
-    max-width: 1200px;
-    margin: 0 auto;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.header_container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+}
+
+.flex_up {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex_down {
+  display: flex;
+}
+
+.contact_header {
+  display: flex;
+  flex-direction: column;
+}
+
+.supplies_item {
+  list-style: none;
+}
+
+.logo_image {
+  width: 100%;
+}
+.logo {
+  max-width: 20%;
+}
+
+@media (max-width: 900px) {
+  .header_container {
+    flex-direction: column-reverse;
+  }
+  .supplies {
+    display: none;
+  }
+  .flex_up {
+    justify-content: space-around;
+  }
 }
