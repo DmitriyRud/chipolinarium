@@ -3,8 +3,7 @@ const bcrypt = require('bcrypt');
 
 const renderTemplate = require('../lib/renderTemplate');
 const AdminPanel = require('../views/AdminPanel');
-
-//const { User } = require('../../db/models');
+const { User } = require('../../db/models');
 
 router.get('/', (req, res) => {
   renderTemplate(AdminPanel, {}, res);

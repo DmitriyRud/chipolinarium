@@ -9,7 +9,7 @@ module.exports = function Login() {
       <h2>Войдите на сайт</h2>
       <hr />
       <form id="logForm" name="logName">
-        <p className="alert"></p>
+        <p className="paragraph"></p>
         <label htmlFor="email" className="form-label">
           email
         </label>

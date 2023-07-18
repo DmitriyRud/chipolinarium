@@ -1,15 +1,15 @@
 const { logForm } = document.forms;
-const alert = document.querySelector('.alert');
+const paragraph = document.querySelector('.paragraph');
 logForm.addEventListener('click', async (e) => {
   const data = new FormData(logForm);
   const res = Object.fromEntries(data);
-  console.log(data);
+  console.log(res);
   if (e.target.tagName === 'BUTTON') {
     if (!res.email || !res.password) {
-      alert.innerText = `<p>Заполните все поля</p>`;
+      paragraph.innerText = `Заполните все поля`;
     } else {
       try {
-        const response = await fetch('/loginPanel', {
+        const response = await fetch('/adminPanel', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -22,8 +22,7 @@ logForm.addEventListener('click', async (e) => {
 
         if (result.err) {
           msg.innerText = result.err;
-        } else {
-          alert(result.msg);
+        } else if (result.msg) {
           window.location.href = '/accountPanel';
         }
       } catch (error) {
