@@ -33,7 +33,7 @@ module.exports = function Catalog({ categories, email }) {
                       <p className="card-text">{category.description}</p>
                     </div>
                     <div className="card-btn">
-                      <a className="btn" href={`/category/${category.id}` }>
+                      <a className="btn" href={`/catalog/${category.id}` }>
                         {' '}
                         подробнее
                       </a>
@@ -76,7 +76,7 @@ module.exports = function Catalog({ categories, email }) {
                         <p className="card-text">{category.description}</p>
                       </div>
                       <div className="card-btn">
-                        <a className="btn" href={`/category/${category.id}`} id={category.id}>
+                        <a className="btn" href={`/catalog/${category.id}`} id={category.id}>
                           {' '}
                           подробнее
                         </a>

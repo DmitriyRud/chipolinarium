@@ -2,10 +2,10 @@ const React = require('react');
 
 const Layout = require('./Layout');
 
-module.exports = function Contacts({ categoties }) {
+module.exports = function Contacts({ categories }) {
   return (
-    <Layout>
-      <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+    <Layout categories={categories}>
+      <div className='container' style={{ display: 'flex', justifyContent: 'space-around' }}>
         <div>
           <h2> Контакты </h2>
           <p>
