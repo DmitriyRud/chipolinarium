@@ -1,6 +1,7 @@
 const feedback = document.querySelector('.feedback');
 const feedBackForm = document.querySelector('#feedBackForm');
 const closeFormBtn = document.querySelector('.closeFormBtn');
+const newFeedback = document.querySelector('.newFeedback');
 
 feedback.addEventListener('click', (event) => {
   feedBackForm.style.display = 'block';
@@ -10,4 +11,32 @@ feedback.addEventListener('click', (event) => {
 closeFormBtn.addEventListener('click', (event) => {
   feedBackForm.style.display = 'none';
   feedback.style.display = 'block';
+});
+
+feedBackForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const formData = new FormData(feedBackForm);
+  const inputs = Object.fromEntries(formData);
+  if (!inputs.name || !inputs.body) {
+    newFeedback.innerText = 'Поля не могут быть пустыми!';
+  } else {
+    try {
+      const response = await fetch('/feedback', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(inputs),
+      });
+      const result = await response.json();
+      if (result.msg) {
+        newFeedback.innerText = result.msg;
+        feedBackForm.style.display = 'none';
+      } else if (result.error) {
+        newFeedback.innerText = result.error;
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
 });
