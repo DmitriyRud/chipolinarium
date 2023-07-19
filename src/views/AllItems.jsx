@@ -4,15 +4,15 @@ const Layout = require('./Layout');
 module.exports = function AllItems({ categories, email, items }) {
   return (
     <Layout categories={categories} email={email}>
+       <link rel='stylesheet' href='/css/catalog.css'/>
       {email ? (
-        <div>
+        <div  className='container'>
           <a href="/accountPanel"> Добавить новый товар</a>
           <div className="containerCategory">
             {items.length ? (
               items.map((item) => (
                 <div
                   className="card"
-                  style={{ width: '18rem' }}
                   key={`${item.id}item`}
                 >
                   <img src={item.image} className="card-img-top" alt="..." />
@@ -20,7 +20,7 @@ module.exports = function AllItems({ categories, email, items }) {
                     <h5 className="card-title">{item.name}</h5>
                     <p className="card-text">{item.description}</p>
                   </div>
-                  <div className="card-body">
+                  <div className="card-btn">
                     <button>
                       <a href="#">заказать</a>
                     </button>
@@ -41,13 +41,12 @@ module.exports = function AllItems({ categories, email, items }) {
           </div>
         </div>
       ) : (
-        <div>
+        <div  className='container'>
           <div className="containerCategory">
             {items.length ? (
               items.map((item) => (
                 <div
                   className="card"
-                  style={{ width: '18rem' }}
                   key={`${item.id}item`}
                 >
                   <img src={item.image} className="card-img-top" alt="..." />
@@ -55,7 +54,7 @@ module.exports = function AllItems({ categories, email, items }) {
                     <h5 className="card-title">{item.name}</h5>
                     <p className="card-text">{item.description}</p>
                   </div>
-                  <div className="card-body">
+                  <div className="card-btn">
                     <a className="btn" href="#">
                       {' '}
                       заказать
@@ -69,7 +68,6 @@ module.exports = function AllItems({ categories, email, items }) {
               </div>
             )}
           </div>
-          <button> показать все товары</button>
         </div>
       )}
     </Layout>
