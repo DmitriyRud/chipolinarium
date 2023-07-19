@@ -10,33 +10,32 @@ module.exports = function Catalog({ categories, email }) {
           <div className="containerCategory">
             {categories.length ? (
               categories.map((category) => (
-                <div className="card mb-3" style={{ maxWidth: '540px' }}>
-                  <div className="row g-0">
-                    <div className="col-md-4">
-                      <img
-                        src={category.image}
-                        className="img-fluid rounded-start"
-                        alt="..."
-                      />
+                <div
+                  className="card"
+                  style={{ width: '18rem' }}
+                  key={`${category.id}item`}
+                >
+                  <div>
+                    <img
+                      src={category.image}
+                      className="card-img-top"
+                      alt="..."
+                    />
+                    <div className="card-body">
+                      <h5 className="card-title">{category.title}</h5>
+                      <p className="card-text">{category.description}</p>
                     </div>
-                    <div className="col-md-8">
-                      <div className="card-body">
-                        <h5 className="card-title">{category.title}</h5>
-                        <p className="card-text">
-                          This is a wider card with supporting text below as a
-                          natural lead-in to additional content. This content is
-                          a little bit longer.
-                        </p>
-                        <button>
-                          <a href="#">заказать</a>
-                        </button>
-                        <button>
-                          <a href="#">изменить</a>
-                        </button>
-                        <button>
-                          <a href="#">удалить</a>
-                        </button>
-                      </div>
+                    <div className="card-body">
+                      <a className="btn" href={`/category/${category.id}`}>
+                        {' '}
+                        подробнее
+                      </a>
+                      <a className="btn" href="#">
+                        изменить
+                      </a>
+                      <a className="btn" href="#">
+                        удалить
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -53,29 +52,30 @@ module.exports = function Catalog({ categories, email }) {
           <div className="containerCategory">
             {categories.length ? (
               categories.map((category) => (
-                <div className="card mb-3" style={{ maxWidth: '540px' }}>
-                  <div className="row g-0">
-                    <div className="col-md-4">
+                <div
+                  className="card"
+                  style={{ width: '18rem' }}
+                  key={`${category.id}item`}
+                >
+                  <a href={`/catalog/${category.id}`}>
+                    <div>
                       <img
                         src={category.image}
-                        className="img-fluid rounded-start"
+                        className="card-img-top"
                         alt="..."
                       />
-                    </div>
-                    <div className="col-md-8">
                       <div className="card-body">
                         <h5 className="card-title">{category.title}</h5>
-                        <p className="card-text">
-                          This is a wider card with supporting text below as a
-                          natural lead-in to additional content. This content is
-                          a little bit longer.
-                        </p>
-                        <button>
-                          <a href="#">заказать</a>
-                        </button>
+                        <p className="card-text">{category.description}</p>
+                      </div>
+                      <div className="card-body">
+                        <a className="btn" href={`/category/${category.id}`}>
+                          {' '}
+                          подробнее
+                        </a>
                       </div>
                     </div>
-                  </div>
+                  </a>
                 </div>
               ))
             ) : (
@@ -84,7 +84,9 @@ module.exports = function Catalog({ categories, email }) {
               </div>
             )}
           </div>
-          <button> показать все товары</button>
+          <a className="btn" href="catalog/items">
+            показать все товары
+          </a>
         </div>
       )}
     </Layout>

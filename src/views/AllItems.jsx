@@ -1,7 +1,7 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function Items({ categories, email, items }) {
+module.exports = function AllItems({ categories, email, items }) {
   return (
     <Layout categories={categories} email={email}>
       {email ? (
@@ -21,16 +21,15 @@ module.exports = function Items({ categories, email, items }) {
                     <p className="card-text">{item.description}</p>
                   </div>
                   <div className="card-body">
-                    <a className="btn" href="#">
-                      {' '}
-                      заказать
-                    </a>
-                    <a className="btn" href="#">
-                      изменить
-                    </a>
-                    <a className="btn" href="#">
-                      удалить
-                    </a>
+                    <button>
+                      <a href="#">заказать</a>
+                    </button>
+                    <button>
+                      <a href="#">изменить</a>
+                    </button>
+                    <button>
+                      <a href="#">удалить</a>
+                    </button>
                   </div>
                 </div>
               ))
