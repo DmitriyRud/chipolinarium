@@ -1,9 +1,9 @@
-const React = require("react");
-const Layout = require("./Layout");
+const React = require('react');
+const Layout = require('./Layout');
 
-module.exports = function Home() {
+module.exports = function Home({ categories }) {
   return (
-    <Layout>
+    <Layout categories={categories}>
       <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
@@ -58,6 +58,7 @@ module.exports = function Home() {
                 Заполните форму и мы пришлем Вам информацию об актуальных ценах
               </div>
               <form method="POST">
+
                 <div className="mb-3">
                   <input
                     className="form-price__input form-control"
@@ -84,6 +85,26 @@ module.exports = function Home() {
                   Отправить
                 </button>
                 <p className="message" />
+
+                <input
+                  className="form-price__input"
+                  name="name"
+                  placeholder="Введите Ваше имя"
+                ></input>
+                <input
+                  className="form-price__input"
+                  name="phone"
+                  placeholder="Введите Ваш номер телефона"
+                ></input>
+                <input
+                  className="form-price__input"
+                  name="email"
+                  placeholder="Введите Ваше email"
+                ></input>
+                <button className="price-btn" type="button">
+                  Отправить
+                </button>
+
               </form>
             </div>
           </div>
@@ -91,6 +112,7 @@ module.exports = function Home() {
             <div className="advantages-inner">
               <div className="advantages-item">
                 <div className="advantages-img">
+
                   <img src="/image/assortiment.png" />
                 </div>
 
@@ -134,6 +156,52 @@ module.exports = function Home() {
           <div className="reasons">
             <div className="container" />
           </div>
+
+                  <img src="/image/assortiment.png"></img>
+                </div>
+                <div className="advantages-title">
+                  <h5>Обширный ассортимент</h5>
+                </div>
+                <div className="advantaged-descr">
+                  Каталог на 2000 позиций позволит подобрать все необходимые
+                  продукты и товары для любой кухни
+                </div>
+                <button type="button" className="advantages-btn">
+                  Каталог
+                </button>
+              </div>
+              <div className="advantages-item">
+                <div className="advantages-img">
+                  <img src="/image/assortiment.png"></img>
+                </div>
+                <div className="advantages-title">
+                  <h5>Нам доверяют</h5>
+                </div>
+                <div className="advantaged-descr">
+                  Посмотрите отзывы реальных клиентов
+                </div>
+                <button type="button" className="advantages-btn">
+                  Отзывы
+                </button>
+              </div>
+              <div className="advantages-item">
+                <div className="advantages-img">
+                  <img src="/image/assortiment.png"></img>
+                </div>
+                <div className="advantages-title">
+                  <h5>УДОБНАЯ ДОСТАВКА</h5>
+                </div>
+                <div className="advantaged-descr">
+                  Доставка по Москве и области - в кратчайшие сроки напрямую от
+                  лучших поставщиков продуктов питания
+                </div>
+                <button type="button" className="advantages-btn">
+                  ДОСТАВКА
+                </button>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" />
