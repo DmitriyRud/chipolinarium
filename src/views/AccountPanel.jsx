@@ -2,15 +2,28 @@ const React = require('react');
 
 const Layout = require('./Layout');
 
-module.exports = function AccountPanel() {
+module.exports = function AccountPanel({ categories }) {
   return (
-    <Layout>
-        <h2> Тут будут какие-то формы для создания </h2>
+    <Layout categories={categories}>
+      <script defer src="/js/accountPanel.js" />
+      <h2> Тут будут какие-то формы для создания </h2>
 
-        <hr />
+
+      <form id="newCategory" encType="multipart/form-data" name="newCategory">
+        <label htmlFor="pic_input">*Фото:</label>
+        <input id="pic_input" type="file" name="photo" />
+
+        <label htmlFor="pic_input">Название</label>
+        <input id="titleCategory" type="text" name="title" />
+
+        <button type="submit" className="btn btn-primary">Отправить</button>
+      </form>
 
 
-        <h2> А тут будут отзывы клиентов для модерации </h2>
+      <hr />
+
+
+      <h2> А тут будут отзывы клиентов для модерации </h2>
 
       <div className="card" style={{ width: '70%', display: 'flex', flexDirection: 'row' }}>
         <div className="card-body">
@@ -19,8 +32,8 @@ module.exports = function AccountPanel() {
         </div>
         <div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-             <button type="button" class="btn btn-warning"> Отзыв прошёл</button>
-             <button type="button" class="btn btn-warning"> Отзыв не прошёл</button>
+            <button type="button" class="btn btn-warning"> Отзыв прошёл</button>
+            <button type="button" class="btn btn-warning"> Отзыв не прошёл</button>
           </div>
         </div>
       </div>
@@ -32,8 +45,8 @@ module.exports = function AccountPanel() {
         </div>
         <div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-             <button type="button" class="btn btn-warning"> Отзыв прошёл</button>
-             <button type="button" class="btn btn-warning"> Отзыв не прошёл</button>
+            <button type="button" class="btn btn-warning"> Отзыв прошёл</button>
+            <button type="button" class="btn btn-warning"> Отзыв не прошёл</button>
           </div>
         </div>
       </div>
@@ -45,8 +58,8 @@ module.exports = function AccountPanel() {
         </div>
         <div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-             <button type="button" class="btn btn-warning"> Отзыв прошёл</button>
-             <button type="button" class="btn btn-warning"> Отзыв не прошёл</button>
+            <button type="button" class="btn btn-warning"> Отзыв прошёл</button>
+            <button type="button" class="btn btn-warning"> Отзыв не прошёл</button>
           </div>
         </div>
       </div>
