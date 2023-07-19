@@ -17,8 +17,15 @@ feedBackForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const formData = new FormData(feedBackForm);
   const inputs = Object.fromEntries(formData);
-  if (!inputs.name || !inputs.body) {
+
+  const inputValidationName = inputs.name.trim();
+  const inputValidationBody = inputs.body.trim();
+  const namePattern = /^[A-Za-zА-Яа-яЁё\s]*$/g;
+  console.log(Number(inputs.name));
+  if (!inputValidationName || !inputValidationBody) {
     newFeedback.innerText = 'Поля не могут быть пустыми!';
+  } else if (inputs.name.match(namePattern) === null) {
+    newFeedback.innerText = 'Недопустимое значение в поле Имя!';
   } else {
     try {
       const response = await fetch('/feedback', {

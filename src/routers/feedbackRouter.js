@@ -7,8 +7,16 @@ const Feedbacks = require('../views/Feedbacks');
 const { Category, Feedback } = require('../../db/models');
 
 feedBackRouter.get('/', async (req, res) => {
-  const categories = await Category.findAll({ raw: true });
-  renderTemplate(Feedbacks, { categories }, res);
+  try {
+    const feedbacks = await Feedback.findAll(
+      { where: { approved: true } },
+      { raw: true }
+    );
+    const categories = await Category.findAll({ raw: true });
+    renderTemplate(Feedbacks, { categories, feedbacks }, res);
+  } catch (err) {
+    console.error(err);
+  }
 });
 
 feedBackRouter.post('/', async (req, res) => {
