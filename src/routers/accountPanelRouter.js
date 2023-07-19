@@ -23,18 +23,26 @@ accountPanelRouter.get('/', async (req, res) => {
   renderTemplate(AccountPanel, { categories }, res);
 });
 
-accountPanelRouter.post('/', upload.fields([{ name: 'photo', maxCount: 1 }]), async (req, res) => {
-  console.log('=============', req.files.photo[0].originalname);
-  const image = req.files.photo[0].originalname;
-  console.log('YYYYYYYYYYY', req.body);
-  // const img = req.file.filename;
-  const { title } = req.body;
-
-  const newCategory = await Category.create({
-    title,
-    image: `/image/categories/${image}`,
-  });
-  res.sendStatus(200);
-});
+accountPanelRouter.post(
+  '/',
+  upload.fields([{ name: 'photo', maxCount: 1 }]),
+  async (req, res) => {
+    try {
+      const image = req.files.photo[0].originalname;
+      const { title } = req.body;
+      const newCategory = await Category.create({
+        title,
+        image: `/image/categories/${image}`,
+      });
+      if (newCategory) {
+        res.json({ msg: 'Категория успешно создана' });
+      } else {
+        res.json({ error: 'Ошибка создания категории' });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
 
 module.exports = accountPanelRouter;

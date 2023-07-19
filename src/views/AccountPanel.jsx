@@ -7,7 +7,7 @@ module.exports = function AccountPanel({ categories }) {
     <Layout categories={categories}>
       <script defer src="/js/accountPanel.js" />
       <h2> Тут будут какие-то формы для создания </h2>
-
+      <p className="createCategory" />
 
       <form id="newCategory" encType="multipart/form-data" name="newCategory">
         <label htmlFor="pic_input">*Фото:</label>
