@@ -10,7 +10,7 @@ module.exports = function Home({ categories }) {
       />
       <link rel="stylesheet" href="/css/home.css" />
       <div>
-        <div className="swiper">
+        <div className="swiper container">
           <div className="swiper-wrapper">
             <div className="swiper-slide slide1">
               <div className="slide1-text">
@@ -58,6 +58,34 @@ module.exports = function Home({ categories }) {
                 Заполните форму и мы пришлем Вам информацию об актуальных ценах
               </div>
               <form method="POST">
+
+                <div className="mb-3">
+                  <input
+                    className="form-price__input form-control"
+                    aria-describedby="name"
+                    name="name"
+                    placeholder="Введите Ваше имя"
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    className="form-price__input form-control"
+                    name="phone"
+                    placeholder="Введите Ваш номер телефона"
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    className="form-price__input form-control"
+                    name="email"
+                    placeholder="Введите Ваше email"
+                  />
+                </div>
+                <button className="price-btn btn" type="submit">
+                  Отправить
+                </button>
+                <p className="message" />
+
                 <input
                   className="form-price__input"
                   name="name"
@@ -76,6 +104,7 @@ module.exports = function Home({ categories }) {
                 <button className="price-btn" type="button">
                   Отправить
                 </button>
+
               </form>
             </div>
           </div>
@@ -83,6 +112,51 @@ module.exports = function Home({ categories }) {
             <div className="advantages-inner">
               <div className="advantages-item">
                 <div className="advantages-img">
+
+                  <img src="/image/assortiment.png" />
+                </div>
+
+                <h5 className="advantages-title ">Обширный ассортимент</h5>
+                <div className="advantaged-descr ">
+                  Каталог на 2000 позиций позволит подобрать все необходимые
+                  продукты и товары для любой кухни
+                </div>
+                <a href="/catalog" className="advantages-btn btn">
+                  Каталог
+                </a>
+              </div>
+              <div className="advantages-item">
+                <div className="advantages-img">
+                  <img src="/image/delivery.png" />
+                </div>
+                <h5 className="advantages-title">УДОБНАЯ ДОСТАВКА</h5>
+                <div className="advantaged-descr">
+                  Доставка по Москве и области - в кратчайшие сроки напрямую от
+                  лучших поставщиков продуктов питания
+                </div>
+                <a href="/delivery" className="advantages-btn btn">
+                  ДОСТАВКА
+                </a>
+              </div>
+              <div className="advantages-item">
+                <div className="advantages-img">
+                  <img src="/image/trust.png" />
+                </div>
+                <h5 className="advantages-title">Нам доверяют</h5>
+                <div className="advantaged-descr">
+                  Доставка по Москве и области - в кратчайшие сроки напрямую от
+                  лучших поставщиков продуктов питания
+                </div>
+                <a href="/delivery" className="advantages-btn btn">
+                  ДОСТАВКА
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="reasons">
+            <div className="container" />
+          </div>
+
                   <img src="/image/assortiment.png"></img>
                 </div>
                 <div className="advantages-title">
@@ -127,9 +201,10 @@ module.exports = function Home({ categories }) {
               </div>
             </div>
           </div>
+
         </div>
       </div>
-      <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" />
       <script defer src="/js/home.js" />
     </Layout>
   );
