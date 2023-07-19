@@ -1,21 +1,27 @@
 const { newCategory } = document.forms;
 
+const createCategory = document.querySelector('.createCategory');
+const inputs = document.querySelectorAll('input');
+
 newCategory.addEventListener('submit', async (event) => {
   event.preventDefault();
 
   const data = new FormData(newCategory);
-  const inputs = Object.fromEntries(data);
 
   try {
     const response = await fetch('/accountPanel', {
       method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({ title: inputs.title, image: inputs.photo.name }),
-      body: data
+      body: data,
     });
-
     const result = await response.json();
-    console.log(result);
+    if (result.msg) {
+      createCategory.innerText = result.msg;
+      inputs.forEach((el) => (el.value = ''));
+    } else if (result.error) {
+      createCategory.innerText = result.error;
+    } else {
+      createCategory.innerText = 'Ошибка базы данных';
+    }
   } catch (error) {
     console.log('owibka', error);
   }
