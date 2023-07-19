@@ -15,10 +15,10 @@ const contactsRouter = require('./src/routers/contactsRouter');
 const feedBackRouter = require('./src/routers/feedbackRouter');
 const accountPanelRouter = require('./src/routers/accountPanelRouter');
 const deliveryRouter = require('./src/routers/deliveryRouter');
+const catalogRouter = require('./src/routers/catalogRouter');
 
 const aboutRouter = require('./src/routers/aboutRouter');
 const adminPanel = require('./src/routers/adminPanelRouter');
-
 
 const sessionConfig = {
   name: process.env.COOKIE_NAME,
@@ -42,17 +42,13 @@ app.use(session(sessionConfig));
 
 app.use('/', indexRouter);
 
-
-
 app.use('/contacts', contactsRouter);
 app.use('/feedback', feedBackRouter);
 app.use('/accountPanel', accountPanelRouter);
 app.use('/delivery', deliveryRouter);
-
-
+app.use('/catalog', catalogRouter);
 app.use('/about', aboutRouter);
 app.use('/adminPanel', adminPanel);
-
 
 app.get('/404', (req, res) => {
   res.send('Page not found');
