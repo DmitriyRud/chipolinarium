@@ -60,17 +60,30 @@ deliveryForm.addEventListener('click', async (e) => {
       if (result.msg) {
         paragraph.innerText = result.msg;
         deliveryForm.style.display = 'none';
-        //   const tr = document.createElement('tr');
-        //   const tdValue = Object.values(result);
-        //   tdValue.shift();
-        //   for (let i = 0; i < 2; i += 1) {
-        //     const td = document.createElement('td');
-        //     td.innerText = tdValue[i];
-        //     tr.appendChild(td);
-        //   }
-        //   const tBody = document.querySelector('tbody');
-        //   tBody.appendChild(tr);
-        window.location.reload();
+        const tr = document.createElement('tr');
+        tr.setAttribute('key', result.id);
+        tr.setAttribute('id', `tr-${result.id}`);
+        const tdValue = Object.values(result);
+        tdValue.shift();
+        for (let i = 0; i < 2; i += 1) {
+          const td = document.createElement('td');
+          td.innerText = tdValue[i];
+          tr.appendChild(td);
+        }
+        const td = document.createElement('td');
+        td.innerHTML = ` <button
+        type="button"
+        class="btn btn-link usual-btn"
+        data-delete-delivery="${result.id}"
+        id="${result.id}"
+      >
+        Удалить
+      </button>`;
+        tr.appendChild(td);
+        const tBody = document.querySelector('tbody');
+        tBody.appendChild(tr);
+        newDelivery.style.display = 'block';
+        // window.location.reload();
       } else if (result.error) {
         paragraph.innerText = result.error;
       }

@@ -24,6 +24,7 @@ deliveryRouter.post('/', async (req, res) => {
         msg: 'Тариф доставки успешно добавлен!',
         orderPrice: newDelivery.order_price,
         deliveryPrice: newDelivery.delivery_price,
+        id: newDelivery.id,
       });
     } else {
       res.json({ error: 'Что-то пошло не так!' });
