@@ -5,8 +5,9 @@ module.exports = function Items({ categories, email, items }) {
   return (
     <Layout categories={categories} email={email}>
        <link rel='stylesheet' href='/css/catalog.css'/>
+       <script defer src='/js/item.js'/>
       {email ? (
-        <div  className='container'>
+        <div  className='container item-container'>
           <a href="/accountPanel"> Добавить новый товар</a>
           <div className="containerCategory">
             {items.length ? (
@@ -28,7 +29,7 @@ module.exports = function Items({ categories, email, items }) {
                     <a className="btn" href="#">
                       изменить
                     </a>
-                    <a className="btn" href="#">
+                    <a className="btn deleteBtn"  data-delid={item.id}>
                       удалить
                     </a>
                   </div>

@@ -1,10 +1,11 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function Register({ email, user, username, url }) {
+module.exports = function About({ categories }) {
   return (
-    <Layout>
-      <h1>О компании Инмарко Плюс</h1>
+    <Layout categories={categories}>
+      <div className='container'>
+        <h1>О компании Инмарко Плюс</h1>
       <p>
         Мы рады представить вам нашу компанию, специализирующуюся на
         разнообразных салатах, закусках и соленьях, приготовленных с
@@ -37,6 +38,7 @@ module.exports = function Register({ email, user, username, url }) {
         свежестью и качеством, которые предлагает наша компания. Мы уверены, что
         каждое блюдо станет настоящим угощением для вас и ваших гостей.
       </p>
+      </div>
     </Layout>
   );
 };

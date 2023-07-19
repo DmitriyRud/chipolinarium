@@ -5,7 +5,7 @@ const Catalog = require('../views/Catalog');
 const AllItems = require('../views/AllItems');
 
 const { Category, Item } = require('../../db/models');
-const { where, EagerLoadingError } = require('sequelize');
+
 
 router.get('/', async (req, res) => {
   try {
@@ -21,9 +21,10 @@ router.get('/', async (req, res) => {
 
 router.get('/items', async (req, res) => {
   try {
+    const { email } = req.session;
     const categories = await Category.findAll({ raw: true });
     const items = await Item.findAll({ raw: true });
-    renderTemplate(AllItems, { categories, items }, res);
+    renderTemplate(AllItems, { categories, items, email }, res);
   } catch (err) {
     console.error(err);
   }
@@ -31,15 +32,26 @@ router.get('/items', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
+    const { email } = req.session;
     const { id } = req.params;
     const categories = await Category.findAll({ raw: true });
     const items = await Item.findAll({ where: { category_id: id }, raw: true });
-    renderTemplate(Items, { categories, items }, res);
+    renderTemplate(Items, { categories, items, email }, res);
   } catch (err) {
     console.error(err);
   }
 });
-// router.delete('/:id', async (req, res) => {
+router.delete('/item/:id', async(req, res) => {
+  const { id } = req.params;
+  try {
+    await Item.destroy({where: {id}})
+    res.json({msg: 'success'})
+  } catch (error) {
+    console.log('ERRor');
+  }
+})
+
+//router.delete('/:id', async (req, res) => {
 //   //const { id } = req.params;
 //   console.log(req.params.id);
 //   try {
@@ -55,6 +67,5 @@ router.get('/:id', async (req, res) => {
 //   }
 
 // }) // CATEGORY
-//router.delete('/item/:id') //ITEM
 
 module.exports = router;
