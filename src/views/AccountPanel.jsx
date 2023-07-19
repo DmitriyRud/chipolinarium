@@ -7,14 +7,49 @@ module.exports = function AccountPanel({ categories, feedbacks }) {
     <Layout categories={categories}>
       <script defer src="/js/accountPanel.js" />
       <h2> Тут будут какие-то формы для создания </h2>
+
+      <h3> Создание категории </h3>
       <p className="createCategory" />
 
       <form id="newCategory" encType="multipart/form-data" name="newCategory">
+
+
+
         <label htmlFor="pic_input">*Фото:</label>
         <input id="pic_input" type="file" name="photo" />
 
         <label htmlFor="pic_input">Название</label>
         <input id="titleCategory" type="text" name="title" />
+
+
+
+        <button type="submit" className="btn btn-primary">
+          Отправить
+        </button>
+      </form>
+
+      <hr />
+
+      <h3> Создание товара </h3>
+
+      <p className="createItem" />
+
+      <form id="newItem" encType="multipart/form-data" name="newItem">
+
+        <select name="categoryName" id="">
+          {categories.length ? categories.map((category) => (
+            <option value={category.title}>{category.title}</option>
+          )) : <span> </span>}
+        </select>
+
+        <label htmlFor="pic_input">*Фото:</label>
+        <input id="pic_input" type="file" name="photoItem" />
+
+        <label htmlFor="pic_input">Название</label>
+        <input id="titleItem" type="text" name="name" />
+
+        <label htmlFor="pic_input">Описание товара</label>
+        <input id="titleCategory" type="text" name="description" />
 
         <button type="submit" className="btn btn-primary">
           Отправить
@@ -49,9 +84,16 @@ module.exports = function AccountPanel({ categories, feedbacks }) {
                   <button
                     id={feedback.id}
                     type="button"
-                    className="btn btn-warning non-approved"
+                    className="btn btn-warning deleteFeedback"
                   >
-                    Отзыв не прошёл
+                    Удалить отзыв
+                  </button>
+                  <button
+                    id={feedback.id}
+                    type="button"
+                    className="btn btn-warning editFeedback"
+                  >
+                    Изменить отзыв
                   </button>
                 </div>
               </div>

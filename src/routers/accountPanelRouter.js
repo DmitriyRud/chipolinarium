@@ -5,11 +5,20 @@ const renderTemplate = require('../lib/renderTemplate');
 
 const AccountPanel = require('../views/AccountPanel');
 
-const { Category, Feedback } = require('../../db/models');
+const { Category, Feedback, Item } = require('../../db/models');
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    cb(null, 'public/image/categories/');
+    if (file.fieldname === 'photo') {
+      // Путь для загрузки фотографий
+      cb(null, 'public/image/categories/');
+    } else if (file.fieldname === 'photoItem') {
+      // Путь для загрузки видео
+      cb(null, 'public/image/items/');
+    } else {
+      // Путь по умолчанию
+      cb(null, 'public/other/');
+    }
   },
   filename(req, file, cb) {
     cb(null, `${file.originalname}`);
@@ -64,6 +73,70 @@ accountPanelRouter.put('/:id', async (req, res) => {
   }
 });
 
+accountPanelRouter.delete('/:id', async (req, res) => {
+  const { id } = req.body;
+  try {
+    await Feedback.destroy({ where: { id } });
+    res.json({ msg: 'Отзыв удален' });
+  } catch (error) {
+    console.error(error);
+    res.json({ error: 'Что-то пошло не так!' });
+  }
+});
 
+accountPanelRouter.post('/edit-feedback/:id', async (req, res) => {
+  const { id } = req.body;
+  try {
+    const feedback = await Feedback.findByPk(id);
+    res.json(feedback);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+accountPanelRouter.put('/edit-feedback/:id', async (req, res) => {
+  const { id } = req.params;
+  const { name, body } = req.body;
+  try {
+    const feedback = await Feedback.update(
+      {
+        name,
+        body,
+      },
+      { where: { id } }
+    );
+    const newFeedback = await Feedback.findByPk(id);
+    res.json(newFeedback);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+accountPanelRouter.post(
+  '/item',
+  upload.fields([{ name: 'photoItem', maxCount: 1 }]),
+  async (req, res) => {
+    try {
+      const image = req.files.photoItem[0].originalname;
+      const { name, categoryName, description } = req.body;
+      const category = await Category.findOne({
+        where: { title: categoryName },
+      });
+      const newItem = await Item.create({
+        name,
+        description,
+        image: `/image/items/${image}`,
+        category_id: category.id,
+      });
+      if (newItem) {
+        res.json({ msg: 'Товар успешно создан' });
+      } else {
+        res.json({ error: 'Ошибка создания товара' });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
 
 module.exports = accountPanelRouter;
