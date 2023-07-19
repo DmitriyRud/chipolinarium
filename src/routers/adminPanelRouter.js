@@ -4,9 +4,11 @@ const bcrypt = require('bcrypt');
 const renderTemplate = require('../lib/renderTemplate');
 const AdminPanel = require('../views/AdminPanel');
 const { User } = require('../../db/models');
+const { Category } = require('../../db/models');
 
-router.get('/', (req, res) => {
-  renderTemplate(AdminPanel, {}, res);
+router.get('/', async (req, res) => {
+  const categories = await Category.findAll({ raw: true });
+  renderTemplate(AdminPanel, { categories }, res);
 });
 
 router.post('/', async (req, res) => {

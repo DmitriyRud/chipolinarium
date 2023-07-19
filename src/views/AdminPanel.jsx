@@ -2,9 +2,9 @@ const React = require('react');
 
 const Layout = require('./Layout');
 
-module.exports = function Login() {
+module.exports = function Login({ categories }) {
   return (
-    <Layout>
+    <Layout categories={categories}>
       <script defer src="/js/adminPanel.js" />
       <h2>Войдите на сайт</h2>
       <hr />
