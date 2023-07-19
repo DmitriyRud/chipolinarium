@@ -5,7 +5,7 @@ const renderTemplate = require('../lib/renderTemplate');
 
 const AccountPanel = require('../views/AccountPanel');
 
-const { Category } = require('../../db/models');
+const { Category, Feedback } = require('../../db/models');
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
@@ -19,8 +19,16 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 accountPanelRouter.get('/', async (req, res) => {
-  const categories = await Category.findAll({ raw: true });
-  renderTemplate(AccountPanel, { categories }, res);
+  try {
+    const categories = await Category.findAll({ raw: true });
+    const feedbacks = await Feedback.findAll(
+      { where: { approved: false } },
+      { raw: true }
+    );
+    renderTemplate(AccountPanel, { categories, feedbacks }, res);
+  } catch (err) {
+    console.error(err);
+  }
 });
 
 accountPanelRouter.post(
@@ -44,5 +52,18 @@ accountPanelRouter.post(
     }
   }
 );
+
+accountPanelRouter.put('/:id', async (req, res) => {
+  const { id } = req.body;
+  try {
+    await Feedback.update({ approved: true }, { where: { id } });
+    res.json({ msg: 'Отзыв одобрен' });
+  } catch (error) {
+    console.error(error);
+    res.json({ error: 'Что-то пошло не так!' });
+  }
+});
+
+
 
 module.exports = accountPanelRouter;

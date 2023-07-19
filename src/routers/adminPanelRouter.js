@@ -7,8 +7,12 @@ const { User } = require('../../db/models');
 const { Category } = require('../../db/models');
 
 router.get('/', async (req, res) => {
-  const categories = await Category.findAll({ raw: true });
-  renderTemplate(AdminPanel, { categories }, res);
+  try {
+    const categories = await Category.findAll({ raw: true });
+    renderTemplate(AdminPanel, { categories }, res);
+  } catch (err) {
+    console.error(err);
+  }
 });
 
 router.post('/', async (req, res) => {

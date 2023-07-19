@@ -2,7 +2,7 @@ const React = require('react');
 
 const Layout = require('./Layout');
 
-module.exports = function Feedback({ categories }) {
+module.exports = function Feedback({ categories, feedbacks }) {
   return (
     <Layout categories={categories}>
       <script defer src="/js/feedback.js"></script>
@@ -67,24 +67,22 @@ module.exports = function Feedback({ categories }) {
       </div>
 
       <hr />
-
-      <div className="card" style={{ width: '70%' }}>
-        <div className="card-body">
-          <h5 className="card-title">тут будет имя пользователя</h5>
-          <p className="card-text">а тут текст отзыва</p>
-        </div>
-      </div>
-      <div className="card" style={{ width: '70%' }}>
-        <div className="card-body">
-          <h5 className="card-title">тут будет имя пользователя</h5>
-          <p className="card-text">а тут текст отзыва</p>
-        </div>
-      </div>
-      <div className="card" style={{ width: '70%' }}>
-        <div className="card-body">
-          <h5 className="card-title">тут будет имя пользователя</h5>
-          <p className="card-text">а тут текст отзыва</p>
-        </div>
+      <div className="feedback_container">
+        {feedbacks.length ? (
+          feedbacks.map((feedback) => (
+            <div className="card" style={{ width: '70%' }} key={feedback.id}>
+              <div className="card-body">
+                <h5 className="card-title">{feedback.name}</h5>
+                <p className="card-text">{feedback.body}</p>
+                <p className="card-text">
+                  {new Date(feedback.createdAt).toISOString().split('T')[0]}
+                </p>
+              </div>
+            </div>
+          ))
+        ) : (
+          <h3>Отзывов пока нет</h3>
+        )}
       </div>
     </Layout>
   );
