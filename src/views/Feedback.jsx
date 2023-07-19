@@ -2,9 +2,9 @@ const React = require('react');
 
 const Layout = require('./Layout');
 
-module.exports = function Feedback() {
+module.exports = function Feedback({categories}) {
   return (
-    <Layout>
+    <Layout categories={categories}>
         <script defer src='/js/feedback.js'></script>
 
         <button type="submit" className="btn btn-primary feedback">Написать отзыв</button>
@@ -24,7 +24,7 @@ module.exports = function Feedback() {
 
           <div className="mb-3">
             <label htmlFor="exampleInputPassword1" className="form-label">Напишите Ваш отзыв</label>
-            <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Ваше мнение о нас..." />
+            <textarea type="text" className="form-control" id="exampleInputPassword1" placeholder="Ваше мнение о нас..." />
           </div>
 
           <button type="submit" className="btn btn-primary">Отправить</button>

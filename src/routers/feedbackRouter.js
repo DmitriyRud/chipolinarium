@@ -4,8 +4,11 @@ const renderTemplate = require('../lib/renderTemplate');
 
 const Feedback = require('../views/Feedback');
 
-feedBackRouter.get('/', (req, res) => {
-  renderTemplate(Feedback, {}, res);
+const { Category } = require('../../db/models');
+
+feedBackRouter.get('/', async (req, res) => {
+  const categories = await Category.findAll({ raw: true });
+  renderTemplate(Feedback, { categories }, res);
 });
 
 module.exports = feedBackRouter;
