@@ -16,6 +16,7 @@ const feedBackRouter = require('./src/routers/feedbackRouter');
 const accountPanelRouter = require('./src/routers/accountPanelRouter');
 const deliveryRouter = require('./src/routers/deliveryRouter');
 const catalogRouter = require('./src/routers/catalogRouter');
+const modalRouter = require('./src/routers/modalRouter');
 
 const aboutRouter = require('./src/routers/aboutRouter');
 const adminPanel = require('./src/routers/adminPanelRouter');
@@ -50,6 +51,7 @@ app.use('/delivery', deliveryRouter);
 app.use('/catalog', catalogRouter);
 app.use('/about', aboutRouter);
 app.use('/adminPanel', adminPanel);
+app.use('/modalpice', modalRouter);
 
 app.get('/404', (req, res) => {
   res.send('Page not found');
