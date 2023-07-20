@@ -4,12 +4,17 @@ const Layout = require('./Layout');
 module.exports = function Catalog({ categories, email }) {
   return (
     <Layout categories={categories} email={email}>
-      <script defer src="/js/catalog.js" />
-      <link rel="stylesheet" href="/css/catalog.css" />
-      <div className="allItems-container">
-        <a className="btn allItems" href="catalog/items">
-          показать все товары
-        </a>
+
+        <script defer src='/js/catalog.js'/>
+        <link rel="stylesheet" href="/css/style.css" />
+      <link rel='stylesheet' href='/css/catalog.css'/>
+
+      
+      <div className='allItems-container container'>
+      <a className="btn allItems" href="catalog/items">
+            показать все товары
+          </a>
+
       </div>
       {email ? (
         <div className="container">
@@ -17,7 +22,10 @@ module.exports = function Catalog({ categories, email }) {
           <div className="containerCategory">
             {categories.length ? (
               categories.map((category) => (
+
+
                 <div className="card" key={`${category.id}item`}>
+
                   <div>
                     <img
                       src={category.image}
@@ -29,19 +37,19 @@ module.exports = function Catalog({ categories, email }) {
                       <p className="card-text">{category.description}</p>
                     </div>
                     <div className="card-btn">
-                      <a className="btn" href={`/catalog/${category.id}`}>
+
+                      <a className="btn-card btn" href={`/catalog/${category.id}` }>
+
                         {' '}
                         подробнее
                       </a>
-                      <a className="btn editBtn" href="#" id={category.id}>
+                      <a className="btn-card btn  editBtn" href="#" id={category.id}>
                         изменить
                       </a>
-                      <a
-                        className="btn deleteBtn"
-                        href="#"
-                        id={category.id}
-                        data-delid={category.id}
-                      >
+
+                      <a className="btn-card btn deleteBtn" href="#" id={category.id} data-delid={category.id}>
+
+
                         удалить
                       </a>
                     </div>
@@ -60,7 +68,14 @@ module.exports = function Catalog({ categories, email }) {
           <div className="containerCategory">
             {categories.length ? (
               categories.map((category) => (
+
+                <div
+                  className="card"
+                  key={`${category.id}item`}
+                >
+
                 <div className="card" key={`${category.id}item`}>
+
                   <a href={`/catalog/${category.id}`}>
                     <div>
                       <img
@@ -73,11 +88,9 @@ module.exports = function Catalog({ categories, email }) {
                         <p className="card-text">{category.description}</p>
                       </div>
                       <div className="card-btn">
-                        <a
-                          className="btn"
-                          href={`/catalog/${category.id}`}
-                          id={category.id}
-                        >
+
+                        <a className="btn  btn-card" href={`/catalog/${category.id}`} id={category.id}>
+
                           {' '}
                           подробнее
                         </a>

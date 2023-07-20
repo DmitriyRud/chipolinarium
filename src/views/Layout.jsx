@@ -13,6 +13,9 @@ module.exports = function Layout({ children, categories }) {
           crossOrigin="anonymous"
         />
         <link rel="stylesheet" href="/css/style.css" />
+
+        
+
         <script
           defer
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
@@ -20,6 +23,7 @@ module.exports = function Layout({ children, categories }) {
           crossOrigin="anonymous"
         />
         <script defer src="/js/modalHeader.js" />
+
         <title>Чиполинарий</title>
       </head>
       <body>
@@ -29,7 +33,7 @@ module.exports = function Layout({ children, categories }) {
               <div className="logo">
                 <a href="/" className="logo_link">
                   <img
-                    src="/image/logo.jpeg"
+                    src="/image/logo.png"
                     alt="logo"
                     className="logo_image"
                   />
@@ -45,16 +49,14 @@ module.exports = function Layout({ children, categories }) {
               </div>
               <div className="contact_header">
                 <a href="tel:+74957951054" className="phone_link">
-                  <span>📞 +7 (495) 7951054</span>
+                <p className='contact_header__text'>Позвоните нам:</p>
+                <p className='contact_header__text'>📞 +7(495)7951054</p>
                 </a>
-                <span>Позвоните нам</span>
-                <span>inmarcoplus@mail.ru</span>
-                <a href="#" className="price_info">
-                  <p className="button_price">Запросить прайс-лист</p>
+                <p className='contact_header__text'>inmarcoplus@mail.ru</p>
+                <a href="#" className=" btn button_price">Узнать цены
                 </a>
               </div>
             </div>
-            <hr className="color_line" />
             <div className="flex_down">
               <nav className="navbar navbar-expand-lg ">
                 <div className="container-fluid">
@@ -69,7 +71,7 @@ module.exports = function Layout({ children, categories }) {
                   >
                     <span className="navbar-toggler-icon" />
                   </button>
-                  <div className="collapse navbar-collapse" id="navbarNav">
+                  <div className="collapse navbar-collapse navbar-list" id="navbarNav">
                     <ul className="navbar-nav">
                       <li className="nav-item">
                         <a
@@ -152,16 +154,15 @@ module.exports = function Layout({ children, categories }) {
 
         </header>
         <div className="mainContainer">{children}</div>
-        <hr className="color_line" />
         <footer>
           <div className="footer_container">
             <div className="footer_up">
-              <div className="logo">
+              <div className="footer-logo">
                 <a href="/" className="logo_link">
                   <img
                     src="/image/logo.jpeg"
                     alt="logo"
-                    className="logo_image"
+                    className="footer-logo_image"
                   />
                 </a>
                 <ul className="supply_links">
@@ -212,6 +213,12 @@ module.exports = function Layout({ children, categories }) {
             <div className="footer_down" />
           </div>
         </footer>
+        <script
+          defer
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+          crossOrigin="anonymous"
+        />
       </body>
     </html>
   );

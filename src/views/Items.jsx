@@ -56,6 +56,19 @@ module.exports = function Items({ categories, email, items }) {
                     </div>
                   </div>
 
+                  <div className="card-btn">
+                    <a className="btn btn-card" href="#">
+                      {' '}
+                      заказать
+                    </a>
+                    <a className="btn btn-card" href="#">
+                      изменить
+                    </a>
+                    <a className="btn deleteBtn btn-card"  data-delid={item.id}>
+                      удалить
+                    </a>
+
+
                   <div
                     className="hide_container_form"
                     style={{ display: 'none' }}
@@ -115,6 +128,7 @@ module.exports = function Items({ categories, email, items }) {
                         Отправить
                       </button>
                     </form>
+
                   </div>
                 </div>
               ))
@@ -137,7 +151,7 @@ module.exports = function Items({ categories, email, items }) {
                     <p className="card-text">{item.description}</p>
                   </div>
                   <div className="card-btn">
-                    <a className="btn" href="#">
+                    <a className="btn btn-card" href="#">
                       {' '}
                       заказать
                     </a>
