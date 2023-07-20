@@ -13,7 +13,17 @@ module.exports = function Layout({ children, categories }) {
           crossOrigin="anonymous"
         />
         <link rel="stylesheet" href="/css/style.css" />
+
         
+
+        <script
+          defer
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+          crossOrigin="anonymous"
+        />
+        <script defer src="/js/modalHeader.js" />
+
         <title>Чиполинарий</title>
       </head>
       <body>
@@ -98,6 +108,50 @@ module.exports = function Layout({ children, categories }) {
               </nav>
             </div>
           </div>
+
+          <dialog id="modalPrice">
+            <form method="dialog" className="dialogForm">
+              <div className="home-price">
+                <div className="price-form">
+                  <h3 className="price-form-title">Узнайте актуальные цены</h3>
+                  <div className="price-form-description">
+                    Заполните форму и мы пришлем Вам информацию об актуальных ценах
+                  </div>
+                  <form method="POST">
+                    <div className="mb-3">
+                      <input
+                        className="form-price__input form-control"
+                        aria-describedby="name"
+                        name="name"
+                        placeholder="Введите Ваше имя"
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <input
+                        className="form-price__input form-control"
+                        name="phone"
+                        placeholder="Введите Ваш номер телефона"
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <input
+                        className="form-price__input form-control"
+                        name="email"
+                        placeholder="Введите Ваше email"
+                      />
+                    </div>
+                    <button className="price-btn btn modalPriceBtn" type="submit">
+                      Отправить
+                    </button>
+                    <p className="message" />
+                  </form>
+                </div>
+              </div>
+            </form>
+          </dialog>
+
+          <script src="https://smtpjs.com/v3/smtp.js" />
+
         </header>
         <div className="mainContainer">{children}</div>
         <footer>
@@ -156,7 +210,7 @@ module.exports = function Layout({ children, categories }) {
                 </div>
               </div>
             </div>
-            <div className="footer_down"></div>
+            <div className="footer_down" />
           </div>
         </footer>
         <script
