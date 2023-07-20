@@ -84,6 +84,10 @@ iframe {
   height: 100%;
 }
 
+.hide_container_form {
+  margin: 5rem 1rem;
+}
+
 @media (max-width: 900px) {
   .header_container {
     flex-direction: column-reverse;

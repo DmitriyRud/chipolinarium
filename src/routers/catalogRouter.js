@@ -1,12 +1,32 @@
-const router = require("express").Router();
-const renderTemplate = require("../lib/renderTemplate");
-const Items = require("../views/Items");
-const Catalog = require("../views/Catalog");
-const AllItems = require("../views/AllItems");
+
+const multer = require('multer');
+const router = require('express').Router();
+const renderTemplate = require('../lib/renderTemplate');
+const Items = require('../views/Items');
+const Catalog = require('../views/Catalog');
+const AllItems = require('../views/AllItems');
+
+
 
 const { Category, Item } = require("../../db/models");
 
-router.get("/", async (req, res) => {
+
+const storage = multer.diskStorage({
+  destination(req, file, cb) {
+    if (file.fieldname === 'photoItem') {
+      // Путь для загрузки видео
+      cb(null, 'public/image/items/');
+    }
+  },
+  filename(req, file, cb) {
+    cb(null, `${file.originalname}`);
+  },
+});
+
+const upload = multer({ storage });
+
+router.get('/', async (req, res) => {
+
   try {
     const { email } = req.session;
     const categories = await Category.findAll({
@@ -34,21 +54,86 @@ router.get("/:id", async (req, res) => {
     const { email } = req.session;
     const { id } = req.params;
     const categories = await Category.findAll({ raw: true });
-    const items = await Item.findAll({ where: { category_id: id }, raw: true });
+    const items = await Item.findAll({
+      where: { category_id: id },
+      raw: true,
+      include: Category,
+    });
+    console.log(items);
     renderTemplate(Items, { categories, items, email }, res);
   } catch (err) {
     console.error(err);
   }
 });
-router.delete("/item/:id", async (req, res) => {
+
+router.put(
+  '/item/:id',
+  upload.fields([{ name: 'photoItem', maxCount: 1 }]),
+  async (req, res) => {
+    const { id } = req.params;
+    const { categoryName, name, description } = req.body;
+    try {
+      if (req.files.photoItem) {
+        const image = req.files.photoItem[0].originalname;
+        const category = await Category.findOne({
+          where: { title: categoryName },
+        });
+        const editItem = await Item.update(
+          {
+            category_id: category.id,
+            name,
+            description,
+            image: `/image/items/${image}`,
+          },
+          { where: { id } }
+        );
+        const newItem = await Item.findByPk(id);
+        res.json({
+          msg: 'Товар успешно обновлен',
+          name: newItem.name,
+          image: newItem.image,
+          description: newItem.description,
+        });
+      } else {
+        const category = await Category.findOne({
+          where: { title: categoryName },
+        });
+        const editItem = await Item.update(
+          {
+            category_id: category.id,
+            name,
+            description,
+          },
+          { where: { id } }
+        );
+        const newItem = await Item.findByPk(id);
+        res.json({
+          msg: 'Товар успешно обновлен',
+          name: newItem.name,
+          image: newItem.image,
+          description: newItem.description,
+        });
+      }
+    } catch (err) {
+      console.error(err);
+      res.json({ error: 'Не удалось обновить товар' });
+    }
+  }
+);
+
+router.delete('/item/:id', async (req, res) => {
   const { id } = req.params;
   try {
     await Item.destroy({ where: { id } });
-    res.json({ msg: "success" });
+    res.json({ msg: 'success' });
+
   } catch (error) {
     console.log("ERRor");
   }
 });
+
+
+
 
 router.delete("/:id", async (req, res) => {
   try {
