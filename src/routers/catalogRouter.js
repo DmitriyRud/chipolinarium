@@ -12,6 +12,8 @@ const storage = multer.diskStorage({
     if (file.fieldname === 'photoItem') {
       // Путь для загрузки видео
       cb(null, 'public/image/items/');
+    } else if (file.fieldname === 'photo') {
+      cb(null, 'public/image/categories/');
     }
   },
   filename(req, file, cb) {
@@ -54,7 +56,7 @@ router.get('/:id', async (req, res) => {
       raw: true,
       include: Category,
     });
-    console.log(items);
+
     renderTemplate(Items, { categories, items, email }, res);
   } catch (err) {
     console.error(err);
@@ -116,13 +118,64 @@ router.put(
   }
 );
 
+router.put(
+  '/:id',
+  upload.fields([{ name: 'photo', maxCount: 1 }]),
+  async (req, res) => {
+    const { id } = req.params;
+    const { title, description } = req.body;
+
+    try {
+      if (req.files.photo) {
+        const image = req.files.photo[0].originalname;
+
+        const editCategory = await Category.update(
+          {
+            title,
+            description,
+            image: `/image/categories/${image}`,
+          },
+          { where: { id } }
+        );
+
+        const newCategory = await Category.findByPk(id);
+        res.json({
+          msg: 'Товар успешно обновлен',
+          title: newCategory.title,
+          image: newCategory.image,
+          description: newCategory.description,
+        });
+      } else {
+        const editCategory = await Category.update(
+          {
+            title,
+            description,
+          },
+          { where: { id } }
+        );
+
+        const newCategory = await Category.findByPk(id);
+        res.json({
+          msg: 'Товар успешно обновлен',
+          title: newCategory.title,
+          image: newCategory.image,
+          description: newCategory.description,
+        });
+      }
+    } catch (err) {
+      console.error(err);
+      res.json({ error: 'Не удалось обновить товар' });
+    }
+  }
+);
+
 router.delete('/item/:id', async (req, res) => {
   const { id } = req.params;
   try {
     await Item.destroy({ where: { id } });
     res.json({ msg: 'success' });
   } catch (error) {
-    console.log('ERRor');
+    console.log('Error');
   }
 });
 
