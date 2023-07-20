@@ -1,20 +1,26 @@
 :root {
   --primary-color: #d02f24;
-  --color-form-text: #F5E5E8;
+  --color-form-text: #FCF4EE;
   --color-chipollino:#edb282;
   --color-text:black;
-  --color-dark-green:#818D60;
+  --color-dark-green:#A2AC86;
+  --color-button: white;
+
 }
 * {
   box-sizing: border-box;
   color: var(--color-text);
+  font-family:  'Inter', sans-serif;
 }
-.btn{
-  background-color: var(--primary-color)
+.mainContainer{
+  background-color: var(--color-form-text);
+  margin: 0 auto;
+  max-width: 1200px;
 }
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  
 }
 .header_container {
   display: flex;
@@ -48,7 +54,8 @@
 margin-bottom: 5px;
 }
 .button_price{
-  color: var(--color-chipollino);
+  color: var(--color-button);
+  background-color: var(--color-dark-green);
   width: 60%;
   padding: 0.5rem;
 }

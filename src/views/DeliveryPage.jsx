@@ -7,15 +7,17 @@ module.exports = function Delivery({ categories, deliveries }) {
     <Layout categories={categories}>
       <script defer src="/js/delivery.js" />
       <link rel="stylesheet" href="/css/delivery.css" />
-      <div className="delivery">
-        <h2> Доставка продуктов в рестораны и кафе </h2>
-        <p>
+      <div className="delivery-container">
+        <h2 className='delivery-title'> Доставка продуктов в рестораны и кафе </h2>
+        <div className='delivery-inner'>
+          <div className='text-container'><p>
           Дорогие Коллеги. В связи со сложившейся ситуацией наша компания
           расширяет спектр своих услуг. В настоящее время мы осуществляем
           доставку продуктов высокого качества не только организациям, профилем
           которых является сфера общественного питания, но и физическим лицам
           (на дом) по Москве и МО.
         </p>
+        
         <p>
           Доставка товара в пределах МКАД от 6.000 тыс.руб бесплатно, за
           пределами МКАД доставка обсуждается индивидуально.
@@ -24,6 +26,11 @@ module.exports = function Delivery({ categories, deliveries }) {
           Заказы осуществляются удобным для Вас способом по тел. 8 977 290 97
           39. Оперативная доставка 24/7!
         </p>
+        </div>
+        <div className='delivery-image'>
+          <img className='delivery-image__img' src='/image/delivery2.png'></img>
+        </div>
+        </div>
         <p>
           Обращаясь в компанию "Сити Продукт", Вы сможете размещать заказы на
           полный ассортимент товаров, которые необходимы для организации работы
@@ -34,9 +41,9 @@ module.exports = function Delivery({ categories, deliveries }) {
         </p>
       </div>
 
-      <hr />
-      <div className="delivery" style={{ marginLeft: '2rem' }}>
-        <h2>Регион и условия доставки продуктов</h2>
+      
+      <div className="delivery">
+        <h2 className='delivery-title'>Регион и условия доставки продуктов</h2>
         <p>Основной регион доставки - Москва и Московская область.</p>
         <p>
           Доставка осуществляется ежедневно, в соответствии с графиком поставок.

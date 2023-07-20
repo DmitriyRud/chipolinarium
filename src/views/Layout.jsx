@@ -6,6 +6,9 @@ module.exports = function Layout({ children, categories }) {
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -13,8 +16,6 @@ module.exports = function Layout({ children, categories }) {
           crossOrigin="anonymous"
         />
         <link rel="stylesheet" href="/css/style.css" />
-
-        
 
         <script
           defer
@@ -49,11 +50,12 @@ module.exports = function Layout({ children, categories }) {
               </div>
               <div className="contact_header">
                 <a href="tel:+74957951054" className="phone_link">
-                <p className='contact_header__text'>Позвоните нам:</p>
-                <p className='contact_header__text'>📞 +7(495)7951054</p>
+                  <p className="contact_header__text">Позвоните нам:</p>
+                  <p className="contact_header__text">📞 +7(495)7951054</p>
                 </a>
-                <p className='contact_header__text'>inmarcoplus@mail.ru</p>
-                <a href="#" className=" btn button_price">Узнать цены
+                <p className="contact_header__text">inmarcoplus@mail.ru</p>
+                <a href="#" className=" btn button_price">
+                  Узнать цены
                 </a>
               </div>
             </div>
@@ -155,7 +157,7 @@ module.exports = function Layout({ children, categories }) {
         </header>
         <div className="mainContainer">{children}</div>
         <footer>
-          <div className="footer_container">
+          <div className="footer_container container">
             <div className="footer_up">
               <div className="footer-logo">
                 <a href="/" className="logo_link">
