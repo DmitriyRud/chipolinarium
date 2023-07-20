@@ -68,15 +68,21 @@ module.exports = function Items({ categories, email, items }) {
                       name="newItem"
                     >
                       <select name="categoryName" id="">
-                        <option disabled selected>
+                        {/* <option disabled selected>
                           Обязательное поле
-                        </option>
+                        </option> */}
                         {categories.length ? (
-                          categories.map((category) => (
-                            <option value={category.title}>
-                              {category.title}
-                            </option>
-                          ))
+                          categories.map((category) =>
+                            category.id === item.category_id ? (
+                              <option selected value={category.title}>
+                                {category.title}
+                              </option>
+                            ) : (
+                              <option value={category.title}>
+                                {category.title}
+                              </option>
+                            )
+                          )
                         ) : (
                           <span> </span>
                         )}
