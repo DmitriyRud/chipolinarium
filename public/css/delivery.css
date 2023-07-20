@@ -1,3 +1,4 @@
+
 #newDelivery {
   min-height: 10%;
 }
@@ -15,5 +16,27 @@ th {
 }
 
 .delivery {
-  margin: 0 2rem;
+  margin:  3rem;
+}
+.delivery-container{
+  padding: 3rem;
+  border-bottom: 1px solid var(--color-dark-green);
+}
+.delivery-image{
+width: 70rem;
+
+}
+.delivery-image__img{
+  width: 100%;
+}
+.delivery-inner{
+  display: flex;
+}
+.delivery-title{
+  margin-bottom: 2rem;
+}
+@media (max-width: 900px) {
+  .delivery-image{
+    width: 90rem;
+    }
 }

@@ -64,29 +64,27 @@ module.exports = function Items({ categories, email, items }) {
                     <a className="btn btn-card" href="#">
                       изменить
                     </a>
-                    <a className="btn deleteBtn btn-card"  data-delid={item.id}>
+                    <a className="btn deleteBtn btn-card" data-delid={item.id}>
                       удалить
                     </a>
 
-
-                  <div
-                    className="hide_container_form"
-                    style={{ display: 'none' }}
-                    id={`hide-form-${item.id}`}
-                  >
-                    <p style={{ color: 'red' }} className="alert_items" />
-                    <form
-                      id={`editItem-${item.id}`}
-                      encType="multipart/form-data"
-                      name="newItem"
+                    <div
+                      className="hide_container_form"
+                      style={{ display: 'none' }}
+                      id={`hide-form-${item.id}`}
                     >
-                      <select name="categoryName" id="">
-                        {/* <option disabled selected>
+                      <p style={{ color: 'red' }} className="alert_items" />
+                      <form
+                        id={`editItem-${item.id}`}
+                        encType="multipart/form-data"
+                        name="newItem"
+                      >
+                        <select name="categoryName" id="">
+                          {/* <option disabled selected>
                           Обязательное поле
                         </option> */}
-                        {categories.length ? (
-                          categories.map((category) =>
-                            category.id === item.category_id ? (
+                          {categories.length ? (
+                            categories.map((category) => (category.id === item.category_id ? (
                               <option selected value={category.title}>
                                 {category.title}
                               </option>
@@ -94,41 +92,41 @@ module.exports = function Items({ categories, email, items }) {
                               <option value={category.title}>
                                 {category.title}
                               </option>
-                            )
-                          )
-                        ) : (
-                          <span> </span>
-                        )}
-                      </select>
+                            )))
+                          ) : (
+                            <span> </span>
+                          )}
+                        </select>
 
-                      <label htmlFor="pic_input">*Фото:</label>
-                      <input id="pic_input" type="file" name="photoItem" />
+                        <label htmlFor="pic_input">*Фото:</label>
+                        <input id="pic_input" type="file" name="photoItem" />
 
-                      <label htmlFor="pic_input">Название</label>
-                      <input
-                        id="titleItem"
-                        type="text"
-                        name="name"
-                        value={item.name}
-                      />
+                        <label htmlFor="pic_input">Название</label>
+                        <input
+                          id="titleItem"
+                          type="text"
+                          name="name"
+                          value={item.name}
+                        />
 
-                      <label htmlFor="pic_input">Описание товара</label>
-                      <textarea
-                        id="titleCategory"
-                        type="text"
-                        name="description"
-                        value={item.description}
-                      />
+                        <label htmlFor="pic_input">Описание товара</label>
+                        <textarea
+                          id="titleCategory"
+                          type="text"
+                          name="description"
+                          value={item.description}
+                        />
 
-                      <button
-                        type="button"
-                        className="btn btn-primary sendEditItem"
-                        data-send-edit-item={item.id}
-                      >
-                        Отправить
-                      </button>
-                    </form>
+                        <button
+                          type="button"
+                          className="btn btn-primary sendEditItem"
+                          data-send-edit-item={item.id}
+                        >
+                          Отправить
+                        </button>
+                      </form>
 
+                    </div>
                   </div>
                 </div>
               ))
