@@ -152,7 +152,7 @@ module.exports = function Layout({ children, categories }) {
             </form>
           </dialog>
 
-          <script src="https://smtpjs.com/v3/smtp.js" />
+          {/* <script src="https://smtpjs.com/v3/smtp.js" /> */}
 
         </header>
         <div className="mainContainer">{children}</div>

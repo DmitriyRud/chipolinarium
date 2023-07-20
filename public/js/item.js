@@ -29,7 +29,7 @@ container.addEventListener('click', async (event) => {
     );
     const data = new FormData(editItemForm);
     const inputs = Object.fromEntries(data);
-    console.log(inputs);
+
     if (!inputs.categoryName || !inputs.name || !inputs.description) {
       paragraph.innerText = 'Все поля кроме фото обязательны!';
     } else {
@@ -43,13 +43,12 @@ container.addEventListener('click', async (event) => {
           }
         );
         const result = await response.json();
-        console.log(result);
+
         if (result.msg) {
           const cardHidden = document.getElementById(
             `card-hidden-${event.target.dataset.sendEditItem}`
           );
 
-          console.log(cardHidden);
           const hiddenForm = document.getElementById(
             `hide-form-${event.target.dataset.sendEditItem}`
           );

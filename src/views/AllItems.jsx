@@ -4,32 +4,24 @@ const Layout = require('./Layout');
 module.exports = function AllItems({ categories, email, items }) {
   return (
     <Layout categories={categories} email={email}>
-       <link rel='stylesheet' href='/css/catalog.css'/>
+      <link rel="stylesheet" href="/css/catalog.css" />
       {email ? (
-        <div  className='container'>
-          <a href="/accountPanel"> Добавить новый товар</a>
+        <div className="container">
           <div className="containerCategory">
             {items.length ? (
               items.map((item) => (
-                <div
-                  className="card"
-                  key={`${item.id}item`}
-                >
+                <div className="card" key={`${item.id}item`}>
                   <img src={item.image} className="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">{item.name}</h5>
                     <p className="card-text">{item.description}</p>
                   </div>
                   <div className="card-btn">
-                  
-                      <a className='btn' href="#">заказать</a>
-                    
-                    
-                      <a className='btn' href="#">изменить</a>
-                    
-                    
-                      <a  className='btn' href="#">удалить</a>
-                    
+
+                    <button className="btn">
+                      <a href="#">заказать</a>
+                    </button>
+
                   </div>
                 </div>
               ))
@@ -41,22 +33,23 @@ module.exports = function AllItems({ categories, email, items }) {
           </div>
         </div>
       ) : (
-        <div  className='container'>
+        <div className="container">
           <div className="containerCategory">
             {items.length ? (
               items.map((item) => (
-                <div
-                  className="card"
-                  key={`${item.id}item`}
-                >
+                <div className="card" key={`${item.id}item`}>
                   <img src={item.image} className="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">{item.name}</h5>
                     <p className="card-text">{item.description}</p>
                   </div>
                   <div className="card-btn">
+
+           
+
                     <a className="btn btn-card" href="#">
                       {' '}
+
                       заказать
                     </a>
                   </div>
