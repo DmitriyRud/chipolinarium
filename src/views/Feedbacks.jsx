@@ -12,9 +12,9 @@ module.exports = function Feedback({ categories, feedbacks }) {
           Написать отзыв
         </button>
 
-        <div style={{ width: '30%' }}>
+        <div>
           <p className="newFeedback" />
-          <form id="feedBackForm" style={{ display: 'none' }}>
+          <form id="feedBackForm">
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">
                 Адрес электронной почты
@@ -58,20 +58,19 @@ module.exports = function Feedback({ categories, feedbacks }) {
               />
             </div>
 
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn sendFormBtn">
               Отправить
             </button>
-            <button type="submit" className="btn btn-primary closeFormBtn">
+            <button type="submit" className="btn closeFormBtn">
               Закрыть форму
             </button>
           </form>
         </div>
 
-        <hr />
         <div className="feedback_container">
           {feedbacks.length ? (
             feedbacks.map((feedback) => (
-              <div className="card" style={{ width: '70%' }} key={feedback.id}>
+              <div className="card" key={feedback.id}>
                 <div className="card-body">
                   <h5 className="card-title">{feedback.name}</h5>
                   <p className="card-text">{feedback.body}</p>

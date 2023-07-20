@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #d02f24;
+  --primary-color: #656e49a7;
   --color-form-text: #fcf4ee;
   --color-chipollino: #edb282;
   --color-text: black;
@@ -180,6 +180,11 @@ iframe {
 
 .hide_container_form {
   margin: 5rem 1rem;
+}
+
+.home-price {
+  background-image: url('/image/modal.jpeg');
+  background-size: 1200px;
 }
 
 @media (max-width: 900px) {

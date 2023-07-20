@@ -31,25 +31,19 @@
   justify-content: center;
 }
 .slide1-title h2 {
-  font-size: 95px;
+  font-family: 'Amatic SC', cursive;
+  font-size: 125px;
   color: #fff;
   text-shadow: black 0 0 2px;
-  font-weight: 600;
+  font-weight: 1000;
 }
 
 .slide1-title p {
-  font-size: 55px;
+  font-family: 'Amatic SC', cursive;
+  font-size: 85px;
   color: #fff;
 }
 
-@media (max-width: 900px) {
-  .slide1-title h2 {
-    font-size: 65px;
-  }
-  .slide1-title p {
-    font-size: 35px;
-  }
-}
 .image_text_container {
   width: 50rem;
   margin-top: 2rem;
@@ -59,6 +53,7 @@
   position: relative;
 }
 .slide2-container {
+  font-family: 'Amatic SC', cursive;
   position: absolute;
   height: 10%;
   top: 25%;
@@ -81,15 +76,10 @@
   max-height: 50%;
 }
 
-@media (max-width: 700px) {
-  .slide2-item {
-    font-size: 45px;
-  }
-}
-
 .home-title-text {
   font-size: 36px;
   margin-bottom: 40px;
+  margin-top: 3rem;
 }
 .home-title {
   margin-bottom: 40px;
@@ -99,6 +89,7 @@
   margin-bottom: 40px;
   display: flex;
   justify-content: center;
+  padding-top: 10rem;
 }
 .price-form {
   width: 50%;
@@ -106,6 +97,7 @@
   padding: 30px;
   color: var(--color-form-text);
   border-radius: 6px;
+  margin-bottom: 10rem;
 }
 .price-form-title {
   margin-bottom: 30px;
@@ -125,6 +117,7 @@
   color: var(--primary-color);
   text-transform: uppercase;
   font-size: 700;
+  width: 100%;
 }
 .price-btn:hover {
   background-color: var(--color-chipollino);
@@ -162,4 +155,25 @@
 }
 .advantages-btn {
   color: var(--color-form-text);
+  background-color: var(--color-chipollino);
+}
+
+.advantages-btn:hover {
+  color: var(--color-form-text);
+  background-color: #5a6241;
+}
+
+@media (max-width: 700px) {
+  .slide2-item {
+    font-size: 45px;
+  }
+}
+
+@media (max-width: 900px) {
+  .slide1-title h2 {
+    font-size: 95px;
+  }
+  .slide1-title p {
+    font-size: 55px;
+  }
 }
