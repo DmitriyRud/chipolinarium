@@ -4,8 +4,11 @@ const Layout = require('./Layout');
 module.exports = function Items({ categories, email, items }) {
   return (
     <Layout categories={categories} email={email}>
-      <link rel="stylesheet" href="/css/catalog.css" />
-      <script defer src="/js/item.js" />
+
+       <link rel='stylesheet' href='/css/catalog.css'/>
+       <script defer src='/js/item.js'/>
+       <script defer src='/js/modalHeader.js'/>
+
       {email ? (
         <div id={items.category_id} className="container item-container">
           <a href="/accountPanel"> Добавить новый товар</a>
@@ -53,6 +56,7 @@ module.exports = function Items({ categories, email, items }) {
                       </button>
                     </div>
                   </div>
+
                   <div
                     className="hide_container_form"
                     style={{ display: 'none' }}
@@ -106,6 +110,19 @@ module.exports = function Items({ categories, email, items }) {
                         Отправить
                       </button>
                     </form>
+
+                  <div className="card-btn">
+                    <a className="btn itemPriceRequest" href="#">
+                      {' '}
+                      заказать
+                    </a>
+                    <a className="btn" href="#">
+                      изменить
+                    </a>
+                    <a className="btn deleteBtn"  data-delid={item.id}>
+                      удалить
+                    </a>
+
                   </div>
                 </div>
               ))
