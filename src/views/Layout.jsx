@@ -138,7 +138,7 @@ module.exports = function Layout({ children, categories }) {
                         placeholder="Введите Ваше email"
                       />
                     </div>
-                    <button className="price-btn btn" type="submit">
+                    <button className="price-btn btn modalPriceBtn" type="submit">
                       Отправить
                     </button>
                     <p className="message" />
@@ -147,6 +147,8 @@ module.exports = function Layout({ children, categories }) {
               </div>
             </form>
           </dialog>
+
+          <script src="https://smtpjs.com/v3/smtp.js" />
 
         </header>
         <div className="mainContainer">{children}</div>
