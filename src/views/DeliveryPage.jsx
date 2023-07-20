@@ -6,7 +6,8 @@ module.exports = function Delivery({ categories, deliveries }) {
   return (
     <Layout categories={categories}>
       <script defer src="/js/delivery.js" />
-      <div className="delivery" style={{ marginLeft: '2rem' }}>
+      <link rel="stylesheet" href="/css/delivery.css" />
+      <div className="delivery">
         <h2> Доставка продуктов в рестораны и кафе </h2>
         <p>
           Дорогие Коллеги. В связи со сложившейся ситуацией наша компания
@@ -131,11 +132,11 @@ module.exports = function Delivery({ categories, deliveries }) {
               </button>
             </form>
           </div>
-          <div>
-            <button id="newDelivery" className="btn btn-light" type="submit">
-              Добавить
-            </button>
-          </div>
+        </div>
+        <div className="addBtn">
+          <button id="newDelivery" className="btn btn-light" type="submit">
+            Добавить
+          </button>
         </div>
       </div>
     </Layout>

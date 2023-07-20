@@ -1,0 +1,19 @@
+#newDelivery {
+  min-height: 10%;
+}
+
+.footer_container {
+  bottom: 0;
+}
+.table {
+  margin: 2rem 0;
+}
+tr,
+td,
+th {
+  border: 2px solid black;
+}
+
+.delivery {
+  margin: 0 2rem;
+}
