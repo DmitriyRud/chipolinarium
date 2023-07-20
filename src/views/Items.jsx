@@ -22,14 +22,14 @@ module.exports = function Items({ categories, email, items }) {
                     <p className="card-text">{item.description}</p>
                   </div>
                   <div className="card-btn">
-                    <a className="btn " href="#">
+                    <a className="btn btn-card" href="#">
                       {' '}
                       заказать
                     </a>
-                    <a className="btn" href="#">
+                    <a className="btn btn-card" href="#">
                       изменить
                     </a>
-                    <a className="btn deleteBtn"  data-delid={item.id}>
+                    <a className="btn deleteBtn btn-card"  data-delid={item.id}>
                       удалить
                     </a>
                   </div>
@@ -57,7 +57,7 @@ module.exports = function Items({ categories, email, items }) {
                     <p className="card-text">{item.description}</p>
                   </div>
                   <div className="card-btn">
-                    <a className="btn" href="#">
+                    <a className="btn btn-card" href="#">
                       {' '}
                       заказать
                     </a>

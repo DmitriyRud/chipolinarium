@@ -1,5 +1,16 @@
+:root {
+  --primary-color: #d02f24;
+  --color-form-text: #F5E5E8;
+  --color-chipollino:#edb282;
+  --color-text:black;
+  --color-dark-green:#818D60;
+}
 * {
   box-sizing: border-box;
+  color: var(--color-text);
+}
+.btn{
+  background-color: var(--primary-color)
 }
 .container {
   max-width: 1200px;
@@ -15,28 +26,62 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 2px solid var(--color-dark-green);
+  padding-bottom: 2rem;
 }
+.navbar-list{
+  color: var(--color-text);
+  justify-content: space-around;
+  
+}
+.logo_image {
+  width: 100%;
+}
+.logo {
+  width: 20%;
+  
+}
+.contact_header{
+ min-width: 30%;
+}
+.contact_header__text{
+margin-bottom: 5px;
+}
+.button_price{
+  color: var(--color-chipollino);
+  width: 60%;
+  padding: 0.5rem;
+}
+.button_price:hover{
+  background-color: var(--color-chipollino);
+  color: var(--color-text);
 
+}
+.supplies
 .flex_down {
   display: flex;
 }
-
+.nav-link{
+  color: var(--color-text);
+}
 .contact_header {
   display: flex;
   flex-direction: column;
 }
 
-.supplies_item {
+.supplies_item, .category_lists {
   list-style: none;
 }
 
-.logo_image {
+.footer-logo_image {
   width: 100%;
 }
-.logo {
+.footer-logo {
   max-width: 20%;
 }
-
+.color_line{
+background-color: var(--color-dark-green);
+}
 .footer_container {
   display: flex;
   flex-direction: column;
@@ -46,8 +91,14 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  text-align: center;
 }
-
+.catalog_header{
+  text-align: center;
+}
+.category_list{
+  padding-left: 0;
+}
 .info_container {
   display: flex;
   flex-wrap: wrap;
@@ -58,11 +109,30 @@
 a {
   text-decoration: none;
 }
-
+.supply_links{
+  padding-left: 0;
+}
 iframe {
   width: 100%;
   height: 100%;
 }
+.footer_container{
+  border-top: 2px solid var(--color-dark-green);
+  padding-top: 2rem;
+}
+.footer-logo, .catalog_container, .info_container{
+width: 30%;
+}
+.card-title{
+  color: var(--color-dark-green);
+  text-transform: uppercase;
+  font-weight: 700;
+  
+}
+.card-text{
+  color: var(--color-text);
+}
+
 
 @media (max-width: 900px) {
   .header_container {
@@ -73,5 +143,12 @@ iframe {
   }
   .flex_up {
     justify-content: space-around;
+    border-bottom: none;
+    border-top: 1px solid var(--color-dark-green);
+    padding-top: 2 rem;
+    padding-bottom: 1rem;
+  }
+  .contact_header{
+    padding-top: 2 rem;
   }
 }

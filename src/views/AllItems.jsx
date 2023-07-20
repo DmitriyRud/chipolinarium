@@ -21,15 +21,15 @@ module.exports = function AllItems({ categories, email, items }) {
                     <p className="card-text">{item.description}</p>
                   </div>
                   <div className="card-btn">
-                    <button>
-                      <a href="#">заказать</a>
-                    </button>
-                    <button>
-                      <a href="#">изменить</a>
-                    </button>
-                    <button>
-                      <a href="#">удалить</a>
-                    </button>
+                  
+                      <a className='btn' href="#">заказать</a>
+                    
+                    
+                      <a className='btn' href="#">изменить</a>
+                    
+                    
+                      <a  className='btn' href="#">удалить</a>
+                    
                   </div>
                 </div>
               ))
@@ -55,7 +55,7 @@ module.exports = function AllItems({ categories, email, items }) {
                     <p className="card-text">{item.description}</p>
                   </div>
                   <div className="card-btn">
-                    <a className="btn" href="#">
+                    <a className="btn btn-card" href="#">
                       {' '}
                       заказать
                     </a>
