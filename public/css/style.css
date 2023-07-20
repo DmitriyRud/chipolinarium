@@ -1,10 +1,9 @@
 :root {
   --primary-color: #d02f24;
-  --color-form-text: #FCF4EE; 
-  --color-chipollino:#edb282;
-  --color-text:#264D15;
-  --color-dark-green:#A2AC86;
-  --color-button: white;
+  --color-form-text: #fcf4ee;
+  --color-chipollino: #edb282;
+  --color-text: black;
+  --color-dark-green: #a2ac86;
 
 }
 * {
