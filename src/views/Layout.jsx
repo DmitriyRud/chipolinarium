@@ -6,9 +6,12 @@ module.exports = function Layout({ children, categories }) {
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -73,7 +76,10 @@ module.exports = function Layout({ children, categories }) {
                   >
                     <span className="navbar-toggler-icon" />
                   </button>
-                  <div className="collapse navbar-collapse navbar-list" id="navbarNav">
+                  <div
+                    className="collapse navbar-collapse navbar-list"
+                    id="navbarNav"
+                  >
                     <ul className="navbar-nav">
                       <li className="nav-item">
                         <a
@@ -117,7 +123,8 @@ module.exports = function Layout({ children, categories }) {
                 <div className="price-form">
                   <h3 className="price-form-title">Узнайте актуальные цены</h3>
                   <div className="price-form-description">
-                    Заполните форму и мы пришлем Вам информацию об актуальных ценах
+                    Заполните форму и мы пришлем Вам информацию об актуальных
+                    ценах
                   </div>
                   <form method="POST">
                     <div className="mb-3">
@@ -142,7 +149,10 @@ module.exports = function Layout({ children, categories }) {
                         placeholder="Введите Ваше email"
                       />
                     </div>
-                    <button className="price-btn btn modalPriceBtn" type="submit">
+                    <button
+                      className="price-btn btn modalPriceBtn"
+                      type="submit"
+                    >
                       Отправить
                     </button>
                     <p className="message" />
@@ -153,7 +163,6 @@ module.exports = function Layout({ children, categories }) {
           </dialog>
 
           {/* <script src="https://smtpjs.com/v3/smtp.js" /> */}
-
         </header>
         <div className="mainContainer">{children}</div>
         <footer>

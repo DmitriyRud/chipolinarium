@@ -1,126 +1,165 @@
-
-  
 .swiper {
-    min-width: 600px;
-    max-height: 600px;
-    margin-bottom: 50px;
+  /* min-width: 600px; */
+  max-height: 600px;
+  /* margin-bottom: 50px; */
+  margin: auto;
 }
 .image-slider {
-    text-align: center;
+  text-align: center;
 }
-.image-slider img{
-    max-width: 100%;
-    opacity: 0.5;
+.image-slider img {
+  max-width: 100%;
 }
-.slide1{
-    position: relative;
+.slide1 {
+  position: relative;
 }
-.slide1-text{
-    position:absolute;
-    width: 30%;
-    height: 10%;
-    background-color: antiquewhite;
-opacity: 1;
-top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-.slider-title{
-
-}
-.slide2{
-    position: relative
-}
-.slide2-container{
-    position: absolute;
-background-color: antiquewhite;
-width: 30%;
-    height: 10%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: space-between;
-    opacity: 1;
+.slide1-text {
+  position: absolute;
+  width: 30%;
+  height: 10%;
+  opacity: 1;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.home-title-text{
-    font-size: 36px;
-    margin-bottom: 40px;
+.slide1-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
-.home-title{
-    margin-bottom: 40px;
-    text-align: center;
-}
-.home-price { 
-margin-bottom: 40px;
-display: flex;
-justify-content: center;
-
-}
-.price-form{
-    width: 50%;
-    background-color: var(--primary-color);
-    padding: 30px;
-    color: var(--color-form-text);
-}
-.price-form-title{
-    margin-bottom: 30px;
-    text-align: center;
-    align-self: start;
-    
-}
-.price-form-description{
-    margin-bottom: 30px;
-    color: var(--color-form-text);
-    text-align: center;
-}
-.form-price__input{
-    background-color: var(--color-form-text);
-}
-.price-btn{
-    background-color: var(--color-form-text);
-    color: var(--primary-color);
-    text-transform: uppercase;
-    font-size: 700;
-}
-.price-btn:hover{
-    background-color: var(--color-chipollino);
-    color: var(--primary-color);
-}
-.advantages-inner{
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 40px;
-   
-}
-.advantages-item{
-    max-width: 30%;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 18rem;
-    align-content: space-between;
-    justify-content: space-around;
+.slide1-title h2 {
+  font-size: 95px;
+  color: #fff;
+  text-shadow: black 0 0 2px;
+  font-weight: 600;
 }
 
-.advantages-img{
-    margin-bottom: 1.5rem;
-    height: 5rem;
+.slide1-title p {
+  font-size: 55px;
+  color: #fff;
 }
-.advantages-title{
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 2rem;
 
+@media (max-width: 900px) {
+  .slide1-title h2 {
+    font-size: 65px;
+  }
+  .slide1-title p {
+    font-size: 35px;
+  }
 }
-.advantaged-descr{
-    text-align: center;
-    margin-bottom: 2rem;
-    height: 6rem;
-   
+.image_text_container {
+  width: 50rem;
+  margin-top: 2rem;
 }
-.advantages-btn{
-    color: var(--color-form-text);
+
+.slide2 {
+  position: relative;
+}
+.slide2-container {
+  position: absolute;
+  height: 10%;
+  top: 25%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  opacity: 1;
+  text-shadow: black 0 0 2px;
+  font-weight: 600;
+}
+
+.slide2-item {
+  font-size: 65px;
+  color: #fff;
+  margin-left: 3rem;
+  margin-bottom: 5rem;
+  max-height: 50%;
+}
+
+@media (max-width: 700px) {
+  .slide2-item {
+    font-size: 45px;
+  }
+}
+
+.home-title-text {
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+.home-title {
+  margin-bottom: 40px;
+  text-align: center;
+}
+.home-price {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+}
+.price-form {
+  width: 50%;
+  background-color: var(--primary-color);
+  padding: 30px;
+  color: var(--color-form-text);
+  border-radius: 6px;
+}
+.price-form-title {
+  margin-bottom: 30px;
+  text-align: center;
+  align-self: start;
+}
+.price-form-description {
+  margin-bottom: 30px;
+  color: var(--color-form-text);
+  text-align: center;
+}
+.form-price__input {
+  background-color: var(--color-form-text);
+}
+.price-btn {
+  background-color: var(--color-form-text);
+  color: var(--primary-color);
+  text-transform: uppercase;
+  font-size: 700;
+}
+.price-btn:hover {
+  background-color: var(--color-chipollino);
+  color: var(--primary-color);
+}
+.advantages-inner {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40px;
+}
+.advantages-item {
+  max-width: 30%;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 18rem;
+  align-content: space-between;
+  justify-content: space-around;
+}
+
+.advantages-img {
+  margin-bottom: 1.5rem;
+  height: 5rem;
+}
+.advantages-title {
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.advantaged-descr {
+  text-align: center;
+  margin-bottom: 2rem;
+  height: 6rem;
+}
+.advantages-btn {
+  color: var(--color-form-text);
 }

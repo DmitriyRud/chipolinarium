@@ -4,9 +4,12 @@ const paragraph = document.querySelector('.alert_items');
 
 containerCategory.addEventListener('click', async (event) => {
   if (event.target.classList.contains('deleteBtn')) {
-    const response = await fetch(`/catalog/${event.target.dataset.delid}`, {
-      method: 'DELETE',
-    });
+    const response = await fetch(
+      `/catalog/${event.target.dataset.deleteItem}`,
+      {
+        method: 'DELETE',
+      }
+    );
     const result = await response.json();
     if (result.msg) {
       event.target.closest('.card').remove();
