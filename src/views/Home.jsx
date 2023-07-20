@@ -95,8 +95,7 @@ module.exports = function Home({ categories }) {
                 </div>
                 <h5 className="advantages-title">Обширный ассортимент</h5>
                 <div className="advantaged-descr">
-                  Каталог на 2000 позиций позволит подобрать все необходимые
-                  продукты и товары для любой кухни
+                  Богатый выбор закусок и солений на любой вкус.
                 </div>
                 <a href="/catalog" className="advantages-btn btn">
                   КАТАЛОГ
@@ -108,8 +107,7 @@ module.exports = function Home({ categories }) {
                 </div>
                 <h5 className="advantages-title">УДОБНАЯ ДОСТАВКА</h5>
                 <div className="advantaged-descr">
-                  Доставка по Москве и области - в кратчайшие сроки напрямую от
-                  лучших поставщиков продуктов питания
+                  Доставка по Москве и области - в кратчайшие сроки по приятным ценам.
                 </div>
                 <a href="/delivery" className="advantages-btn btn">
                   ДОСТАВКА

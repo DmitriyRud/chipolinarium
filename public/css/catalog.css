@@ -1,6 +1,14 @@
+:root {
+    --primary-color: #d02f24;
+    --color-form-text: #F5E5E8;
+    --color-chipollino:#edb282;
+    --color-text:black;
+    --color-dark-green:#818D60;
+  }
 * {
     box-sizing: border-box;
   }
+  
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -20,15 +28,17 @@
     min-height: 10rem;
 }
 .card-text{
-    height: 11rem;
+    height: 10rem;
     overflow-y: scroll;
 }
 .allItems-container{
     display: flex;
 justify-content: center;
+margin-top: 3rem;
 }
 .allItems{
-    background-color: crimson;
+    background-color: var(--primary-color);
+    color: var(--color-chipollino);
 }
 .card-text{
     text-align: center;
@@ -36,9 +46,16 @@ justify-content: center;
 .card-title{
     text-align: center;
 }
+.btn-card{
+    background-color: var(--color-dark-green);
+    color: var(--color-chipollino);
+}
+.btn-card:hover{
+    background-color: var(--color-chipollino);
+    color: var(--color-dark-green);
+}
 .card-btn {
-    align-self: flex-start;
-    width: 100%;
+    margin-bottom: 20px;
     text-align: center;
 
-}
+} 

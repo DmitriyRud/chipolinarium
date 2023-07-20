@@ -17,9 +17,11 @@ module.exports = function AllItems({ categories, email, items }) {
                     <p className="card-text">{item.description}</p>
                   </div>
                   <div className="card-btn">
-                    <button>
+
+                    <button className="btn">
                       <a href="#">заказать</a>
                     </button>
+
                   </div>
                 </div>
               ))
@@ -42,7 +44,12 @@ module.exports = function AllItems({ categories, email, items }) {
                     <p className="card-text">{item.description}</p>
                   </div>
                   <div className="card-btn">
-                    <a className="btn" href="#">
+
+           
+
+                    <a className="btn btn-card" href="#">
+                      {' '}
+
                       заказать
                     </a>
                   </div>
