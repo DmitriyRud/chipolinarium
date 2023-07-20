@@ -1,11 +1,14 @@
 const multer = require('multer');
+const bcrypt = require('bcrypt');
 const accountPanelRouter = require('express').Router();
 
 const renderTemplate = require('../lib/renderTemplate');
 
 const AccountPanel = require('../views/AccountPanel');
 
-const { Category, Feedback, Item } = require('../../db/models');
+const {
+  Category, Feedback, Item, User,
+} = require('../../db/models');
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
@@ -32,7 +35,7 @@ accountPanelRouter.get('/', async (req, res) => {
     const categories = await Category.findAll({ raw: true });
     const feedbacks = await Feedback.findAll(
       { where: { approved: false } },
-      { raw: true }
+      { raw: true },
     );
     renderTemplate(AccountPanel, { categories, feedbacks }, res);
   } catch (err) {
@@ -60,7 +63,7 @@ accountPanelRouter.post(
     } catch (error) {
       console.log(error);
     }
-  }
+  },
 );
 
 accountPanelRouter.put('/:id', async (req, res) => {
@@ -104,7 +107,7 @@ accountPanelRouter.put('/edit-feedback/:id', async (req, res) => {
         name,
         body,
       },
-      { where: { id } }
+      { where: { id } },
     );
     const newFeedback = await Feedback.findByPk(id);
     res.json(newFeedback);
@@ -137,7 +140,34 @@ accountPanelRouter.post(
     } catch (error) {
       console.log(error);
     }
-  }
+  },
 );
+accountPanelRouter.post('/admin', async (req, res) => {
+  const {
+    oldEmail, oldPassword, newEmail, newPassword1, newPassword2, code,
+  } = req.body;
+  console.log(req.body);
+  try {
+    const checkUser = await User.findOne({ where: { email: oldEmail }, raw: true });
+    if (checkUser) {
+      const checkPass = await bcrypt.compare(oldPassword, checkUser.password);
+      if (checkPass) {
+        if (newPassword1 === newPassword2) {
+          const hashPassword = await bcrypt.hash(newPassword1, 5);
+          await User.update({ email: newEmail, password: hashPassword, code }, { where: { id: checkUser.id } });
+          res.json({ success: 'success' });
+        } else {
+          res.json({ msg: 'Пароли не совпадают' });
+        }
+      } else {
+        res.json({ msg: 'Неверный пароль' });
+      }
+    } else {
+      res.json({ msg: 'Такой email не зарегистрирован как администратор' });
+    }
+  } catch (error) {
+    console.log('ошибка серва', error);
+  }
+});
 
 module.exports = accountPanelRouter;

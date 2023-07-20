@@ -62,3 +62,6 @@ button {
 .card_container_feedback button {
   margin: 1rem;
 }
+.update-form{
+  display: none;
+}
