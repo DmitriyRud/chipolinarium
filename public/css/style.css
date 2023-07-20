@@ -55,6 +55,26 @@
   gap: 10%;
 }
 
+.home-price { 
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  
+  }
+
+.price-form{
+  width: 50%;
+  background-color: crimson;
+  padding: 30px;
+}
+.price-form-title{
+  margin-bottom: 30px;
+  text-align: center;
+}
+.price-form-description{
+  margin-bottom: 30px;
+}
+
 a {
   text-decoration: none;
 }

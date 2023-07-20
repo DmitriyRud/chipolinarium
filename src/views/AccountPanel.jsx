@@ -103,6 +103,7 @@ module.exports = function AccountPanel({ categories, feedbacks }) {
           <span> Отзывов пока нет</span>
         )}
       </div>
+
     </Layout>
   );
 };
