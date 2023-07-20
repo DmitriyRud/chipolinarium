@@ -22,7 +22,7 @@ dialogForm.addEventListener('submit', async (event) => {
 
   const data = new FormData(dialogForm);
   const inputs = Object.fromEntries(data);
-  dialog.closest();
+  dialog.remove();
 //   modalPriceBtn.addEventListener('click', (event) => {
 //     Email.send({
 //       Host: 'smtp.elasticemail.com',
