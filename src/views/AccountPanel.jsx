@@ -8,6 +8,27 @@ module.exports = function AccountPanel({ categories, feedbacks }) {
       <link rel="stylesheet" href="/css/account.css" />
       <script defer src="/js/accountPanel.js" />
       <div className="account_admin_container">
+
+        <div className="update-container">
+          <button className="btn updateAdmin-btn" type="button">Обновить данные администратора</button>
+          <p className="message1" />
+          <form action="#" method="POST" className="update-form">
+            <label>Введите старый email</label>
+            <input className="form-control" name="oldEmail" />
+            <label>Введите старый пароль</label>
+            <input className="form-control" name="oldPassword" />
+            <label>Введите новый email</label>
+            <input className="form-control" name="newEmail" />
+            <label>Введите новый пароль</label>
+            <input className="form-control" name="newPassword1" />
+            <label>Подтвердите новый пароль</label>
+            <input className="form-control" name="newPassword2" />
+            <label>Введите 16-значный код, сгенерированный Google</label>
+            <input className="form-control" name="code" />
+            <button className="btn send-update-btn" type="submit">Отправить</button>
+            <button className="btn close-update-btn" type="button">Закрыть</button>
+          </form>
+        </div>
         <div className="category_create_container">
           <h2> Форма для создания категории </h2>
 
