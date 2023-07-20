@@ -33,7 +33,7 @@ module.exports = function Items({ categories, email, items }) {
                     <div className="card-btn">
                       <button
                         type="submit"
-                        className="btn"
+                        className="btn btn-card itemPriceRequest"
                         data-order-item={item.id}
                       >
                         {' '}
@@ -41,14 +41,14 @@ module.exports = function Items({ categories, email, items }) {
                       </button>
                       <button
                         type="submit"
-                        className="btn editBtn"
+                        className="btn editBtn btn-card"
                         data-edit-item={item.id}
                       >
                         изменить
                       </button>
                       <button
                         type="submit"
-                        className="btn deleteBtn"
+                        className="btn deleteBtn btn-card"
                         data-delete-item={item.id}
                       >
                         удалить
@@ -57,17 +57,6 @@ module.exports = function Items({ categories, email, items }) {
                   </div>
 
                   <div className="card-btn">
-                    <a className="btn btn-card" href="#">
-                      {' '}
-                      заказать
-                    </a>
-                    <a className="btn btn-card" href="#">
-                      изменить
-                    </a>
-                    <a className="btn deleteBtn btn-card" data-delid={item.id}>
-                      удалить
-                    </a>
-
                     <div
                       className="hide_container_form"
                       style={{ display: 'none' }}
@@ -84,15 +73,17 @@ module.exports = function Items({ categories, email, items }) {
                           Обязательное поле
                         </option> */}
                           {categories.length ? (
-                            categories.map((category) => (category.id === item.category_id ? (
-                              <option selected value={category.title}>
-                                {category.title}
-                              </option>
-                            ) : (
-                              <option value={category.title}>
-                                {category.title}
-                              </option>
-                            )))
+                            categories.map((category) =>
+                              category.id === item.category_id ? (
+                                <option selected value={category.title}>
+                                  {category.title}
+                                </option>
+                              ) : (
+                                <option value={category.title}>
+                                  {category.title}
+                                </option>
+                              )
+                            )
                           ) : (
                             <span> </span>
                           )}
@@ -125,7 +116,6 @@ module.exports = function Items({ categories, email, items }) {
                           Отправить
                         </button>
                       </form>
-
                     </div>
                   </div>
                 </div>
