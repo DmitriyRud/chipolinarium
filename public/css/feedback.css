@@ -1,4 +1,31 @@
 .main_feedback_container {
-  margin: 4rem 4rem 4rem 4rem;
+  padding: 4rem 4rem 4rem 4rem;
   width: 100%;
+}
+
+#feedBackForm {
+  display: none;
+}
+
+.sendFormBtn,
+.closeFormBtn {
+  color: var(--color-form-text);
+  background-color: var(--color-chipollino);
+}
+
+.sendFormBtn:hover,
+.closeFormBtn:hover {
+  color: var(--color-form-text);
+  background-color: #5a6241;
+}
+
+.sendFormBtn {
+  margin-bottom: 3rem;
+}
+.closeFormBtn {
+  margin: 0 0 3rem 1rem;
+}
+
+.card {
+  width: 70%;
 }

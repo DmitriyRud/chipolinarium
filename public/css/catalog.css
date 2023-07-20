@@ -21,7 +21,6 @@
 }
 .card-text {
   height: 15rem;
-  overflow-y: scroll;
   color: #fff;
 }
 .card-title {
@@ -30,7 +29,7 @@
 .allItems-container {
   display: flex;
   justify-content: center;
-  margin-top: 3rem;
+  padding-top: 2rem;
 }
 .allItems {
   background-color: var(--primary-color);
