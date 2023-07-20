@@ -15,11 +15,16 @@ module.exports = function Home({ categories }) {
             <div className="swiper-slide slide1">
               <div className="slide1-text">
                 <div className="slide1-title">
-                  Магазин солений и салатов "Чиполинарий"
+                  <div className="logo_header">
+                    <h2>Чиполинарий</h2>
+                  </div>
+                  <div className="image_text_container">
+                    <p> Магазин солений и салатов </p>
+                  </div>
                 </div>
               </div>
               <div className="image-slider">
-                <img src="/image/slider/slider1.jpg" />
+                <img src="/image/slider/slider-1.jpg" />
               </div>
             </div>
             <div className="swiper-slide slide2">
@@ -29,12 +34,12 @@ module.exports = function Home({ categories }) {
                 <div className="slide2-item">Удобно</div>
               </div>
               <div className="image-slider">
-                <img src="/image/slider/slider2.jpg" />
+                <img src="/image/slider/slider-2.jpg" />
               </div>
             </div>
             <div className="swiper-slide">
               <div className="image-slider">
-                <img src="/image/slider/slider3.jpg" />
+                <img src="/image/slider/slider-3.jpg" />
               </div>
             </div>
           </div>
@@ -107,7 +112,8 @@ module.exports = function Home({ categories }) {
                 </div>
                 <h5 className="advantages-title">УДОБНАЯ ДОСТАВКА</h5>
                 <div className="advantaged-descr">
-                  Доставка по Москве и области - в кратчайшие сроки по приятным ценам.
+                  Доставка по Москве и области - в кратчайшие сроки по приятным
+                  ценам.
                 </div>
                 <a href="/delivery" className="advantages-btn btn">
                   ДОСТАВКА
