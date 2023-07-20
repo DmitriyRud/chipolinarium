@@ -46,9 +46,10 @@ accountPanelRouter.post(
   async (req, res) => {
     try {
       const image = req.files.photo[0].originalname;
-      const { title } = req.body;
+      const { title, description } = req.body;
       const newCategory = await Category.create({
         title,
+        description,
         image: `/image/categories/${image}`,
       });
       if (newCategory) {
