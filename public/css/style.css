@@ -219,6 +219,16 @@ dialog {
   box-shadow: 0 0 1000px 1000px rgba(0, 0, 0, 0.8);
 }
 
+.login_container {
+  display: flex;
+  justify-content: center;
+
+  padding: 7rem;
+}
+#logForm {
+  width: 80%;
+}
+
 @media (max-width: 900px) {
   .header_container {
     flex-direction: column-reverse;

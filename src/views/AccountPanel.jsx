@@ -25,15 +25,19 @@ module.exports = function AccountPanel({ categories, feedbacks }) {
         <div className="update-container">
           <div className="logout-container">
             <button className="btn" type="button">
+
               <a
                 href="/accountPanel/logout"
                 className="btn logout-btn btn-danger"
               >
+
                 Выйти из аккаунта
               </a>
             </button>
           </div>
+
           <button className="btn updateAdmin-btn btn-primary" type="button">
+
             Обновить данные администратора
           </button>
           <p className="message1" />
@@ -59,7 +63,7 @@ module.exports = function AccountPanel({ categories, feedbacks }) {
           </form>
         </div>
         <div className="category_create_container">
-          <h2> Форма для создания категории </h2>
+          <h2> Форма для создания товара </h2>
 
           <h3> Создание категории </h3>
           <p className="createCategory" />
@@ -95,7 +99,7 @@ module.exports = function AccountPanel({ categories, feedbacks }) {
               className="form-control"
             />
             <div className="create_category_btn">
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn button_price">
                 Отправить
               </button>
             </div>
@@ -103,6 +107,7 @@ module.exports = function AccountPanel({ categories, feedbacks }) {
         </div>
 
         <div className="create_item_container">
+          <h2> Форма для создания категории </h2>
           <h3> Создание товара </h3>
 
           <p className="createItem" />
@@ -143,7 +148,7 @@ module.exports = function AccountPanel({ categories, feedbacks }) {
               className="form-control"
             />
 
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn button_price">
               Отправить
             </button>
           </form>

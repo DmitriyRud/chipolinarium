@@ -57,7 +57,7 @@ module.exports = function Items({ categories, email, items }) {
                     </div>
                   </div>
 
-                  <div className="card-btn">
+                  <div>
                     <div
                       className="hide_container_form"
                       style={{ display: 'none' }}
@@ -87,10 +87,8 @@ module.exports = function Items({ categories, email, items }) {
                             <span> </span>
                           )}
                         </select>
-
-                        <label htmlFor="pic_input" style={{ color: 'white' }}>
-                          Фото:
-                        </label>
+                        <br />
+                        <label htmlFor="pic_input">Фото:</label>
                         <input id="pic_input" type="file" name="photoItem" />
 
                         <label htmlFor="pic_input">Название:</label>
@@ -112,9 +110,9 @@ module.exports = function Items({ categories, email, items }) {
 
                         <button
                           type="button"
-                          className="btn sendEditItem"
+                          className="btn sendEditItem endCategory"
                           data-send-edit-item={item.id}
-                          id="btnAdmin"
+                          id="btnSend"
                         >
                           Отправить
                         </button>
