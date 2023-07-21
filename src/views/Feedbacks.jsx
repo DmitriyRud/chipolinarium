@@ -58,7 +58,7 @@ module.exports = function Feedback({ categories, feedbacks }) {
               />
             </div>
 
-            <button type="submit" className="btn sendFormBtn">
+            <button id="1" type="submit" className="btn sendFormBtn">
               Отправить
             </button>
             <button type="submit" className="btn closeFormBtn">
