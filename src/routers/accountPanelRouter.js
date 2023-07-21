@@ -7,7 +7,11 @@ const renderTemplate = require('../lib/renderTemplate');
 const AccountPanel = require('../views/AccountPanel');
 
 const {
-  Category, Feedback, Item, User,
+  Category,
+  Feedback,
+  Item,
+  User,
+  ManagerEmail,
 } = require('../../db/models');
 
 const storage = multer.diskStorage({
@@ -35,7 +39,7 @@ accountPanelRouter.get('/', async (req, res) => {
     const categories = await Category.findAll({ raw: true });
     const feedbacks = await Feedback.findAll(
       { where: { approved: false } },
-      { raw: true },
+      { raw: true }
     );
     renderTemplate(AccountPanel, { categories, feedbacks }, res);
   } catch (err) {
@@ -63,7 +67,7 @@ accountPanelRouter.post(
     } catch (error) {
       console.log(error);
     }
-  },
+  }
 );
 
 accountPanelRouter.put('/:id', async (req, res) => {
@@ -107,7 +111,7 @@ accountPanelRouter.put('/edit-feedback/:id', async (req, res) => {
         name,
         body,
       },
-      { where: { id } },
+      { where: { id } }
     );
     const newFeedback = await Feedback.findByPk(id);
     res.json(newFeedback);
@@ -140,21 +144,29 @@ accountPanelRouter.post(
     } catch (error) {
       console.log(error);
     }
-  },
+  }
 );
 accountPanelRouter.post('/admin', async (req, res) => {
+
   const {
     oldEmail, oldPassword, newEmail, newPassword1, newPassword2, code,
   } = req.body;
   try {
-    const checkUser = await User.findOne({ where: { email: oldEmail }, raw: true });
+    const checkUser = await User.findOne({
+      where: { email: oldEmail },
+      raw: true,
+    });
     if (checkUser) {
       const checkPass = await bcrypt.compare(oldPassword, checkUser.password);
       if (checkPass) {
         if (newPassword1 === newPassword2) {
           const hashPassword = await bcrypt.hash(newPassword1, 5);
+
+        
+
           await User.update({ email: newEmail, password: hashPassword, code }, { where: { id: checkUser.id } });
           res.json({ success: 'Данные успешно изменены' });
+
         } else {
           res.json({ msg: 'Пароли не совпадают' });
         }
@@ -169,12 +181,34 @@ accountPanelRouter.post('/admin', async (req, res) => {
   }
 });
 
+
+accountPanelRouter.post('/manager', async (req, res) => {
+  const { managerEmail } = req.body;
+
+  try {
+    const manager = await ManagerEmail.findOne({
+      where: { email: managerEmail },
+    });
+    if (manager) {
+      return res.json({ msg: 'Такой менеджер уже добавлен' });
+    } else {
+      const newManager = await ManagerEmail.create({
+        email: managerEmail,
+      });
+      res.json(newManager);
+    }
+  } catch (error) {
+    console.log('Не удалось добавить менеджера', error);
+  }
+});
+
 accountPanelRouter.get('/logout', (req,res) =>{
   req.session.destroy(() => {
     res.clearCookie(process.env.COOKIE_NAME); 
     res.redirect('/')
   })
 })
+
 
 
 module.exports = accountPanelRouter;
