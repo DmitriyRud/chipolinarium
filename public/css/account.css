@@ -65,3 +65,12 @@ button {
 .update-form{
   display: none;
 }
+
+.update-container{
+  display: flex;
+  flex-direction: column;
+}
+.updateAdmin-btn{
+  margin: 0;
+  padding: 0;
+}
