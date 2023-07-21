@@ -5,8 +5,8 @@ module.exports = function About({ categories }) {
   return (
     <Layout categories={categories}>
       <link rel="stylesheet" href="/css/about.css" />
-      <div className="container">
-        <h1 className="about-title title">О компании Инмарко Плюс</h1>
+      <div className="container about-container">
+        <h2 className="about-title">О компании Инмарко Плюс</h2>
         <p className="about-text">
           Мы рады представить вам нашу компанию, специализирующуюся на
           разнообразных салатах, закусках и соленьях, приготовленных с
