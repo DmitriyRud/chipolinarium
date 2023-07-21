@@ -7,7 +7,20 @@ module.exports = function AccountPanel({ categories, feedbacks }) {
     <Layout categories={categories}>
       <link rel="stylesheet" href="/css/account.css" />
       <script defer src="/js/accountPanel.js" />
+      <script defer src="/js/managerEmail.js" />
+
+ 
+
       <div className="account_admin_container">
+        <div className="Manager_container">
+            <form method='POST' className="manager_form">
+              <h3> Добавить менеджера для рассылки запросов </h3>
+              <p className="manager_message"></p>
+              <label>Введите email менеджера</label>
+              <input className="form-control" name="managerEmail" />
+              <button className="btn send-managerEmail-btn" type="submit">Отправить</button>
+            </form>
+        </div>
 
         <div className="update-container">
           <div className='logout-container'>
