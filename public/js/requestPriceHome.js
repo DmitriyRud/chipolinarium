@@ -1,12 +1,6 @@
-console.log('script rabotaet');
 const formRequestPriceHome = document.querySelector('.formRequestPriceHome');
 const priceFormDescription = document.querySelector('.formOnHome');
-
-console.log(priceFormDescription);
-
 const inputsOnHome = document.querySelectorAll('input');
-
-console.log(inputsOnHome);
 
 formRequestPriceHome.addEventListener('submit', async (event) => {
   event.preventDefault();

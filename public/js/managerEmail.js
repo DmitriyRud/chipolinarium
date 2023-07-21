@@ -1,5 +1,7 @@
 const managerForm = document.querySelector('.manager_form');
 const managerMessage = document.querySelector('.manager_message');
+const managerEmailList = document.querySelector('.managerEmailList');
+const managerEmail = document.querySelector('.managerEmail');
 
 managerForm.addEventListener('submit', async (event) => {
   event.preventDefault();
@@ -14,9 +16,14 @@ managerForm.addEventListener('submit', async (event) => {
       body: JSON.stringify(input),
     });
     const result = await response.json();
-    console.log(result);
     if (result.email) {
       managerMessage.innerText = 'Почта менеджера успешно добавлена';
+      managerEmail.value = '';
+      const newManagerEmail = `
+      <li> ${result.email} <button id=${result.id} type="button" className="deleteManagerBtn">×</button></li>
+      `;
+
+      managerEmailList.insertAdjacentHTML('beforeend', newManagerEmail);
     } else if (result.msg) {
       managerMessage.innerText = result.msg;
     }
