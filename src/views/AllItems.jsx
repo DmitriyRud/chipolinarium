@@ -5,6 +5,8 @@ module.exports = function AllItems({ categories, email, items }) {
   return (
     <Layout categories={categories} email={email}>
       <link rel="stylesheet" href="/css/catalog.css" />
+      <link rel="stylesheet" href="/css/home.css" />
+      <script defer src="/js/modalHeader.js" />
       {email ? (
         <div className="container">
           <div className="containerCategory">
@@ -17,11 +19,12 @@ module.exports = function AllItems({ categories, email, items }) {
                     <p className="card-text">{item.description}</p>
                   </div>
                   <div className="card-btn">
-
-                    <button className="btn">
-                      <a href="#">заказать</a>
+                    <button
+                      type="button"
+                      className="btn btn-card itemPriceRequest"
+                    >
+                      заказать
                     </button>
-
                   </div>
                 </div>
               ))
@@ -44,14 +47,12 @@ module.exports = function AllItems({ categories, email, items }) {
                     <p className="card-text">{item.description}</p>
                   </div>
                   <div className="card-btn">
-
-           
-
-                    <a className="btn btn-card" href="#">
-                      {' '}
-
+                    <button
+                      type="button"
+                      className="btn btn-card itemPriceRequest"
+                    >
                       заказать
-                    </a>
+                    </button>
                   </div>
                 </div>
               ))

@@ -25,12 +25,19 @@ module.exports = function AccountPanel({ categories, feedbacks }) {
         <div className="update-container">
           <div className="logout-container">
             <button className="btn" type="button">
-              <a href="/accountPanel/logout" className="btn logout-btn">
+
+              <a
+                href="/accountPanel/logout"
+                className="btn logout-btn btn-danger"
+              >
+
                 Выйти из аккаунта
               </a>
             </button>
           </div>
-          <button className="btn updateAdmin-btn" type="button">
+
+          <button className="btn updateAdmin-btn btn-primary" type="button">
+
             Обновить данные администратора
           </button>
           <p className="message1" />

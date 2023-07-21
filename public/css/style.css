@@ -191,8 +191,9 @@ iframe {
 .closeModalWindow {
   background: none;
   border: none;
-  font-size: 20px;
-  text-align: end;
+  font-size: 30px;
+  padding-left: 90%;
+  color: #fff;
 }
 
 .dialogForm {
@@ -207,7 +208,15 @@ iframe {
 dialog {
   background-color: var(--color-dark-green);
   z-index: 1;
-  box-shadow: 0 0 1000px 1000px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 1000px 1000px rgba(0, 0, 0, 0.8);
+  border: none;
+  padding: 0;
+  border-radius: 6px;
+}
+.dialogPriceForm {
+  background-color: var(--color-dark-green);
+  z-index: 1;
+  box-shadow: 0 0 1000px 1000px rgba(0, 0, 0, 0.8);
 }
 
 .login_container {
