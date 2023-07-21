@@ -23,6 +23,9 @@ module.exports = function AccountPanel({ categories, feedbacks }) {
         </div>
 
         <div className="update-container">
+          <div className='logout-container'>
+            <button className="btn" type='button'><a href='/accountPanel/logout'  className='btn logout-btn'>Выйти из аккаунта</a></button>
+          </div>
           <button className="btn updateAdmin-btn" type="button">Обновить данные администратора</button>
           <p className="message1" />
           <form action="#" method="POST" className="update-form">
