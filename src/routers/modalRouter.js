@@ -17,8 +17,8 @@ const transporter = nodemailer.createTransport({
 modalRouter.post('/', async (req, res) => {
   const { name, phone, email } = req.body;
   const mailData = {
-    from: 'nikolina.elizavet@gmail.com',
-    to: 'nikolina.elizavet@gmail.com',
+    from: '1shelldrunk1@gmail.com',
+    to: '1shelldrunk1@gmail.com',
     subject: 'Запрос прайса',
     text: ' ',
 
