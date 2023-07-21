@@ -204,6 +204,12 @@ iframe {
   align-self: flex-end;
 }
 
+dialog {
+  background-color: var(--color-dark-green);
+  z-index: 1;
+  box-shadow: 0 0 1000px 1000px rgba(0, 0, 0, 0.7);
+}
+
 @media (max-width: 900px) {
   .header_container {
     flex-direction: column-reverse;
