@@ -36,12 +36,13 @@ const upload = multer({ storage });
 
 accountPanelRouter.get('/', async (req, res) => {
   try {
+    const managers = await ManagerEmail.findAll({ raw: true });
     const categories = await Category.findAll({ raw: true });
     const feedbacks = await Feedback.findAll(
       { where: { approved: false } },
       { raw: true }
     );
-    renderTemplate(AccountPanel, { categories, feedbacks }, res);
+    renderTemplate(AccountPanel, { categories, feedbacks, managers }, res);
   } catch (err) {
     console.error(err);
   }
@@ -81,16 +82,7 @@ accountPanelRouter.put('/:id', async (req, res) => {
   }
 });
 
-accountPanelRouter.delete('/:id', async (req, res) => {
-  const { id } = req.body;
-  try {
-    await Feedback.destroy({ where: { id } });
-    res.json({ msg: 'Отзыв удален' });
-  } catch (error) {
-    console.error(error);
-    res.json({ error: 'Что-то пошло не так!' });
-  }
-});
+
 
 accountPanelRouter.post('/edit-feedback/:id', async (req, res) => {
   const { id } = req.body;
@@ -147,10 +139,8 @@ accountPanelRouter.post(
   }
 );
 accountPanelRouter.post('/admin', async (req, res) => {
-
-  const {
-    oldEmail, oldPassword, newEmail, newPassword1, newPassword2, code,
-  } = req.body;
+  const { oldEmail, oldPassword, newEmail, newPassword1, newPassword2, code } =
+    req.body;
   try {
     const checkUser = await User.findOne({
       where: { email: oldEmail },
@@ -162,11 +152,11 @@ accountPanelRouter.post('/admin', async (req, res) => {
         if (newPassword1 === newPassword2) {
           const hashPassword = await bcrypt.hash(newPassword1, 5);
 
-        
-
-          await User.update({ email: newEmail, password: hashPassword, code }, { where: { id: checkUser.id } });
+          await User.update(
+            { email: newEmail, password: hashPassword, code },
+            { where: { id: checkUser.id } }
+          );
           res.json({ success: 'Данные успешно изменены' });
-
         } else {
           res.json({ msg: 'Пароли не совпадают' });
         }
@@ -180,7 +170,6 @@ accountPanelRouter.post('/admin', async (req, res) => {
     console.log(error);
   }
 });
-
 
 accountPanelRouter.post('/manager', async (req, res) => {
   const { managerEmail } = req.body;
@@ -202,13 +191,32 @@ accountPanelRouter.post('/manager', async (req, res) => {
   }
 });
 
-accountPanelRouter.get('/logout', (req,res) =>{
+accountPanelRouter.delete('/manager', async (req, res) => {
+  const { id } = req.body;
+  try {
+    await ManagerEmail.destroy({ where: { id } });
+    res.json({ msg: 'Менеджер успешно удалён' });
+  } catch (error) {
+    res.json({ error: 'Менеджер не удалён' });
+  }
+});
+
+accountPanelRouter.delete('/:id', async (req, res) => {
+  const { id } = req.body;
+  try {
+    await Feedback.destroy({ where: { id } });
+    res.json({ msg: 'Отзыв удален' });
+  } catch (error) {
+    console.error(error);
+    res.json({ error: 'Что-то пошло не так!' });
+  }
+});
+
+accountPanelRouter.get('/logout', (req, res) => {
   req.session.destroy(() => {
-    res.clearCookie(process.env.COOKIE_NAME); 
-    res.redirect('/')
-  })
-})
-
-
+    res.clearCookie(process.env.COOKIE_NAME);
+    res.redirect('/');
+  });
+});
 
 module.exports = accountPanelRouter;

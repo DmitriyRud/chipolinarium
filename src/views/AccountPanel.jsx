@@ -2,20 +2,33 @@ const React = require('react');
 
 const Layout = require('./Layout');
 
-module.exports = function AccountPanel({ categories, feedbacks }) {
+module.exports = function AccountPanel({ categories, feedbacks, managers }) {
   return (
     <Layout categories={categories}>
       <link rel="stylesheet" href="/css/account.css" />
       <script defer src="/js/accountPanel.js" />
       <script defer src="/js/managerEmail.js" />
-
+      <script defer src="/js/managerDelete.js" />
       <div className="account_admin_container">
         <div className="Manager_container">
+          <h2> Список менеджеров </h2>
+          <p className="infoDeleteManager" />
+          <ul className="managerEmailList">
+            {managers.length ? managers.map((manager) => (
+              <li>
+                {' '}
+                {manager.email}
+                {' '}
+                <button id={manager.id} type="button" className="deleteManagerBtn">×</button>
+                {' '}
+              </li>
+            )) : (<p> Менеджеры не добавлены </p>)}
+          </ul>
           <form method="POST" className="manager_form">
             <h3> Добавить менеджера для рассылки запросов </h3>
-            <p className="manager_message"></p>
+            <p className="manager_message" />
             <label>Введите email менеджера</label>
-            <input className="form-control" name="managerEmail" />
+            <input className="form-control managerEmail" name="managerEmail" />
             <button className="btn send-managerEmail-btn" type="submit">
               Отправить
             </button>
