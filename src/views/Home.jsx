@@ -136,9 +136,9 @@ module.exports = function Home({ categories }) {
                 <div className="advantaged-descr">
                   Посмотрите отзывы реальных клиентов
                 </div>
-                <button type="button" className="btn advantages-btn">
+                <a href="/feedback" className="advantages-btn btn">
                   ОТЗЫВЫ
-                </button>
+                </a>
               </div>
             </div>
           </div>

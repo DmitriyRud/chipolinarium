@@ -5,8 +5,23 @@
   margin: 0 1rem;
 }
 
-.container {
+/* .container {
   display: flex;
   justify-content: space-around;
-  padding: 2rem 0 0 2rem;
+  /* padding: 2rem 0 0 2rem; */
+/* } */
+.contacts_container {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem 3rem 0 3rem;
+}
+.contacts {
+  padding-right: 2rem;
+}
+.titleCotn {
+  margin-bottom: 1rem;
+}
+.ul_contacts {
+  list-style: none;
+  padding-left: 0;
 }

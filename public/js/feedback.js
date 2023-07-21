@@ -11,6 +11,7 @@ feedback.addEventListener('click', (event) => {
 closeFormBtn.addEventListener('click', (event) => {
   feedBackForm.style.display = 'none';
   feedback.style.display = 'block';
+  newFeedback.innerText = '';
 });
 
 feedBackForm.addEventListener('click', async (e) => {

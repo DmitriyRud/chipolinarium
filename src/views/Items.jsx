@@ -68,6 +68,7 @@ module.exports = function Items({ categories, email, items }) {
                         id={`editItem-${item.id}`}
                         encType="multipart/form-data"
                         name="newItem"
+                        className="form_catalog"
                       >
                         <select name="categoryName" id="">
                           {categories.length ? (
@@ -88,11 +89,12 @@ module.exports = function Items({ categories, email, items }) {
                         </select>
 
                         <label htmlFor="pic_input" style={{ color: 'white' }}>
-                          *Фото:
+                          Фото:
                         </label>
                         <input id="pic_input" type="file" name="photoItem" />
 
-                        <label htmlFor="pic_input">Название</label>
+                        <label htmlFor="pic_input">Название:</label>
+                        <br></br>
                         <input
                           id="titleItem"
                           type="text"
@@ -100,7 +102,7 @@ module.exports = function Items({ categories, email, items }) {
                           value={item.name}
                         />
 
-                        <label htmlFor="pic_input">Описание товара</label>
+                        <label htmlFor="pic_input">Описание товара:</label>
                         <textarea
                           id="titleCategory"
                           type="text"
@@ -113,7 +115,6 @@ module.exports = function Items({ categories, email, items }) {
                           className="btn sendEditItem"
                           data-send-edit-item={item.id}
                           id="btnAdmin"
-                          style={{ color: 'white' }}
                         >
                           Отправить
                         </button>

@@ -78,13 +78,15 @@ module.exports = function Catalog({ categories, email }) {
                       id={`editCategory-${category.id}`}
                       encType="multipart/form-data"
                       name="newCategory"
+                      className="form_catalog"
                     >
                       <label htmlFor="pic_input" style={{ color: 'white' }}>
-                        *Фото:
+                        Фото:
                       </label>
                       <input id="pic_input" type="file" name="photo" />
 
                       <label htmlFor="title">Название</label>
+                      <br></br>
                       <input
                         id="title"
                         type="text"
@@ -105,7 +107,6 @@ module.exports = function Catalog({ categories, email }) {
                         className="btn sendCategory"
                         data-send-edit-category={category.id}
                         id="btnAdmin"
-                        style={{ color: 'white' }}
                       >
                         Отправить
                       </button>

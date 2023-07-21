@@ -79,6 +79,7 @@ module.exports = function Delivery({ categories, deliveries, email }) {
               <tr>
                 <th>Сумма заказа</th>
                 <th>Стоимость доставки</th>
+                <th> </th>
               </tr>
             </thead>
 
@@ -93,7 +94,7 @@ module.exports = function Delivery({ categories, deliveries, email }) {
                         {' '}
                         <button
                           type="button"
-                          className="btn btn-link usual-btn"
+                          className="btn usual-btn"
                           data-delete-delivery={el.id}
                           id={el.id}
                         >
@@ -168,7 +169,7 @@ module.exports = function Delivery({ categories, deliveries, email }) {
         </div>
         {email ? (
           <div className="addBtn">
-            <button id="newDelivery" className="btn btn-light" type="submit">
+            <button id="newDelivery" className="btn usual-btn" type="submit">
               Добавить
             </button>
           </div>
