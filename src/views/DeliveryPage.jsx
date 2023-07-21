@@ -2,34 +2,41 @@ const React = require('react');
 
 const Layout = require('./Layout');
 
-module.exports = function Delivery({ categories, deliveries }) {
+module.exports = function Delivery({ categories, deliveries, email }) {
   return (
-    <Layout categories={categories}>
+    <Layout categories={categories} email={email}>
       <script defer src="/js/delivery.js" />
       <link rel="stylesheet" href="/css/delivery.css" />
       <div className="delivery-container">
-        <h2 className='delivery-title'> Доставка продуктов в рестораны и кафе </h2>
-        <div className='delivery-inner'>
-          <div className='text-container'><p>
-          Дорогие Коллеги. В связи со сложившейся ситуацией наша компания
-          расширяет спектр своих услуг. В настоящее время мы осуществляем
-          доставку продуктов высокого качества не только организациям, профилем
-          которых является сфера общественного питания, но и физическим лицам
-          (на дом) по Москве и МО.
-        </p>
-        
-        <p>
-          Доставка товара в пределах МКАД от 6.000 тыс.руб бесплатно, за
-          пределами МКАД доставка обсуждается индивидуально.
-        </p>
-        <p>
-          Заказы осуществляются удобным для Вас способом по тел. 8 977 290 97
-          39. Оперативная доставка 24/7!
-        </p>
-        </div>
-        <div className='delivery-image'>
-          <img className='delivery-image__img' src='/image/delivery2.png'></img>
-        </div>
+        <h2 className="delivery-title">
+          {' '}
+          Доставка продуктов в рестораны и кафе{' '}
+        </h2>
+        <div className="delivery-inner">
+          <div className="text-container">
+            <p>
+              Дорогие Коллеги. В связи со сложившейся ситуацией наша компания
+              расширяет спектр своих услуг. В настоящее время мы осуществляем
+              доставку продуктов высокого качества не только организациям,
+              профилем которых является сфера общественного питания, но и
+              физическим лицам (на дом) по Москве и МО.
+            </p>
+
+            <p>
+              Доставка товара в пределах МКАД от 6.000 тыс.руб бесплатно, за
+              пределами МКАД доставка обсуждается индивидуально.
+            </p>
+            <p>
+              Заказы осуществляются удобным для Вас способом по тел. 8 977 290
+              97 39. Оперативная доставка 24/7!
+            </p>
+          </div>
+          <div className="delivery-image">
+            <img
+              className="delivery-image__img"
+              src="/image/delivery2.png"
+            ></img>
+          </div>
         </div>
         <p>
           Обращаясь в компанию "Сити Продукт", Вы сможете размещать заказы на
@@ -41,9 +48,8 @@ module.exports = function Delivery({ categories, deliveries }) {
         </p>
       </div>
 
-      
       <div className="delivery">
-        <h2 className='delivery-title'>Регион и условия доставки продуктов</h2>
+        <h2 className="delivery-title">Регион и условия доставки продуктов</h2>
         <p>Основной регион доставки - Москва и Московская область.</p>
         <p>
           Доставка осуществляется ежедневно, в соответствии с графиком поставок.
@@ -75,33 +81,52 @@ module.exports = function Delivery({ categories, deliveries }) {
                 <th>Стоимость доставки</th>
               </tr>
             </thead>
-            <tbody>
-              {deliveries.length ? (
-                deliveries.map((el) => (
-                  <tr id={`tr-${el.id}`} key={el.id}>
-                    <td>{el.order_price}</td>
-                    <td>{el.delivery_price}</td>
-                    <td>
-                      {' '}
-                      <button
-                        type="button"
-                        className="btn btn-link usual-btn"
-                        data-delete-delivery={el.id}
-                        id={el.id}
-                      >
-                        Удалить
-                      </button>
-                    </td>
+            {email ? (
+              <tbody>
+                {deliveries.length ? (
+                  deliveries.map((el) => (
+                    <tr id={`tr-${el.id}`} key={el.id}>
+                      <td>{el.order_price}</td>
+                      <td>{el.delivery_price}</td>
+                      <td>
+                        {' '}
+                        <button
+                          type="button"
+                          className="btn btn-link usual-btn"
+                          data-delete-delivery={el.id}
+                          id={el.id}
+                        >
+                          Удалить
+                        </button>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td />
+                    <td />
                   </tr>
-                ))
-              ) : (
-                <tr>
-                  <td />
-                  <td />
-                </tr>
-              )}
-            </tbody>
+                )}
+              </tbody>
+            ) : (
+              <tbody>
+                {deliveries.length ? (
+                  deliveries.map((el) => (
+                    <tr id={`tr-${el.id}`} key={el.id}>
+                      <td>{el.order_price}</td>
+                      <td>{el.delivery_price}</td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td />
+                    <td />
+                  </tr>
+                )}
+              </tbody>
+            )}
           </table>
+
           <div style={{ width: '30%' }}>
             <p className="newFeedback" />
             <form id="deliveryForm" style={{ display: 'none' }}>
@@ -140,11 +165,15 @@ module.exports = function Delivery({ categories, deliveries }) {
             </form>
           </div>
         </div>
-        <div className="addBtn">
-          <button id="newDelivery" className="btn btn-light" type="submit">
-            Добавить
-          </button>
-        </div>
+        {email ? (
+          <div className="addBtn">
+            <button id="newDelivery" className="btn btn-light" type="submit">
+              Добавить
+            </button>
+          </div>
+        ) : (
+          <div />
+        )}
       </div>
     </Layout>
   );

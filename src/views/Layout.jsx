@@ -171,7 +171,7 @@ module.exports = function Layout({ children, categories }) {
               <div className="footer-logo">
                 <a href="/" className="logo_link">
                   <img
-                    src="/image/logo.jpeg"
+                    src="/image/logo.png"
                     alt="logo"
                     className="footer-logo_image"
                   />
