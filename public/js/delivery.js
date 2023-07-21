@@ -73,7 +73,7 @@ deliveryForm.addEventListener('click', async (e) => {
         const td = document.createElement('td');
         td.innerHTML = ` <button
         type="button"
-        class="btn btn-link usual-btn"
+        class="btn usual-btn"
         data-delete-delivery="${result.id}"
         id="${result.id}"
       >
