@@ -7,9 +7,14 @@ const DeliveryPage = require('../views/DeliveryPage');
 const { Category, Delivery } = require('../../db/models');
 
 deliveryRouter.get('/', async (req, res) => {
-  const categories = await Category.findAll({ raw: true });
-  const deliveries = await Delivery.findAll({ raw: true });
-  renderTemplate(DeliveryPage, { categories, deliveries }, res);
+  const { email } = req.session;
+  try {
+    const categories = await Category.findAll({ raw: true });
+    const deliveries = await Delivery.findAll({ raw: true });
+    renderTemplate(DeliveryPage, { categories, deliveries, email }, res);
+  } catch (err) {
+    console.error(err);
+  }
 });
 
 deliveryRouter.post('/', async (req, res) => {

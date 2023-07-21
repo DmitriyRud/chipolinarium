@@ -2,9 +2,9 @@ const React = require('react');
 
 const Layout = require('./Layout');
 
-module.exports = function Delivery({ categories, deliveries }) {
+module.exports = function Delivery({ categories, deliveries, email }) {
   return (
-    <Layout categories={categories}>
+    <Layout categories={categories} email={email}>
       <script defer src="/js/delivery.js" />
       <link rel="stylesheet" href="/css/delivery.css" />
       <div className="delivery-container">
@@ -82,33 +82,52 @@ module.exports = function Delivery({ categories, deliveries }) {
               </tr>
             </thead>
 
-            <tbody>
-              {deliveries.length ? (
-                deliveries.map((el) => (
-                  <tr id={`tr-${el.id}`} key={el.id}>
-                    <td>{el.order_price}</td>
-                    <td>{el.delivery_price}</td>
-                    <td>
-                      {' '}
-                      <button
-                        type="button"
-                        className="btn usual-btn"
-                        data-delete-delivery={el.id}
-                        id={el.id}
-                      >
-                        Удалить
-                      </button>
-                    </td>
+            {email ? (
+              <tbody>
+                {deliveries.length ? (
+                  deliveries.map((el) => (
+                    <tr id={`tr-${el.id}`} key={el.id}>
+                      <td>{el.order_price}</td>
+                      <td>{el.delivery_price}</td>
+                      <td>
+                        {' '}
+                        <button
+                          type="button"
+                          className="btn btn-link usual-btn"
+                          data-delete-delivery={el.id}
+                          id={el.id}
+                        >
+                          Удалить
+                        </button>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td />
+                    <td />
                   </tr>
-                ))
-              ) : (
-                <tr>
-                  <td />
-                  <td />
-                </tr>
-              )}
-            </tbody>
+                )}
+              </tbody>
+            ) : (
+              <tbody>
+                {deliveries.length ? (
+                  deliveries.map((el) => (
+                    <tr id={`tr-${el.id}`} key={el.id}>
+                      <td>{el.order_price}</td>
+                      <td>{el.delivery_price}</td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td />
+                    <td />
+                  </tr>
+                )}
+              </tbody>
+            )}
           </table>
+
           <div style={{ width: '30%' }}>
             <p className="newFeedback" />
             <form id="deliveryForm" style={{ display: 'none' }}>
@@ -147,11 +166,15 @@ module.exports = function Delivery({ categories, deliveries }) {
             </form>
           </div>
         </div>
-        <div className="addBtn">
-          <button id="newDelivery" className="btn btn-light" type="submit">
-            Добавить
-          </button>
-        </div>
+        {email ? (
+          <div className="addBtn">
+            <button id="newDelivery" className="btn btn-light" type="submit">
+              Добавить
+            </button>
+          </div>
+        ) : (
+          <div />
+        )}
       </div>
     </Layout>
   );
