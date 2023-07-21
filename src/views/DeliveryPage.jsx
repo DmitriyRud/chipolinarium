@@ -75,13 +75,22 @@ module.exports = function Delivery({ categories, deliveries, email }) {
             className="table"
             style={{ border: '2px solid black' }}
           >
-            <thead>
-              <tr>
-                <th>Сумма заказа</th>
-                <th>Стоимость доставки</th>
-                <th> </th>
-              </tr>
-            </thead>
+            {email ? (
+              <thead>
+                <tr>
+                  <th>Сумма заказа</th>
+                  <th>Стоимость доставки</th>
+                  <th> </th>
+                </tr>
+              </thead>
+            ) : (
+              <thead>
+                <tr>
+                  <th>Сумма заказа</th>
+                  <th>Стоимость доставки</th>
+                </tr>
+              </thead>
+            )}
 
             {email ? (
               <tbody>

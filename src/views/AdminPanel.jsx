@@ -6,30 +6,39 @@ module.exports = function Login({ categories }) {
   return (
     <Layout categories={categories}>
       <script defer src="/js/adminPanel.js" />
-      <h2>Войдите на сайт</h2>
-      <hr />
-      <form id="logForm" name="logName">
-        <p className="paragraph"></p>
-        <label htmlFor="email" className="form-label">
-          email
-        </label>
-        <input name="email" type="email" className="form-control" id="email" />
-        <label htmlFor="Password" className="form-label">
-          Password
-        </label>
-        <input
-          name="password"
-          type="password"
-          className="form-control"
-          id="Password"
-        />
+      <div className="login_container">
+        <form id="logForm" name="logName">
+          <h2>Войдите на сайт</h2>
+          <hr />
+          <p className="paragraph"></p>
+          <label htmlFor="email" className="form-label">
+            email
+          </label>
+          <input
+            name="email"
+            type="email"
+            className="form-control"
+            id="email"
+          />
+          <br />
+          <label htmlFor="Password" className="form-label">
+            Password
+          </label>
+
+          <input
+            name="password"
+            type="password"
+            className="form-control"
+            id="Password"
+          />
+          <br />
+          <button type="button" className="btn button_price">
+            Отправить
+          </button>
+        </form>
         <hr />
-        <button type="button" className="btn btn-primary">
-          Отправить
-        </button>
-      </form>
-      <hr />
-      <h3 className="logMsg"> </h3>
+        <h3 className="logMsg"> </h3>
+      </div>
     </Layout>
   );
 };

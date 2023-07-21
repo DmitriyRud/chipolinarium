@@ -9,24 +9,30 @@ module.exports = function AccountPanel({ categories, feedbacks }) {
       <script defer src="/js/accountPanel.js" />
       <script defer src="/js/managerEmail.js" />
 
- 
-
       <div className="account_admin_container">
         <div className="Manager_container">
-            <form method='POST' className="manager_form">
-              <h3> Добавить менеджера для рассылки запросов </h3>
-              <p className="manager_message"></p>
-              <label>Введите email менеджера</label>
-              <input className="form-control" name="managerEmail" />
-              <button className="btn send-managerEmail-btn" type="submit">Отправить</button>
-            </form>
+          <form method="POST" className="manager_form">
+            <h3> Добавить менеджера для рассылки запросов </h3>
+            <p className="manager_message"></p>
+            <label>Введите email менеджера</label>
+            <input className="form-control" name="managerEmail" />
+            <button className="btn send-managerEmail-btn" type="submit">
+              Отправить
+            </button>
+          </form>
         </div>
 
         <div className="update-container">
-          <div className='logout-container'>
-            <button className="btn" type='button'><a href='/accountPanel/logout'  className='btn logout-btn'>Выйти из аккаунта</a></button>
+          <div className="logout-container">
+            <button className="btn" type="button">
+              <a href="/accountPanel/logout" className="btn logout-btn">
+                Выйти из аккаунта
+              </a>
+            </button>
           </div>
-          <button className="btn updateAdmin-btn" type="button">Обновить данные администратора</button>
+          <button className="btn updateAdmin-btn" type="button">
+            Обновить данные администратора
+          </button>
           <p className="message1" />
           <form action="#" method="POST" className="update-form">
             <label>Введите старый email</label>
@@ -41,12 +47,16 @@ module.exports = function AccountPanel({ categories, feedbacks }) {
             <input className="form-control" name="newPassword2" />
             <label>Введите 16-значный код, сгенерированный Google</label>
             <input className="form-control" name="code" />
-            <button className="btn send-update-btn" type="submit">Отправить</button>
-            <button className="btn close-update-btn" type="button">Закрыть</button>
+            <button className="btn send-update-btn" type="submit">
+              Отправить
+            </button>
+            <button className="btn close-update-btn" type="button">
+              Закрыть
+            </button>
           </form>
         </div>
         <div className="category_create_container">
-          <h2> Форма для создания категории </h2>
+          <h2> Форма для создания товара </h2>
 
           <h3> Создание категории </h3>
           <p className="createCategory" />
@@ -82,7 +92,7 @@ module.exports = function AccountPanel({ categories, feedbacks }) {
               className="form-control"
             />
             <div className="create_category_btn">
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn button_price">
                 Отправить
               </button>
             </div>
@@ -90,6 +100,7 @@ module.exports = function AccountPanel({ categories, feedbacks }) {
         </div>
 
         <div className="create_item_container">
+          <h2> Форма для создания категории </h2>
           <h3> Создание товара </h3>
 
           <p className="createItem" />
@@ -130,7 +141,7 @@ module.exports = function AccountPanel({ categories, feedbacks }) {
               className="form-control"
             />
 
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn button_price">
               Отправить
             </button>
           </form>
