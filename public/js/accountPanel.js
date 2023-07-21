@@ -1,51 +1,50 @@
 const { newCategory } = document.forms;
 
-const createCategory = document.querySelector(".createCategory");
-const inputs = document.querySelectorAll("input");
+const createCategory = document.querySelector('.createCategory');
+const inputs = document.querySelectorAll('input');
 
-const approvedFeedback = document.querySelector(".approved_feedback");
+const approvedFeedback = document.querySelector('.approved_feedback');
 
-const cardFeedback = document.querySelector(".card_feedback");
-const updateAdminBtn = document.querySelector(".updateAdmin-btn");
-const updateForm = document.querySelector(".update-form");
-const message = document.querySelector(".message1");
-const closeBtn = document.querySelector(".close-update-btn");
+const cardFeedback = document.querySelector('.card_feedback');
+const updateAdminBtn = document.querySelector('.updateAdmin-btn');
+const updateForm = document.querySelector('.update-form');
+const message = document.querySelector('.message1');
+const closeBtn = document.querySelector('.close-update-btn');
 
-
-newCategory.addEventListener("submit", async (event) => {
+newCategory.addEventListener('submit', async (event) => {
   event.preventDefault();
 
   const data = new FormData(newCategory);
 
   try {
-    const response = await fetch("/accountPanel", {
-      method: "POST",
+    const response = await fetch('/accountPanel', {
+      method: 'POST',
       body: data,
     });
     const result = await response.json();
     if (result.msg) {
       createCategory.innerText = result.msg;
-      inputs.forEach((el) => (el.value = ""));
+      inputs.forEach((el) => (el.value = ''));
     } else if (result.error) {
       createCategory.innerText = result.error;
     } else {
-      createCategory.innerText = "Ошибка базы данных";
+      createCategory.innerText = 'Ошибка базы данных';
     }
   } catch (error) {
-    console.log("owibka", error);
+    console.log('owibka', error);
   }
 });
 
-cardFeedback.addEventListener("click", async (e) => {
+cardFeedback.addEventListener('click', async (e) => {
   e.preventDefault();
   if (
-    e.target.tagName === "BUTTON" &&
-    e.target.classList.contains("approved")
+    e.target.tagName === 'BUTTON' &&
+    e.target.classList.contains('approved')
   ) {
     const response = await fetch(`/accountPanel/${e.target.id}`, {
-      method: "PUT",
+      method: 'PUT',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ id: e.target.id }),
     });
@@ -53,25 +52,25 @@ cardFeedback.addEventListener("click", async (e) => {
     if (result.msg) {
       approvedFeedback.innerText = result.msg;
       setTimeout(() => {
-        approvedFeedback.innerText = "";
+        approvedFeedback.innerText = '';
       }, 2000);
       const cardBody = document.getElementById(`card-${e.target.id}`);
       cardBody.remove();
     } else if (result.error) {
       approvedFeedback.innerText = result.error;
       setTimeout(() => {
-        approvedFeedback.innerText = "";
+        approvedFeedback.innerText = '';
       }, 2000);
     }
   } else if (
-    e.target.tagName === "BUTTON" &&
-    e.target.classList.contains("deleteFeedback")
+    e.target.tagName === 'BUTTON' &&
+    e.target.classList.contains('deleteFeedback')
   ) {
     try {
       const response = await fetch(`/accountPanel/${e.target.id}`, {
-        method: "DELETE",
+        method: 'DELETE',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ id: e.target.id }),
       });
@@ -79,30 +78,30 @@ cardFeedback.addEventListener("click", async (e) => {
       if (result.msg) {
         approvedFeedback.innerText = result.msg;
         setTimeout(() => {
-          approvedFeedback.innerText = "";
+          approvedFeedback.innerText = '';
         }, 2000);
         const cardBody = document.getElementById(`card-${e.target.id}`);
         cardBody.remove();
       } else if (result.error) {
         approvedFeedback.innerText = result.error;
         setTimeout(() => {
-          approvedFeedback.innerText = "";
+          approvedFeedback.innerText = '';
         }, 2000);
       }
     } catch (error) {
-      console.log("owibka", error);
+      console.log('owibka', error);
     }
   } else if (
-    e.target.tagName === "BUTTON" &&
-    e.target.classList.contains("editFeedback")
+    e.target.tagName === 'BUTTON' &&
+    e.target.classList.contains('editFeedback')
   ) {
     try {
       const response = await fetch(
         `/accountPanel/edit-feedback/${e.target.id}`,
         {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({ id: e.target.id }),
         }
@@ -143,11 +142,11 @@ cardFeedback.addEventListener("click", async (e) => {
     </button>
     </form>
     `;
-      cardFeedback.insertAdjacentHTML("beforebegin", editForm);
+      cardFeedback.insertAdjacentHTML('beforebegin', editForm);
 
       const { feedBackFormEdit } = document.forms;
 
-      feedBackFormEdit.addEventListener("submit", async (event) => {
+      feedBackFormEdit.addEventListener('submit', async (event) => {
         event.preventDefault();
 
         const dataEdit = new FormData(feedBackFormEdit);
@@ -157,9 +156,9 @@ cardFeedback.addEventListener("click", async (e) => {
           const resp = await fetch(
             `/accountPanel/edit-feedback/${e.target.id}`,
             {
-              method: "PUT",
+              method: 'PUT',
               headers: {
-                "Content-Type": "application/json",
+                'Content-Type': 'application/json',
               },
               body: JSON.stringify(inputsEdit),
             }
@@ -177,21 +176,21 @@ cardFeedback.addEventListener("click", async (e) => {
               </div>
               <div style='display: flex; flex-direction: column'>
                   <button
-                    id={feedback.id}
+                    id="${resultEdit.id}"
                     type="button"
                     class="btn btn-warning approved"
                   >
                     Отзыв прошёл
                   </button>
                   <button
-                    id={feedback.id}
+                  id="${resultEdit.id}"
                     type="button"
                     class="btn btn-warning deleteFeedback"
                   >
                     Удалить отзыв
                   </button>
                   <button
-                    id={feedback.id}
+                  id="${resultEdit.id}"
                     type="button"
                     class="btn btn-warning editFeedback"
                   >
@@ -200,7 +199,7 @@ cardFeedback.addEventListener("click", async (e) => {
                 </div>
             `;
           divEditContainer.innerHTML = newCardEdit;
-          const editFormResult = document.getElementById("feedBackFormEdit");
+          const editFormResult = document.getElementById('feedBackFormEdit');
           editFormResult.remove();
         } catch (error) {
           console.log(error);
@@ -212,37 +211,37 @@ cardFeedback.addEventListener("click", async (e) => {
 
 const { newItem } = document.forms;
 
-newItem.addEventListener("submit", async (event) => {
+newItem.addEventListener('submit', async (event) => {
   event.preventDefault();
 
   const dataItem = new FormData(newItem);
   try {
-    const response = await fetch("/accountPanel/item", {
-      method: "POST",
+    const response = await fetch('/accountPanel/item', {
+      method: 'POST',
       body: dataItem,
     });
     const result = await response.json();
     if (result.msg) {
       createCategory.innerText = result.msg;
-      inputs.forEach((el) => (el.value = ""));
+      inputs.forEach((el) => (el.value = ''));
     } else if (result.error) {
       createCategory.innerText = result.error;
     } else {
-      createCategory.innerText = "Ошибка базы данных";
+      createCategory.innerText = 'Ошибка базы данных';
     }
   } catch (error) {
-    console.log("owibka", error);
+    console.log('owibka', error);
   }
 });
-updateAdminBtn.addEventListener("click", (event) => {
+updateAdminBtn.addEventListener('click', (event) => {
   event.preventDefault();
-  updateForm.style = "display:block";
+  updateForm.style = 'display:block';
 });
-updateForm.addEventListener("submit", async (event) => {
+updateForm.addEventListener('submit', async (event) => {
   closeBtn.addEventListener('click', () => {
     updateForm.style = 'display:none';
-    message.innerText= '';
-  })
+    message.innerText = '';
+  });
   event.preventDefault();
   const data = new FormData(updateForm);
   const res = Object.fromEntries(data);
@@ -254,13 +253,13 @@ updateForm.addEventListener("submit", async (event) => {
     !res.newPassword2 ||
     !res.code
   ) {
-    message.innerText = "Пожалуйста, заполните все поля";
+    message.innerText = 'Пожалуйста, заполните все поля';
   } else {
     try {
-      const response = await fetch("/accountPanel/admin", {
-        method: "POST",
+      const response = await fetch('/accountPanel/admin', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(res),
       });
@@ -272,7 +271,7 @@ updateForm.addEventListener("submit", async (event) => {
         message.innerText = result.success;
       }
     } catch (error) {
-      console.log("FRONT", error);
+      console.log('FRONT', error);
     }
   }
 });
