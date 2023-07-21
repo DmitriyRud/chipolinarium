@@ -57,9 +57,9 @@ module.exports = function Layout({ children, categories }) {
                   <p className="contact_header__text">📞 +7(495)7951054</p>
                 </a>
                 <p className="contact_header__text">inmarcoplus@mail.ru</p>
-                <a href="#" className=" btn button_price">
+                <button type="button" className=" btn button_price">
                   Узнать цены
-                </a>
+                </button>
               </div>
             </div>
             <div className="flex_down">
@@ -119,6 +119,12 @@ module.exports = function Layout({ children, categories }) {
 
           <dialog id="modalPrice">
             <form method="dialog" className="dialogForm">
+              <div className="closeModalContainer">
+                <button type="button" className="closeModalWindow">
+                  {' '}
+                  ✖️
+                </button>
+              </div>
               <div className="home-price">
                 <div className="price-form">
                   <h3 className="price-form-title">Узнайте актуальные цены</h3>
@@ -183,9 +189,11 @@ module.exports = function Layout({ children, categories }) {
                   <a href="/delivery">
                     <li className="supplies_item">Доставка продуктов</li>
                   </a>
-                  <a href="#">
-                    <li className="supplies_item">Цены</li>
-                  </a>
+
+                  <li type="button" className="supplies_item modal_list">
+                    Цены
+                  </li>
+
                   <a href="/about">
                     <li className="supplies_item">О нас</li>
                   </a>
