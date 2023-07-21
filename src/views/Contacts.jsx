@@ -6,12 +6,9 @@ module.exports = function Contacts({ categories }) {
   return (
     <Layout categories={categories}>
       <link rel="stylesheet" href="/css/contacts.css" />
-      <div
-        className="container"
-        style={{ }}
-      >
-        <div>
-          <h2> Контакты </h2>
+      <div className="container contacts_container">
+        <div className="contacts">
+          <h2 className="titleCotn"> Контакты </h2>
           <p>
             {' '}
             <strong> ЮРИДИЧЕСКИЙ АДРЕС: </strong> 142117, МОСКОВСКАЯ ОБЛАСТЬ, Г.
@@ -31,16 +28,16 @@ module.exports = function Contacts({ categories }) {
             {' '}
             <strong> Отдел продаж: </strong>{' '}
           </p>
-          <ul>
-            <li> +7 (495) 7951054 </li>
+          <ul className="ul_contacts">
+            <li className="li_contacts"> +7 (495) 7951054 </li>
           </ul>
 
           <p>
             {' '}
             <strong> Для писем: </strong>{' '}
           </p>
-          <ul>
-            <li> INMARCOPLUS@MAIL.RU </li>
+          <ul className="ul_contacts">
+            <li className="li_contacts"> INMARCOPLUS@MAIL.RU </li>
           </ul>
         </div>
 

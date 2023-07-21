@@ -69,3 +69,11 @@
   background-image: url('/image/board-1.jpg');
   background-size: 400px;
 }
+.form_catalog {
+  background-color: #fff;
+  padding-left: 1rem;
+}
+.sendCategory {
+  margin: 1rem;
+  border: 1px solid black;
+}
