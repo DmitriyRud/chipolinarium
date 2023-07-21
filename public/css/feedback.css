@@ -2,7 +2,9 @@
   padding: 4rem 4rem 4rem 4rem;
   width: 100%;
 }
-
+#feedbackBtn {
+  width: 30%;
+}
 #feedBackForm {
   display: none;
 }
@@ -12,7 +14,9 @@
   color: var(--color-form-text);
   background-color: var(--color-chipollino);
 }
-
+.feedback_container {
+  width: 90%;
+}
 .sendFormBtn:hover,
 .closeFormBtn:hover {
   color: var(--color-form-text);

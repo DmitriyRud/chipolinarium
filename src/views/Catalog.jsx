@@ -4,32 +4,27 @@ const Layout = require('./Layout');
 module.exports = function Catalog({ categories, email }) {
   return (
     <Layout categories={categories} email={email}>
-      <script defer src='/js/catalog.js'/>
+      <script defer src="/js/catalog.js" />
       <link rel="stylesheet" href="/css/style.css" />
-      <link rel='stylesheet' href='/css/catalog.css'/>
-
-      <div className='allItems-container container'>
-        <a className="btn allItems" href="catalog/items">
-          показать все товары
-        </a>
-      </div>
+      <link rel="stylesheet" href="/css/catalog.css" />
 
       {email ? (
         <div id={categories.id} className="container category-container">
-          <a href="/accountPanel"> Добавить новую категорию</a>
+          <div className="allItems-container container">
+            <a href="/accountPanel" className="btn btn-card">
+              {' '}
+              Добавить новую категорию
+            </a>
+          </div>
           <div className="containerCategory">
             {categories.length ? (
               categories.map((category) => (
                 <div className="card" key={`${category.id}item`}>
-
-                 
-
-
                   <div
                     id={`card-hidden-${category.id}`}
                     className="card-hidden"
                   >
-      <img
+                    <img
                       id={`card-img-top-${category.id}`}
                       src={category.image}
                       className="card-img-top"
@@ -47,16 +42,19 @@ module.exports = function Catalog({ categories, email }) {
                       </p>
                     </div>
                     <div className="card-btn">
-                      <a className="btn-card btn" href={`/catalog/${category.id}`}>
+                      <a
+                        className="btn-card btn"
+                        href={`/catalog/${category.id}`}
+                        id="btnAdmin"
+                      >
                         подробнее
                       </a>
-
-
 
                       <button
                         type="button"
                         className="btn-card btn editBtn"
                         data-edit-category={category.id}
+                        id="btnAdmin"
                       >
                         изменить
                       </button>
@@ -64,8 +62,8 @@ module.exports = function Catalog({ categories, email }) {
                         type="button"
                         className="btn deleteBtn btn-card"
                         data-delete-item={category.id}
+                        id="btnAdmin"
                       >
-
                         удалить
                       </button>
                     </div>
@@ -81,19 +79,9 @@ module.exports = function Catalog({ categories, email }) {
                       encType="multipart/form-data"
                       name="newCategory"
                     >
-                      {/* <select name="categoryName" id="">
-                        {categories.length ? (
-                          categories.map((category) => (
-                            <option selected value={category.title}>
-                              {category.title}
-                            </option>
-                          ))
-                        ) : (
-                          <span> </span>
-                        )}
-                      </select> */}
-
-                      <label htmlFor="pic_input">*Фото:</label>
+                      <label htmlFor="pic_input" style={{ color: 'white' }}>
+                        *Фото:
+                      </label>
                       <input id="pic_input" type="file" name="photo" />
 
                       <label htmlFor="title">Название</label>
@@ -114,8 +102,10 @@ module.exports = function Catalog({ categories, email }) {
 
                       <button
                         type="button"
-                        className="btn btn-primary sendCategory"
+                        className="btn sendCategory"
                         data-send-edit-category={category.id}
+                        id="btnAdmin"
+                        style={{ color: 'white' }}
                       >
                         Отправить
                       </button>
@@ -132,9 +122,14 @@ module.exports = function Catalog({ categories, email }) {
         </div>
       ) : (
         <div className="container">
+          <div className="allItems-container container">
+            <a className="btn button_price" href="catalog/items">
+              показать все товары
+            </a>
+          </div>
           <div className="containerCategory">
             {categories.length ? (
-              categories.map(category => (
+              categories.map((category) => (
                 <div className="card" key={`${category.id}item`}>
                   <a href={`/catalog/${category.id}`}>
                     <div>
@@ -148,7 +143,11 @@ module.exports = function Catalog({ categories, email }) {
                         <p className="card-text">{category.description}</p>
                       </div>
                       <div className="card-btn">
-                        <a className="btn btn-card" href={`/catalog/${category.id}`} id={category.id}>
+                        <a
+                          className="btn btn-card"
+                          href={`/catalog/${category.id}`}
+                          id={category.id}
+                        >
                           подробнее
                         </a>
                       </div>

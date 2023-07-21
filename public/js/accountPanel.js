@@ -11,6 +11,7 @@ const updateForm = document.querySelector(".update-form");
 const message = document.querySelector(".message1");
 const closeBtn = document.querySelector(".close-update-btn");
 
+
 newCategory.addEventListener("submit", async (event) => {
   event.preventDefault();
 
@@ -235,7 +236,7 @@ newItem.addEventListener("submit", async (event) => {
 });
 updateAdminBtn.addEventListener("click", (event) => {
   event.preventDefault();
-  updateForm.style = "display: block";
+  updateForm.style = "display:block";
 });
 updateForm.addEventListener("submit", async (event) => {
   closeBtn.addEventListener('click', () => {

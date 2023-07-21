@@ -4,6 +4,7 @@ const Layout = require('./Layout');
 module.exports = function Home({ categories }) {
   return (
     <Layout categories={categories}>
+      <script defer src="/js/requestPriceHome.js" />
       <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
@@ -67,10 +68,10 @@ module.exports = function Home({ categories }) {
           <div className="home-price">
             <div className="price-form">
               <h3 className="price-form-title">Узнайте актуальные цены</h3>
-              <div className="price-form-description">
+              <div className="price-form-description formOnHome">
                 Заполните форму и мы пришлем Вам информацию об актуальных ценах
               </div>
-              <form method="POST">
+              <form className="formRequestPriceHome">
                 <div className="mb-3">
                   <input
                     className="form-price__input form-control"

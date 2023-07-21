@@ -10,7 +10,13 @@ module.exports = function Items({ categories, email, items }) {
 
       {email ? (
         <div id={items.category_id} className="container item-container">
-          <a href="/accountPanel">Добавить новый товар</a>
+          <div className="allItems-container container">
+            <a href="/accountPanel" className="btn btn-card">
+              {' '}
+              Добавить новый товар
+            </a>
+          </div>
+
           <div className="containerCategory">
             {items.length ? (
               items.map((item) => (
@@ -33,16 +39,9 @@ module.exports = function Items({ categories, email, items }) {
                     <div className="card-btn">
                       <button
                         type="submit"
-                        className="btn btn-card itemPriceRequest"
-                        data-order-item={item.id}
-                      >
-                        {' '}
-                        заказать
-                      </button>
-                      <button
-                        type="submit"
                         className="btn editBtn btn-card"
                         data-edit-item={item.id}
+                        id="btnAdmin"
                       >
                         изменить
                       </button>
@@ -50,6 +49,7 @@ module.exports = function Items({ categories, email, items }) {
                         type="submit"
                         className="btn deleteBtn btn-card"
                         data-delete-item={item.id}
+                        id="btnAdmin"
                       >
                         удалить
                       </button>
@@ -69,9 +69,6 @@ module.exports = function Items({ categories, email, items }) {
                         name="newItem"
                       >
                         <select name="categoryName" id="">
-                          {/* <option disabled selected>
-                          Обязательное поле
-                        </option> */}
                           {categories.length ? (
                             categories.map((category) =>
                               category.id === item.category_id ? (
@@ -89,7 +86,9 @@ module.exports = function Items({ categories, email, items }) {
                           )}
                         </select>
 
-                        <label htmlFor="pic_input">*Фото:</label>
+                        <label htmlFor="pic_input" style={{ color: 'white' }}>
+                          *Фото:
+                        </label>
                         <input id="pic_input" type="file" name="photoItem" />
 
                         <label htmlFor="pic_input">Название</label>
@@ -110,8 +109,10 @@ module.exports = function Items({ categories, email, items }) {
 
                         <button
                           type="button"
-                          className="btn btn-primary sendEditItem"
+                          className="btn sendEditItem"
                           data-send-edit-item={item.id}
+                          id="btnAdmin"
+                          style={{ color: 'white' }}
                         >
                           Отправить
                         </button>

@@ -20,7 +20,7 @@ module.exports = {
         type: Sequelize.BOOLEAN,
       },
       code: {
-        type: Sequelize.BIGINT,
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,

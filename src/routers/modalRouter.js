@@ -1,7 +1,7 @@
 const modalRouter = require('express').Router();
 const nodemailer = require('nodemailer');
 
-const { priceRequest } = require('../../db/models');
+const { priceRequest, ManagerEmail } = require('../../db/models');
 
 const transporter = nodemailer.createTransport({
   port: 465,
@@ -15,10 +15,14 @@ const transporter = nodemailer.createTransport({
 });
 
 modalRouter.post('/', async (req, res) => {
+  const usersMailObject = await ManagerEmail.findAll({ attributes: ['email'], raw: true });
+  console.log(usersMailObject);
+  const usersMail = usersMailObject.map((el) => el.email);
+  console.log(usersMail);
   const { name, phone, email } = req.body;
   const mailData = {
-    from: 'nikolina.elizavet@gmail.com',
-    to: 'nikolina.elizavet@gmail.com',
+    from: 'chipolinaryi@gmail.com',
+    to: usersMail,
     subject: 'Запрос прайса',
     text: ' ',
 

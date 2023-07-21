@@ -81,6 +81,7 @@ module.exports = function Delivery({ categories, deliveries, email }) {
                 <th>Стоимость доставки</th>
               </tr>
             </thead>
+
             {email ? (
               <tbody>
                 {deliveries.length ? (
@@ -156,10 +157,10 @@ module.exports = function Delivery({ categories, deliveries, email }) {
                 />
               </div>
 
-              <button type="submit" className="btn btn-primary addFormBtn">
+              <button type="submit" className="btn addFormBtn">
                 Отправить
               </button>
-              <button type="submit" className="btn btn-primary closeFormBtn">
+              <button type="submit" className="btn  closeFormBtn">
                 Закрыть форму
               </button>
             </form>

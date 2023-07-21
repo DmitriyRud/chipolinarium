@@ -8,7 +8,11 @@ module.exports = function Feedback({ categories, feedbacks }) {
       <link rel="stylesheet" href="/css/feedback.css" />
       <script defer src="/js/feedback.js" />
       <div className="main_feedback_container">
-        <button type="submit" className="btn btn-primary feedback">
+        <button
+          type="submit"
+          className="btn feedback button_price "
+          id="feedbackBtn"
+        >
           Написать отзыв
         </button>
 
@@ -58,7 +62,7 @@ module.exports = function Feedback({ categories, feedbacks }) {
               />
             </div>
 
-            <button type="submit" className="btn sendFormBtn">
+            <button id="1" type="submit" className="btn sendFormBtn">
               Отправить
             </button>
             <button type="submit" className="btn closeFormBtn">
