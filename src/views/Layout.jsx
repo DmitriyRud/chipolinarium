@@ -125,7 +125,7 @@ module.exports = function Layout({ children, categories }) {
                   ✖️
                 </button>
               </div>
-              <div className="home-price">
+              <div className="home-price modal-home-price">
                 <div className="price-form">
                   <h3 className="price-form-title">Узнайте актуальные цены</h3>
                   <div className="price-form-description">
