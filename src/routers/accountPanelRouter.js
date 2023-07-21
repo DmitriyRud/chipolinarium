@@ -146,7 +146,6 @@ accountPanelRouter.post('/admin', async (req, res) => {
   const {
     oldEmail, oldPassword, newEmail, newPassword1, newPassword2, code,
   } = req.body;
-  console.log(req.body);
   try {
     const checkUser = await User.findOne({ where: { email: oldEmail }, raw: true });
     if (checkUser) {
@@ -155,7 +154,7 @@ accountPanelRouter.post('/admin', async (req, res) => {
         if (newPassword1 === newPassword2) {
           const hashPassword = await bcrypt.hash(newPassword1, 5);
           await User.update({ email: newEmail, password: hashPassword, code }, { where: { id: checkUser.id } });
-          res.json({ success: 'success' });
+          res.json({ success: 'Данные успешно изменены' });
         } else {
           res.json({ msg: 'Пароли не совпадают' });
         }
@@ -166,8 +165,16 @@ accountPanelRouter.post('/admin', async (req, res) => {
       res.json({ msg: 'Такой email не зарегистрирован как администратор' });
     }
   } catch (error) {
-    console.log('ошибка серва', error);
+    console.log(error);
   }
 });
+
+accountPanelRouter.get('/logout', (req,res) =>{
+  req.session.destroy(() => {
+    res.clearCookie(process.env.COOKIE_NAME); 
+    res.redirect('/')
+  })
+})
+
 
 module.exports = accountPanelRouter;
