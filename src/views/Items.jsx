@@ -5,6 +5,7 @@ module.exports = function Items({ categories, email, items }) {
   return (
     <Layout categories={categories} email={email}>
       <link rel="stylesheet" href="/css/catalog.css" />
+      <link rel="stylesheet" href="/css/home.css" />
       <script defer src="/js/item.js" />
       <script defer src="/js/modalHeader.js" />
 
@@ -140,10 +141,13 @@ module.exports = function Items({ categories, email, items }) {
                     <p className="card-text">{item.description}</p>
                   </div>
                   <div className="card-btn">
-                    <a className="btn btn-card" href="#">
+                    <button
+                      type="button"
+                      className="btn btn-card itemPriceRequest"
+                    >
                       {' '}
                       заказать
-                    </a>
+                    </button>
                   </div>
                 </div>
               ))

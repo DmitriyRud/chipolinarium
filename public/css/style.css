@@ -5,7 +5,6 @@
   --color-text: black;
   --color-dark-green: #a2ac86;
 
-
   --color-button: white;
 }
 * {
@@ -187,6 +186,22 @@ iframe {
 .home-price {
   background-image: url('/image/modal.jpeg');
   background-size: 1200px;
+}
+
+.closeModalWindow {
+  background: none;
+  border: none;
+  font-size: 20px;
+  text-align: end;
+}
+
+.dialogForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.closeModalContainer {
+  align-self: flex-end;
 }
 
 @media (max-width: 900px) {
