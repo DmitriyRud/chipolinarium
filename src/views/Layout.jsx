@@ -204,7 +204,7 @@ module.exports = function Layout({ children, categories }) {
                 </ul>
               </div>
               <div className="catalog_container">
-                <h4 className='footer-title'>Каталог</h4>
+                <h4 className="footer-title">Каталог</h4>
                 <ul className="category_list">
                   {categories.length ? (
                     categories.map((category) => (
@@ -219,13 +219,13 @@ module.exports = function Layout({ children, categories }) {
               </div>
               <div className="info_container">
                 <div className="sales_department">
-                  <h4 className='footer-title'>Отдел продаж:</h4>
+                  <h4 className="footer-title">Отдел продаж:</h4>
                   <a href="tel:+74957951054" className="phone_link">
                     <span>📞 +7 (495) 7951054</span>
                   </a>
                 </div>
                 <div className="email_contact">
-                  <h4 className='footer-title'>Пишите нам:</h4>
+                  <h4 className="footer-title">Пишите нам:</h4>
                   <span>inmarcoplus@mail.ru</span>
                 </div>
               </div>
