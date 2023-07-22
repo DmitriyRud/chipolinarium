@@ -170,7 +170,7 @@ module.exports = function Layout({ children, categories }) {
                       <input
                         className="form-price__input form-control"
                         name="email"
-                        placeholder="Введите Ваше email"
+                        placeholder="Введите Ваш email"
                       />
                     </div>
                     <button
