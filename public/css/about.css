@@ -5,14 +5,9 @@
   margin-bottom: 2rem;
 }
 
-
-
-
-
 .about-text {
   text-align: start;
   font-size: 18px;
-
 }
 .item {
   margin-top: 3rem;
@@ -31,8 +26,6 @@
 .item-inner-text {
   width: 50%;
 
-
-
   margin: 5rem;
   font-size: 18px;
   text-align: start;
@@ -49,13 +42,11 @@
 } */
 
 @media (max-width: 900px) {
-
-
-
+  .item-inner-text {
     width: 100%;
     margin: 2rem;
-
   }
+
   .item-image {
     width: 100%;
     object-fit: cover;
@@ -65,9 +56,8 @@
     flex-direction: column;
   }
 }
-@media (min-width: 768px) and (max-width: 899px)  {
- 
-  .item{
+@media (min-width: 768px) and (max-width: 899px) {
+  .item {
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
