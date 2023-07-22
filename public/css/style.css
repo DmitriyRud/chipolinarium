@@ -151,6 +151,13 @@ footer {
   margin-bottom: 30px;
 }
 
+.price_form_alert_modal,
+.price_form_alert_home {
+  font-size: 20px;
+  font-weight: 800;
+  text-shadow: 2px 2px 4px #030303;
+}
+
 a {
   text-decoration: none;
 }
@@ -217,6 +224,7 @@ dialog {
   background-color: var(--color-dark-green);
   z-index: 1;
   box-shadow: 0 0 1000px 1000px rgba(0, 0, 0, 0.8);
+  padding: 3rem;
 }
 
 .login_container {
