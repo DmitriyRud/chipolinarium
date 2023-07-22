@@ -110,6 +110,7 @@ cardFeedback.addEventListener('click', async (e) => {
       const result = await response.json();
 
       const editForm = `
+      
     <form id="feedBackFormEdit">
     <div class="mb-3">
       <label htmlFor="exampleInputPassword1" class="form-label">
@@ -137,12 +138,16 @@ cardFeedback.addEventListener('click', async (e) => {
       />
     </div>
 
-    <button id=${result.id} type="submit" class="btn btn-primary">
+    <button id=${result.id} type="submit" class="btn btn-send-feed">
       Отправить
     </button>
     </form>
+
     `;
-      cardFeedback.insertAdjacentHTML('beforebegin', editForm);
+
+      if (!document.querySelector('#feedBackFormEdit')) {
+        cardFeedback.insertAdjacentHTML('beforebegin', editForm);
+      }
 
       const { feedBackFormEdit } = document.forms;
 
@@ -174,25 +179,26 @@ cardFeedback.addEventListener('click', async (e) => {
                 <h5 class="card-title">${resultEdit.name}</h5>
                 <p class="card-text">${resultEdit.body}</p>
               </div>
-              <div style='display: flex; flex-direction: column'>
+          
+              <div className="buttons-feedback">
                   <button
                     id="${resultEdit.id}"
                     type="button"
-                    class="btn btn-warning approved"
+                    class="btn approved"
                   >
                     Отзыв прошёл
                   </button>
                   <button
                   id="${resultEdit.id}"
                     type="button"
-                    class="btn btn-warning deleteFeedback"
+                    class="btn deleteFeedback"
                   >
                     Удалить отзыв
                   </button>
                   <button
                   id="${resultEdit.id}"
                     type="button"
-                    class="btn btn-warning editFeedback"
+                    class="btn editFeedback"
                   >
                     Изменить отзыв
                   </button>
