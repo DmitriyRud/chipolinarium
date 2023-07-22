@@ -1,6 +1,6 @@
 .map {
-  height: 400px;
-  width: 600px;
+  height: 35rem;
+  width: 35rem;
   padding: 2rem 0 3rem 0;
   margin: 0 1rem;
 }
@@ -12,11 +12,14 @@
 /* } */
 .contacts_container {
   display: flex;
+  padding: 2rem 0 0 3rem;
   justify-content: space-around;
-  padding: 2rem 3rem 0 3rem;
+  margin-left: 1rem;
+  flex-wrap: wrap;
 }
 .contacts {
   padding-right: 2rem;
+  max-width: 30rem;
 }
 .titleCotn {
   margin-bottom: 1rem;
@@ -24,4 +27,12 @@
 .ul_contacts {
   list-style: none;
   padding-left: 0;
+}
+
+@media (max-width: 650px) {
+  .map {
+    width: 20rem;
+    margin-right: 7rem;
+    height: 20rem;
+  }
 }
