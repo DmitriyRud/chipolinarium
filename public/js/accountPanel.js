@@ -238,11 +238,11 @@ updateAdminBtn.addEventListener('click', (event) => {
   event.preventDefault();
   updateForm.style = 'display:block';
 });
+closeBtn.addEventListener('click', () => {
+  updateForm.style = 'display:none';
+  message.innerText = '';
+});
 updateForm.addEventListener('submit', async (event) => {
-  closeBtn.addEventListener('click', () => {
-    updateForm.style = 'display:none';
-    message.innerText = '';
-  });
   event.preventDefault();
   const data = new FormData(updateForm);
   const res = Object.fromEntries(data);

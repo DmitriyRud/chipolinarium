@@ -34,14 +34,15 @@
   font-family: 'Amatic SC', cursive;
   font-size: 125px;
   color: #fff;
-  text-shadow: black 0 0 2px;
   font-weight: 1000;
+  text-shadow: 1px 1px 5px black;
 }
 
 .slide1-title p {
   font-family: 'Amatic SC', cursive;
   font-size: 85px;
   color: #fff;
+  text-shadow: 1px 1px 5px black;
 }
 
 .image_text_container {
@@ -53,7 +54,7 @@
   position: relative;
 }
 .slide2-container {
-  font-family: 'Amatic SC', cursive;
+  
   position: absolute;
   height: 10%;
   top: 25%;
@@ -64,11 +65,12 @@
   flex-direction: row;
   justify-content: space-around;
   opacity: 1;
-  text-shadow: black 0 0 2px;
+  text-shadow: 1px 1px 5px black;
   font-weight: 600;
 }
 
 .slide2-item {
+  font-family: 'Amatic SC', cursive;
   font-size: 65px;
   color: #fff;
   margin-left: 3rem;
@@ -98,6 +100,7 @@
   color: var(--color-form-text);
   border-radius: 6px;
   margin-bottom: 10rem;
+min-width: 20rem;
 }
 .price-form-title {
   margin-bottom: 30px;
@@ -169,13 +172,9 @@
   padding-bottom: 2rem;
 }
 
-@media (max-width: 700px) {
-  .slide2-item {
-    font-size: 45px;
-  }
-}
 
-@media (max-width: 900px) {
+
+/* @media (max-width: 900px) {
   .slide1-title h2 {
     font-size: 95px;
   }
@@ -183,3 +182,76 @@
     font-size: 55px;
   }
 }
+@media (max-width: 700px) {
+  .slide2-item {
+    font-size: 45px;
+  }
+} */
+@media (max-width: 900px) {
+  .home-title-text {
+    font-size: 28px;
+    
+  }
+}
+
+@media (max-width: 678px) {
+  .slide1-title h2{
+    font-size: 50px;
+    text-shadow: 1px 1px 2px black;
+   }
+   .slide1-title p{
+    font-size: 55px;
+   }
+   .image-slider{
+    width: 100%;
+   }
+   .home-title-text {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+}
+@media (max-width: 500px) {
+  .slide1-title h2{
+    font-size: 30px;
+    text-shadow: 1px 1px 2px black;
+   }
+   .slide1-title p{
+    font-size: 30px;
+   }
+   .slide2-item{
+    font-size: 30px;
+  }
+  .slide2-container{
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .home-title-text {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+  .home-title-description{
+    font-size: 12px;
+  }
+  .advantages-img img {
+    height: 4rem;
+  }
+  .advantages-img {
+    margin-bottom: 0rem;
+    height: 4rem;
+  }
+  .advantages-title{
+    font-size: 14px;
+    margin-bottom: 0.5rem;
+  }
+  .advantaged-descr {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 11.5px;
+    height: 4rem;
+  }
+}
+
