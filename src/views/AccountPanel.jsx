@@ -9,48 +9,20 @@ module.exports = function AccountPanel({ categories, feedbacks, managers }) {
       <script defer src="/js/accountPanel.js" />
       <script defer src="/js/managerEmail.js" />
       <script defer src="/js/managerDelete.js" />
+
       <div className="account_admin_container">
-        <div className="Manager_container">
-          <h2> Список менеджеров </h2>
-          <p className="infoDeleteManager" />
-          <ul className="managerEmailList">
-            {managers.length ? managers.map((manager) => (
-              <li>
-                {' '}
-                {manager.email}
-                {' '}
-                <button id={manager.id} type="button" className="deleteManagerBtn">×</button>
-                {' '}
-              </li>
-            )) : (<p> Менеджеры не добавлены </p>)}
-          </ul>
-          <form method="POST" className="manager_form">
-            <h3> Добавить менеджера для рассылки запросов </h3>
-            <p className="manager_message" />
-            <label>Введите email менеджера</label>
-            <input className="form-control managerEmail" name="managerEmail" />
-            <button className="btn send-managerEmail-btn" type="submit">
-              Отправить
-            </button>
-          </form>
+        <div className="logout-container">
+          <button className="btn" type="button">
+            <a
+              href="/accountPanel/logout"
+              className="btn logout-btn btn-danger"
+            >
+              Выйти из аккаунта
+            </a>
+          </button>
         </div>
-
         <div className="update-container">
-          <div className="logout-container">
-            <button className="btn" type="button">
-
-              <a
-                href="/accountPanel/logout"
-                className="btn logout-btn btn-danger"
-              >
-
-                Выйти из аккаунта
-              </a>
-            </button>
-          </div>
-
-          <button className="btn updateAdmin-btn btn-primary" type="button">
-
+          <button className="btn updateAdmin-btn" type="button">
             Обновить данные администратора
           </button>
           <p className="message1" />
@@ -67,26 +39,28 @@ module.exports = function AccountPanel({ categories, feedbacks, managers }) {
             <input className="form-control" name="newPassword2" />
             <label>Введите 16-значный код, сгенерированный Google</label>
             <input className="form-control" name="code" />
-            <button className="btn send-update-btn" type="submit">
-              Отправить
-            </button>
-            <button className="btn close-update-btn" type="button">
-              Закрыть
-            </button>
+            <div>
+              <button className="btn send-update-btn" type="submit">
+                Отправить
+              </button>
+              <button className="btn close-update-btn" type="button">
+                Закрыть
+              </button>
+            </div>
           </form>
         </div>
-        <div className="category_create_container">
-          <h2> Форма для создания товара </h2>
 
-          <h3> Создание категории </h3>
-          <p className="createCategory" />
+        <div className="forms_container">
+          <div className="category_create_container">
+            <h2> Форма для создания категории </h2>
+            <p className="createCategory" />
 
-          <form
-            id="newCategory"
-            encType="multipart/form-data"
-            name="newCategory"
-          >
-            <div className="input_photo">
+            <form
+              id="newCategory"
+              encType="multipart/form-data"
+              name="newCategory"
+            >
+              {/* <div className="pic_input"> */}
               <label htmlFor="pic_input">Выберите фото для категории:</label>
               <input
                 id="pic_input"
@@ -94,8 +68,9 @@ module.exports = function AccountPanel({ categories, feedbacks, managers }) {
                 name="photo"
                 className="form-control"
               />
-            </div>
-            <div className="input_title">
+              <br />
+              {/* </div> */}
+              {/* <div className="pic_input"> */}
               <label htmlFor="pic_input">Название: </label>
               <input
                 id="titleCategory"
@@ -103,68 +78,72 @@ module.exports = function AccountPanel({ categories, feedbacks, managers }) {
                 name="title"
                 className="form-control"
               />
-            </div>
-            <label htmlFor="pic_input">Описание категории</label>
-            <input
-              id="bodyCategory"
-              type="text"
-              name="description"
-              className="form-control"
-            />
-            <div className="create_category_btn">
+              <br />
+              {/* </div> */}
+              <label htmlFor="pic_input">Описание категории</label>
+              <input
+                id="bodyCategory"
+                type="text"
+                name="description"
+                className="form-control"
+              />
+              {/* <div className="create_category_btn"> */}
+              <button
+                type="submit"
+                className="btn button_price create_category_btn"
+              >
+                Отправить
+              </button>
+              {/* </div> */}
+            </form>
+          </div>
+
+          <div className="create_item_container">
+            <h2> Форма для создания товара </h2>
+            <p className="createItem" />
+
+            <form id="newItem" encType="multipart/form-data" name="newItem">
+              <label htmlFor="pic_input">Категория товара:</label>
+
+              <select name="categoryName" id="" className="form-control">
+                {categories.length ? (
+                  categories.map((category) => (
+                    <option value={category.title}>{category.title}</option>
+                  ))
+                ) : (
+                  <span> </span>
+                )}
+              </select>
+              <br />
+              <label htmlFor="pic_input">Выберите фото товара:</label>
+              <input
+                id="pic_input"
+                type="file"
+                name="photoItem"
+                className="form-control"
+              />
+              <br />
+              <label htmlFor="pic_input">Название:</label>
+              <input
+                id="titleItem"
+                type="text"
+                name="name"
+                className="form-control"
+              />
+              <br />
+              <label htmlFor="pic_input">Описание товара:</label>
+              <input
+                id="titleCategory"
+                type="text"
+                name="description"
+                className="form-control"
+              />
+
               <button type="submit" className="btn button_price">
                 Отправить
               </button>
-            </div>
-          </form>
-        </div>
-
-        <div className="create_item_container">
-          <h2> Форма для создания категории </h2>
-          <h3> Создание товара </h3>
-
-          <p className="createItem" />
-
-          <form id="newItem" encType="multipart/form-data" name="newItem">
-            <label htmlFor="pic_input">Категория товара</label>
-            <select name="categoryName" id="" className="form-control">
-              {categories.length ? (
-                categories.map((category) => (
-                  <option value={category.title}>{category.title}</option>
-                ))
-              ) : (
-                <span> </span>
-              )}
-            </select>
-
-            <label htmlFor="pic_input">Фото</label>
-            <input
-              id="pic_input"
-              type="file"
-              name="photoItem"
-              className="form-control"
-            />
-
-            <label htmlFor="pic_input">Название</label>
-            <input
-              id="titleItem"
-              type="text"
-              name="name"
-              className="form-control"
-            />
-
-            <label htmlFor="pic_input">Описание товара</label>
-            <input
-              id="titleCategory"
-              type="text"
-              name="description"
-              className="form-control"
-            />
-
-            <button type="submit" className="btn button_price">
-              Отправить
-            </button>
-          </form>
+            </form>
+          </div>
         </div>
 
         <div className="flex_feedback">
@@ -215,6 +194,35 @@ module.exports = function AccountPanel({ categories, feedbacks, managers }) {
               )}
             </div>
           </div>
+        </div>
+        <div className="Manager_container">
+          <h2> Список менеджеров </h2>
+          <p className="infoDeleteManager" />
+          <ul className="managerEmailList">
+            {managers.length ? (
+              managers.map((manager) => (
+                <li>
+                  {manager.email}
+                  <button
+                    id={manager.id}
+                    type="button"
+                    className="deleteManagerBtn"
+                  ></button>
+                </li>
+              ))
+            ) : (
+              <p> Менеджеры не добавлены </p>
+            )}
+          </ul>
+          <form method="POST" className="manager_form">
+            <h3> Добавить менеджера для рассылки запросов </h3>
+            <p className="manager_message" />
+            <label>Введите email менеджера</label>
+            <input className="form-control managerEmail" name="managerEmail" />
+            <button className="btn send-managerEmail-btn" type="submit">
+              Отправить
+            </button>
+          </form>
         </div>
       </div>
     </Layout>

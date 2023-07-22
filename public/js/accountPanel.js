@@ -210,11 +210,12 @@ cardFeedback.addEventListener('click', async (e) => {
 });
 
 const { newItem } = document.forms;
-
+const createItem = document.querySelector('.createItem');
 newItem.addEventListener('submit', async (event) => {
   event.preventDefault();
 
   const dataItem = new FormData(newItem);
+
   try {
     const response = await fetch('/accountPanel/item', {
       method: 'POST',
@@ -222,12 +223,12 @@ newItem.addEventListener('submit', async (event) => {
     });
     const result = await response.json();
     if (result.msg) {
-      createCategory.innerText = result.msg;
+      createItem.innerText = result.msg;
       inputs.forEach((el) => (el.value = ''));
     } else if (result.error) {
-      createCategory.innerText = result.error;
+      createItem.innerText = result.error;
     } else {
-      createCategory.innerText = 'Ошибка базы данных';
+      createItem.innerText = 'Ошибка базы данных';
     }
   } catch (error) {
     console.log('owibka', error);

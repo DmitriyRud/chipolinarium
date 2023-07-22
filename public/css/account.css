@@ -1,35 +1,45 @@
 .account_admin_container {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
+  /* justify-content: space-around; */
+  /* align-items: center; */
   flex-wrap: wrap;
   padding: 2rem 0;
+  margin-left: 3rem;
+  margin-right: 3rem;
 }
 
+.logout-container {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
 .category_create_container,
 .create_item_container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  border: 2px solid black;
+  border: 2px solid #656e49a7;
   border-radius: 5px;
-  margin: 1rem 2rem;
-  padding: 3rem;
+  margin: 1rem 1rem;
+  padding: 1rem;
+  width: 47%;
 }
 
 #newCategory,
 #newItem {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem;
+  align-items: flex-start;
 }
 
 #newItem select {
   text-align: center;
 }
 
-input,
+/* input, */
 button {
   margin-top: 1rem;
 }
@@ -65,13 +75,59 @@ button {
 }
 .update-form {
   display: none;
+  width: 47%;
 }
 
 .update-container {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
+  width: 100%; */
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 1rem;
 }
-.updateAdmin-btn {
-  /* margin: 0;
-  padding: 0; */
+.updateAdmin-btn,
+.send-update-btn,
+.close-update-btn {
+  color: var(--color-button);
+  background-color: var(--color-dark-green);
+  width: 47%;
+  margin-right: 2rem;
+}
+
+.updateAdmin-btn:hover,
+.send-update-btn:hover,
+.close-update-btn:hover {
+  background-color: var(--color-chipollino);
+  color: var(--color-text);
+}
+.forms_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+.createItem,
+.createCategory,
+.message1 {
+  color: brown;
+}
+
+@media (min-width: 768px) and (max-width: 1400px) {
+  .category_create_container,
+  .create_item_container {
+    width: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  .category_create_container,
+  .create_item_container {
+    width: 90%;
+  }
 }
