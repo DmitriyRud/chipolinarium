@@ -1,6 +1,6 @@
 .account_admin_container {
   display: flex;
-  justify-content: space-between;
+
   /* justify-content: space-around; */
   /* align-items: center; */
   flex-wrap: wrap;
@@ -25,6 +25,7 @@
   margin: 1rem 1rem;
   padding: 1rem;
   width: 47%;
+  justify-content: space-between;
 }
 
 #newCategory,
@@ -49,30 +50,39 @@ button {
 }
 
 .card_feedback {
+  background-color: transparent;
+  border: transparent;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
   align-self: center;
-  border: none;
+}
+.card_container_feedback {
+  background-color: white;
+  margin-bottom: 1rem;
+  width: 100%;
+  border: solid var(--color-dark-green);
 }
 
 .moderate_feedback_container {
-  margin: 1rem 3rem;
+  margin: 2rem;
 }
 
 .card_container_feedback {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   border-radius: 5px;
-  min-width: 300px;
+  /* min-width: 300px;
   margin-bottom: 3rem;
-  padding: 3rem;
+  padding: 3rem; */
   text-align: center;
+  width: 106.5%;
 }
 
 .card_container_feedback button {
   margin: 1rem;
 }
+
 .update-form {
   display: none;
   width: 47%;
@@ -97,14 +107,33 @@ button {
   color: var(--color-button);
   background-color: var(--color-dark-green);
   width: 47%;
-  margin-right: 2rem;
+  /* margin-right: 2rem; */
 }
-
+.approved,
+.deleteFeedback,
+.editFeedback,
+.btn-send-feed,
+.send-managerEmail-btn {
+  color: var(--color-button);
+  background-color: var(--color-dark-green);
+}
+.buttons-feedback {
+  display: flex;
+}
+.approved:hover,
+.deleteFeedback:hover,
+.editFeedback:hover,
 .updateAdmin-btn:hover,
 .send-update-btn:hover,
-.close-update-btn:hover {
+.close-update-btn:hover,
+.btn-send-feed:hover,
+.send-managerEmail-btn:hover {
   background-color: var(--color-chipollino);
   color: var(--color-text);
+}
+.buttons-update-container {
+  display: flex;
+  justify-content: space-between;
 }
 .forms_container {
   display: flex;
@@ -112,22 +141,88 @@ button {
   justify-content: space-between;
   width: 100%;
 }
+#newEditForm {
+  border: solid 1px black;
+}
 .createItem,
 .createCategory,
 .message1 {
   color: brown;
 }
 
+.logout-btn {
+  background-color: rgb(176, 51, 51);
+  color: white;
+}
+.logout-btn:hover {
+  background-color: red;
+}
+
+.flex_feedback_admin {
+  margin-left: -1rem;
+  width: 97%;
+}
+.div_manager_form {
+  width: 98%;
+}
+.Manager_container {
+  width: 100%;
+}
+/* .div_button_feedback {
+  display: flex;
+} */
+
 @media (min-width: 768px) and (max-width: 1400px) {
   .category_create_container,
-  .create_item_container {
+  .create_item_container,
+  .flex_feedback_admin {
     width: 70%;
+  }
+  .flex_feedback_admin,
+  .Manager_container {
+    width: 75%;
+  }
+  .update-form {
+    width: 71%;
+  }
+  .div_button_feedback {
+    display: flex;
+    justify-content: space-between;
+  }
+  .card_container_feedback button {
+    display: flex;
+    margin: 0.5rem;
+    justify-content: space-evenly;
   }
 }
 
 @media (max-width: 768px) {
   .category_create_container,
   .create_item_container {
-    width: 90%;
+    width: 100%;
+  }
+  .flex_feedback_admin,
+  .Manager_container {
+    width: 120%;
+  }
+  .update-form {
+    width: 100%;
+  }
+  .updateAdmin-btn {
+    width: 100%;
+  }
+  .div_button_feedback {
+    display: flex;
+  }
+  .card_container_feedback button {
+    display: flex;
+
+    justify-content: space-evenly;
+    margin: 0.2rem;
+    font-size: small;
+  }
+  .account_admin_container {
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 }

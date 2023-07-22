@@ -3,7 +3,7 @@ const paragraph = document.querySelector('.paragraph');
 logForm.addEventListener('click', async (e) => {
   const data = new FormData(logForm);
   const res = Object.fromEntries(data);
-  console.log(res);
+
   if (e.target.tagName === 'BUTTON') {
     if (!res.email || !res.password) {
       paragraph.innerText = `Заполните все поля`;
@@ -17,7 +17,7 @@ logForm.addEventListener('click', async (e) => {
           body: JSON.stringify(res),
         });
         const result = await response.json();
-        console.log('response:', result);
+
         const msg = document.querySelector('.logMsg');
 
         if (result.err) {

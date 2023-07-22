@@ -47,7 +47,6 @@ deliveryForm.addEventListener('click', async (e) => {
     e.target.classList.contains('addFormBtn') &&
     e.target.tagName === 'BUTTON'
   ) {
-    console.log('=============>');
     try {
       const response = await fetch('/delivery', {
         method: 'POST',

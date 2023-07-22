@@ -13,10 +13,7 @@ module.exports = function AccountPanel({ categories, feedbacks, managers }) {
       <div className="account_admin_container">
         <div className="logout-container">
           <button className="btn" type="button">
-            <a
-              href="/accountPanel/logout"
-              className="btn logout-btn btn-danger"
-            >
+            <a href="/accountPanel/logout" className="btn logout-btn ">
               Выйти из аккаунта
             </a>
           </button>
@@ -37,9 +34,8 @@ module.exports = function AccountPanel({ categories, feedbacks, managers }) {
             <input className="form-control" name="newPassword1" />
             <label>Подтвердите новый пароль</label>
             <input className="form-control" name="newPassword2" />
-            <label>Введите 16-значный код, сгенерированный Google</label>
-            <input className="form-control" name="code" />
-            <div>
+
+            <div className="buttons-update-container">
               <button className="btn send-update-btn" type="submit">
                 Отправить
               </button>
@@ -146,7 +142,7 @@ module.exports = function AccountPanel({ categories, feedbacks, managers }) {
           </div>
         </div>
 
-        <div className="flex_feedback">
+        <div className="flex_feedback_admin">
           <div className="moderate_feedback_container">
             <h2> Отзывы клиентов для модерации </h2>
 
@@ -163,25 +159,25 @@ module.exports = function AccountPanel({ categories, feedbacks, managers }) {
                       <p className="card-text">{feedback.body}</p>
                     </div>
                     <div>
-                      <div>
+                      <div className="div_button_feedback">
                         <button
                           id={feedback.id}
                           type="button"
-                          className="btn btn-warning approved"
+                          className="btn approved"
                         >
                           Отзыв прошёл
                         </button>
                         <button
                           id={feedback.id}
                           type="button"
-                          className="btn btn-warning deleteFeedback"
+                          className="btn deleteFeedback"
                         >
                           Удалить отзыв
                         </button>
                         <button
                           id={feedback.id}
                           type="button"
-                          className="btn btn-warning editFeedback"
+                          className="btn editFeedback"
                         >
                           Изменить отзыв
                         </button>
@@ -206,7 +202,8 @@ module.exports = function AccountPanel({ categories, feedbacks, managers }) {
                   <button
                     id={manager.id}
                     type="button"
-                    className="deleteManagerBtn"
+                    className="deleteManagerBtn btn-close"
+                    aria-label="Close"
                   ></button>
                 </li>
               ))
@@ -214,15 +211,21 @@ module.exports = function AccountPanel({ categories, feedbacks, managers }) {
               <p> Менеджеры не добавлены </p>
             )}
           </ul>
-          <form method="POST" className="manager_form">
-            <h3> Добавить менеджера для рассылки запросов </h3>
-            <p className="manager_message" />
-            <label>Введите email менеджера</label>
-            <input className="form-control managerEmail" name="managerEmail" />
-            <button className="btn send-managerEmail-btn" type="submit">
-              Отправить
-            </button>
-          </form>
+
+          <div className="div_manager_form">
+            <form method="POST" className="manager_form">
+              <h3> Добавить менеджера для рассылки запросов </h3>
+              <p className="manager_message" />
+              <label>Введите email менеджера</label>
+              <input
+                className="form-control managerEmail"
+                name="managerEmail"
+              />
+              <button className="btn send-managerEmail-btn" type="submit">
+                Отправить
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </Layout>

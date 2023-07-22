@@ -20,7 +20,8 @@ managerForm.addEventListener('submit', async (event) => {
       managerMessage.innerText = 'Почта менеджера успешно добавлена';
       managerEmail.value = '';
       const newManagerEmail = `
-      <li> ${result.email} <button id=${result.id} type="button" className="deleteManagerBtn">×</button></li>
+      <li> ${result.email} <button id=${result.id} type="button" class="deleteManagerBtn btn-close"
+      aria-label="Close"></button></li>
       `;
 
       managerEmailList.insertAdjacentHTML('beforeend', newManagerEmail);
