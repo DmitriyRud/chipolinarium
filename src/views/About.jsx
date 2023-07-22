@@ -1,5 +1,5 @@
-const React = require("react");
-const Layout = require("./Layout");
+const React = require('react');
+const Layout = require('./Layout');
 
 module.exports = function About({ categories }) {
   return (
@@ -17,7 +17,7 @@ module.exports = function About({ categories }) {
         <div className="item">
           <h3>Уникальные рецепты нашей компании</h3>
           <div className="item-inner">
-            <p className="item-inner-text">
+            <p className="item-inner-text inner-text">
               Наша команда талантливых шеф-поваров и кулинаров разработала
               уникальные рецепты для каждой категории нашего ассортимента. <br/>Мы
               тщательно подбирали самые лучшие сочетания ингредиентов и приправ,
@@ -36,7 +36,7 @@ module.exports = function About({ categories }) {
               <img className="item-image" src="/image/control.jpeg" />
             </div>
             <div className="item-inner-text">
-              <p>
+              <p className="inner-text">
                 Мы работаем только с проверенными поставщиками, которые
                 обеспечивают нам качественные овощи и ингредиенты, гарантируя
                 свежесть и вкус каждого блюда. Весь процесс производства в нашей
@@ -45,7 +45,7 @@ module.exports = function About({ categories }) {
                 оформления и упаковки, чтобы вы получили продукцию, которая
                 радует глаз и утоляет ваш аппетит.
               </p>
-              <p>
+              <p className="inner-text">
                 Наша компания гордится своим профессионализмом, вниманием к
                 деталям и стремлением к исключительному качеству. Мы стремимся
                 удовлетворить ваши вкусовые предпочтения и сделать ваш опыт

@@ -119,8 +119,8 @@ module.exports = function Layout({ children, categories }) {
 
           <dialog id="modalPrice">
             <form method="dialog" className="dialogForm">
-              <div className="home-price modal-home-price">
-                <div className="price-form dialogPriceForm">
+              <div className="modal-home-price">
+                <div className="dialogPriceForm">
                   <div className="closeModalContainer">
                     <button type="button" className="closeModalWindow">
                       {' '}
@@ -131,6 +131,7 @@ module.exports = function Layout({ children, categories }) {
                   <div className="price-form-description">
                     Заполните форму и мы пришлем Вам информацию об актуальных
                     ценах
+                    <p className="price_form_alert_modal" />
                   </div>
                   <form method="POST">
                     <div className="mb-3">
