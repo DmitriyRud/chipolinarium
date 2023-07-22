@@ -7,8 +7,7 @@
 }
 
 .about-text{
-    text-align: center;
-
+    text-align: left;
 
 }
 .item {
@@ -27,7 +26,6 @@
 }
 .item-inner-text {
   width: 50%;
-  font-size: 14px;
   text-align: center;
   margin: 5rem;
 }
@@ -46,7 +44,21 @@
     } */
   .item-inner-text {
     width: 50%;
-    font-size: 14px;
+  }
+  .item-image {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+@media (min-width: 768px) and (max-width: 899px)  {
+ 
+  .item{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .item-inner-text {
+    /* width: 50%; */
+    margin: 1rem;
   }
   .item-image {
     width: 100%;
