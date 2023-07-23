@@ -192,8 +192,7 @@ cardFeedback.addEventListener('click', async (e) => {
               `card-${resultEdit.id}`
             );
 
-
-          const newCardEdit = `
+            const newCardEdit = `
             <div class="card-body" key=${resultEdit.id}>
                 <h5 class="card-title">${resultEdit.name}</h5>
                 <p class="card-text">${resultEdit.body}</p>
@@ -222,7 +221,7 @@ cardFeedback.addEventListener('click', async (e) => {
                     Изменить отзыв
                   </button>
                 </div>
-                
+                `;
             divEditContainer.innerHTML = newCardEdit;
             const editFormResult = document.getElementById('feedBackFormEdit');
             editFormResult.remove();
@@ -287,7 +286,7 @@ updateForm.addEventListener('submit', async (event) => {
     !inputValidationOldPassword ||
     !inputValidationNewEmail ||
     !inputValidationNewPassword1 ||
-    !inputValidationOldPassword2 ||
+    !inputValidationOldPassword2
   ) {
     message.innerText = 'Поля не могут быть пустыми!';
   } else if (
