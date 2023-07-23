@@ -9,25 +9,34 @@ managerForm.addEventListener('submit', async (event) => {
   const data = new FormData(managerForm);
   const input = Object.fromEntries(data);
 
-  try {
-    const response = await fetch('/accountPanel/manager', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(input),
-    });
-    const result = await response.json();
-    if (result.email) {
-      managerMessage.innerText = 'Почта менеджера успешно добавлена';
-      managerEmail.value = '';
-      const newManagerEmail = `
-      <li> ${result.email} <button id=${result.id} type="button" className="deleteManagerBtn">×</button></li>
-      `;
+  const inputValidationEmail = input.managerEmail.trim();
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/g;
 
-      managerEmailList.insertAdjacentHTML('beforeend', newManagerEmail);
-    } else if (result.msg) {
-      managerMessage.innerText = result.msg;
+  if (!inputValidationEmail) {
+    managerMessage.innerText = 'Поле email не может быть пустым!';
+  } else if (input.managerEmail.match(emailPattern) === null) {
+    managerMessage.innerText = 'Некорректный email';
+  } else {
+    try {
+      const response = await fetch('/accountPanel/manager', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(input),
+      });
+      const result = await response.json();
+      if (result.email) {
+        managerMessage.innerText = 'Почта менеджера успешно добавлена';
+        managerEmail.value = '';
+        const newManagerEmail = `
+        <li> ${result.email} <button id=${result.id} type="button" className="deleteManagerBtn">×</button></li>
+        `;
+
+        managerEmailList.insertAdjacentHTML('beforeend', newManagerEmail);
+      } else if (result.msg) {
+        managerMessage.innerText = result.msg;
+      }
+    } catch (error) {
+      console.log('owibka', error);
     }
-  } catch (error) {
-    console.log('owibka', error);
   }
 });

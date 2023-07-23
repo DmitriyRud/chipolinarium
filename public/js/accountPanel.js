@@ -15,23 +15,29 @@ newCategory.addEventListener('submit', async (event) => {
   event.preventDefault();
 
   const data = new FormData(newCategory);
-
-  try {
-    const response = await fetch('/accountPanel', {
-      method: 'POST',
-      body: data,
-    });
-    const result = await response.json();
-    if (result.msg) {
-      createCategory.innerText = result.msg;
-      inputs.forEach((el) => (el.value = ''));
-    } else if (result.error) {
-      createCategory.innerText = result.error;
-    } else {
-      createCategory.innerText = 'Ошибка базы данных';
+  const categoryInputs = Object.fromEntries(data);
+  const inputValidationTitle = categoryInputs.title.trim();
+  const inputValidationDescription = categoryInputs.description.trim();
+  if (!inputValidationTitle || !inputValidationDescription) {
+    createCategory.innerText = 'Поля не могут быть пустыми!';
+  } else {
+    try {
+      const response = await fetch('/accountPanel', {
+        method: 'POST',
+        body: data,
+      });
+      const result = await response.json();
+      if (result.msg) {
+        createCategory.innerText = result.msg;
+        inputs.forEach((el) => (el.value = ''));
+      } else if (result.error) {
+        createCategory.innerText = result.error;
+      } else {
+        createCategory.innerText = 'Ошибка базы данных';
+      }
+    } catch (error) {
+      console.log('owibka', error);
     }
-  } catch (error) {
-    console.log('owibka', error);
   }
 });
 
@@ -111,6 +117,7 @@ cardFeedback.addEventListener('click', async (e) => {
 
       const editForm = `
     <form id="feedBackFormEdit">
+    <p class="feedback_alert_edit"></p>
     <div class="mb-3">
       <label htmlFor="exampleInputPassword1" class="form-label">
         Ваше имя
@@ -149,63 +156,77 @@ cardFeedback.addEventListener('click', async (e) => {
       feedBackFormEdit.addEventListener('submit', async (event) => {
         event.preventDefault();
 
+        const feedbackAlert = document.querySelector('.feedback_alert_edit');
+
         const dataEdit = new FormData(feedBackFormEdit);
         const inputsEdit = Object.fromEntries(dataEdit);
 
-        try {
-          const resp = await fetch(
-            `/accountPanel/edit-feedback/${e.target.id}`,
-            {
-              method: 'PUT',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(inputsEdit),
-            }
-          );
-          const resultEdit = await resp.json();
+        const inputValidationName = inputsEdit.name.trim();
+        const inputValidationBody = inputsEdit.body.trim();
+        const namePattern = /^[A-Za-zА-Яа-яЁё\s]*$/g;
 
-          const divEditContainer = document.getElementById(
-            `card-${resultEdit.id}`
-          );
+        if (!inputValidationName || !inputValidationBody) {
+          feedbackAlert.innerText = 'Поля не могут быть пустыми!';
+        } else if (inputsEdit.name.match(namePattern) === null) {
+          feedbackAlert.innerText = 'Недопустимое значение в поле Имя!';
+        } else {
+          try {
+            const resp = await fetch(
+              `/accountPanel/edit-feedback/${e.target.id}`,
+              {
+                method: 'PUT',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(inputsEdit),
+              }
+            );
+            const resultEdit = await resp.json();
 
-          const newCardEdit = `
-            <div class="card-body" key=${resultEdit.id}>
-                <h5 class="card-title">${resultEdit.name}</h5>
-                <p class="card-text">${resultEdit.body}</p>
-              </div>
-              <div style='display: flex; flex-direction: column'>
-                  <button
-                    id="${resultEdit.id}"
-                    type="button"
-                    class="btn btn-warning approved"
-                  >
-                    Отзыв прошёл
-                  </button>
-                  <button
-                  id="${resultEdit.id}"
-                    type="button"
-                    class="btn btn-warning deleteFeedback"
-                  >
-                    Удалить отзыв
-                  </button>
-                  <button
-                  id="${resultEdit.id}"
-                    type="button"
-                    class="btn btn-warning editFeedback"
-                  >
-                    Изменить отзыв
-                  </button>
+            const divEditContainer = document.getElementById(
+              `card-${resultEdit.id}`
+            );
+
+            const newCardEdit = `
+              <div class="card-body" key=${resultEdit.id}>
+                  <h5 class="card-title">${resultEdit.name}</h5>
+                  <p class="card-text">${resultEdit.body}</p>
                 </div>
-            `;
-          divEditContainer.innerHTML = newCardEdit;
-          const editFormResult = document.getElementById('feedBackFormEdit');
-          editFormResult.remove();
-        } catch (error) {
-          console.log(error);
+                <div style='display: flex; flex-direction: column'>
+                    <button
+                      id="${resultEdit.id}"
+                      type="button"
+                      class="btn btn-warning approved"
+                    >
+                      Отзыв прошёл
+                    </button>
+                    <button
+                    id="${resultEdit.id}"
+                      type="button"
+                      class="btn btn-warning deleteFeedback"
+                    >
+                      Удалить отзыв
+                    </button>
+                    <button
+                    id="${resultEdit.id}"
+                      type="button"
+                      class="btn btn-warning editFeedback"
+                    >
+                      Изменить отзыв
+                    </button>
+                  </div>
+              `;
+            divEditContainer.innerHTML = newCardEdit;
+            const editFormResult = document.getElementById('feedBackFormEdit');
+            editFormResult.remove();
+          } catch (error) {
+            console.log(error);
+          }
         }
       });
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 });
 
@@ -246,15 +267,27 @@ updateForm.addEventListener('submit', async (event) => {
   event.preventDefault();
   const data = new FormData(updateForm);
   const res = Object.fromEntries(data);
+
+  const inputValidationOldEmail = res.oldEmail.trim();
+  const inputValidationOldPassword = res.oldPassword.trim();
+  const inputValidationNewEmail = res.newEmail.trim();
+  const inputValidationNewPassword1 = res.newPassword1.trim();
+  const inputValidationOldPassword2 = res.newPassword2.trim();
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/g;
+
   if (
-    !res.oldEmail ||
-    !res.oldPassword ||
-    !res.newEmail ||
-    !res.newPassword1 ||
-    !res.newPassword2 ||
-    !res.code
+    !inputValidationOldEmail ||
+    !inputValidationOldPassword ||
+    !inputValidationNewEmail ||
+    !inputValidationNewPassword1 ||
+    !inputValidationOldPassword2 ||
   ) {
-    message.innerText = 'Пожалуйста, заполните все поля';
+    message.innerText = 'Поля не могут быть пустыми!';
+  } else if (
+    res.oldEmail.match(emailPattern) ||
+    res.newEmail.match(emailPattern)
+  ) {
+    message.innerText = 'Некорректный email!';
   } else {
     try {
       const response = await fetch('/accountPanel/admin', {

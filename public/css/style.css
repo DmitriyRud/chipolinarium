@@ -149,6 +149,8 @@ footer {
 }
 .price-form-description {
   margin-bottom: 30px;
+  color: var(--color-form-text);
+  text-align: center;
 }
 
 .price_form_alert_modal,
@@ -227,6 +229,23 @@ dialog {
   padding: 3rem;
 }
 
+.modalPriceBtn {
+  background-color: var(--color-form-text);
+  color: var(--primary-color);
+  text-transform: uppercase;
+  font-size: 700;
+  width: 100%;
+}
+
+.modalPriceBtn:hover {
+  background-color: var(--color-chipollino);
+  color: var(--primary-color);
+}
+
+.dialog .modalPriceBtn {
+  background-color: var(--color-form-text);
+}
+
 .login_container {
   display: flex;
   justify-content: center;
@@ -235,6 +254,10 @@ dialog {
 }
 #logForm {
   width: 80%;
+}
+
+.paragraph {
+  color: brown;
 }
 
 @media (max-width: 900px) {
