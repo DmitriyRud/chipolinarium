@@ -25,6 +25,7 @@
 }
 .item-inner-text {
   width: 50%;
+
   margin: 5rem;
   font-size: 18px;
   text-align: start;
@@ -45,6 +46,7 @@
     width: 100%;
     margin: 2rem;
   }
+
   .item-image {
     width: 100%;
     object-fit: cover;
@@ -52,5 +54,19 @@
   }
   .item-inner {
     flex-direction: column;
+  }
+}
+@media (min-width: 768px) and (max-width: 899px) {
+  .item {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .item-inner-text {
+    /* width: 50%; */
+    margin: 1rem;
+  }
+  .item-image {
+    width: 100%;
+    object-fit: cover;
   }
 }

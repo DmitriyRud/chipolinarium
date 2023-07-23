@@ -48,6 +48,7 @@ deliveryForm.addEventListener('click', async (e) => {
     e.target.classList.contains('addFormBtn') &&
     e.target.tagName === 'BUTTON'
   ) {
+
     const inputValidationOrderPrice = inputs.order_price.trim();
     const inputValidationDeliveryPrice = inputs.delivery_price.trim();
     if (!inputValidationOrderPrice || !inputValidationDeliveryPrice) {
@@ -77,6 +78,7 @@ deliveryForm.addEventListener('click', async (e) => {
             td.innerText = tdValue[i];
             tr.appendChild(td);
           }
+
           const td = document.createElement('td');
           td.innerHTML = ` <button
           type="button"

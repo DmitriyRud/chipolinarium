@@ -8,7 +8,7 @@ const path = require('path');
 
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
-const isAuth = require('./src/middlewares/isAuth')
+const { isAuth } = require('./src/middlewares/isAuth');
 
 const indexRouter = require('./src/routers/indexRouter');
 

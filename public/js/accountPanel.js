@@ -116,6 +116,7 @@ cardFeedback.addEventListener('click', async (e) => {
       const result = await response.json();
 
       const editForm = `
+      
     <form id="feedBackFormEdit">
     <p class="feedback_alert_edit"></p>
     <div class="mb-3">
@@ -144,12 +145,16 @@ cardFeedback.addEventListener('click', async (e) => {
       />
     </div>
 
-    <button id=${result.id} type="submit" class="btn btn-primary">
+    <button id=${result.id} type="submit" class="btn btn-send-feed">
       Отправить
     </button>
     </form>
+
     `;
-      cardFeedback.insertAdjacentHTML('beforebegin', editForm);
+
+      if (!document.querySelector('#feedBackFormEdit')) {
+        cardFeedback.insertAdjacentHTML('beforebegin', editForm);
+      }
 
       const { feedBackFormEdit } = document.forms;
 
@@ -187,35 +192,37 @@ cardFeedback.addEventListener('click', async (e) => {
               `card-${resultEdit.id}`
             );
 
-            const newCardEdit = `
-              <div class="card-body" key=${resultEdit.id}>
-                  <h5 class="card-title">${resultEdit.name}</h5>
-                  <p class="card-text">${resultEdit.body}</p>
+
+          const newCardEdit = `
+            <div class="card-body" key=${resultEdit.id}>
+                <h5 class="card-title">${resultEdit.name}</h5>
+                <p class="card-text">${resultEdit.body}</p>
+              </div>
+          
+              <div className="buttons-feedback">
+                  <button
+                    id="${resultEdit.id}"
+                    type="button"
+                    class="btn approved"
+                  >
+                    Отзыв прошёл
+                  </button>
+                  <button
+                  id="${resultEdit.id}"
+                    type="button"
+                    class="btn deleteFeedback"
+                  >
+                    Удалить отзыв
+                  </button>
+                  <button
+                  id="${resultEdit.id}"
+                    type="button"
+                    class="btn editFeedback"
+                  >
+                    Изменить отзыв
+                  </button>
                 </div>
-                <div style='display: flex; flex-direction: column'>
-                    <button
-                      id="${resultEdit.id}"
-                      type="button"
-                      class="btn btn-warning approved"
-                    >
-                      Отзыв прошёл
-                    </button>
-                    <button
-                    id="${resultEdit.id}"
-                      type="button"
-                      class="btn btn-warning deleteFeedback"
-                    >
-                      Удалить отзыв
-                    </button>
-                    <button
-                    id="${resultEdit.id}"
-                      type="button"
-                      class="btn btn-warning editFeedback"
-                    >
-                      Изменить отзыв
-                    </button>
-                  </div>
-              `;
+                
             divEditContainer.innerHTML = newCardEdit;
             const editFormResult = document.getElementById('feedBackFormEdit');
             editFormResult.remove();
@@ -259,11 +266,11 @@ updateAdminBtn.addEventListener('click', (event) => {
   event.preventDefault();
   updateForm.style = 'display:block';
 });
+closeBtn.addEventListener('click', () => {
+  updateForm.style = 'display:none';
+  message.innerText = '';
+});
 updateForm.addEventListener('submit', async (event) => {
-  closeBtn.addEventListener('click', () => {
-    updateForm.style = 'display:none';
-    message.innerText = '';
-  });
   event.preventDefault();
   const data = new FormData(updateForm);
   const res = Object.fromEntries(data);

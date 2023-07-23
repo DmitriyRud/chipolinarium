@@ -27,7 +27,24 @@ module.exports = function Layout({ children, categories }) {
           crossOrigin="anonymous"
         />
         <script defer src="/js/modalHeader.js" />
-
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
         <title>Чиполинарий</title>
       </head>
       <body>
@@ -153,7 +170,7 @@ module.exports = function Layout({ children, categories }) {
                       <input
                         className="form-price__input form-control"
                         name="email"
-                        placeholder="Введите Ваше email"
+                        placeholder="Введите Ваш email"
                       />
                     </div>
                     <button
@@ -204,7 +221,7 @@ module.exports = function Layout({ children, categories }) {
                 </ul>
               </div>
               <div className="catalog_container">
-                <h4 className="catalog_header">Каталог</h4>
+                <h4 className="footer-title">Каталог</h4>
                 <ul className="category_list">
                   {categories.length ? (
                     categories.map((category) => (
@@ -219,18 +236,17 @@ module.exports = function Layout({ children, categories }) {
               </div>
               <div className="info_container">
                 <div className="sales_department">
-                  <h4>Отдел продаж:</h4>
+                  <h4 className="footer-title">Отдел продаж:</h4>
                   <a href="tel:+74957951054" className="phone_link">
                     <span>📞 +7 (495) 7951054</span>
                   </a>
                 </div>
-                <div className="email_contact">
-                  <h4>Пишите нам:</h4>
+                 <div className="email_contact">
+                  <h4 className="footer-title">Пишите нам:</h4>
                   <span>inmarcoplus@mail.ru</span>
                 </div>
               </div>
             </div>
-            <div className="footer_down" />
           </div>
         </footer>
         <script

@@ -1,6 +1,6 @@
-const React = require('react');
+const React = require("react");
 
-const Layout = require('./Layout');
+const Layout = require("./Layout");
 
 module.exports = function Delivery({ categories, deliveries, email }) {
   return (
@@ -9,14 +9,13 @@ module.exports = function Delivery({ categories, deliveries, email }) {
       <link rel="stylesheet" href="/css/delivery.css" />
       <div className="delivery-container">
         <h2 className="delivery-title">
-          {' '}
-          Доставка продуктов в рестораны и кафе{' '}
+          {" "}
+          Доставка продуктов в рестораны и кафе{" "}
         </h2>
         <div className="delivery-inner">
           <div className="text-container">
             <p>
-              Дорогие Коллеги. В связи со сложившейся ситуацией наша компания
-              расширяет спектр своих услуг. В настоящее время мы осуществляем
+ В настоящее время мы осуществляем
               доставку продуктов высокого качества не только организациям,
               профилем которых является сфера общественного питания, но и
               физическим лицам (на дом) по Москве и МО.
@@ -27,26 +26,23 @@ module.exports = function Delivery({ categories, deliveries, email }) {
               пределами МКАД доставка обсуждается индивидуально.
             </p>
             <p>
-              Заказы осуществляются удобным для Вас способом по тел. 8 977 290
-              97 39. Оперативная доставка 24/7!
+              Заказы принимаются удобным для Вас способом по телефону +7(495)7951054. Оперативная доставка 24/7!
             </p>
           </div>
-          <div className="delivery-image">
+          
             <img
               className="delivery-image__img"
               src="/image/delivery2.png"
             ></img>
-          </div>
+          
         </div>
         <p>
-          Обращаясь в компанию "Сити Продукт", Вы сможете размещать заказы на
-          полный ассортимент товаров, которые необходимы для организации работы
-          кухни в вашем заведении: это не только продовольственные товары, но
-          также хозяйственные принадлежности, предметы сервировки стола и другие
-          сопутствующие товары. Полный перечень товаров представлен в нашем
-          каталоге.
+          Обращаясь в компанию "Инмарко Плюс", Вы сможете размещать заказы на
+          любые виды виды солений и салатов, представленные в нашем каталоге.
+          При размещении заказа наши менеджеры свяжутся с Вами для консультации
+          и ответят на все интересующие Вас вопросы.
         </p>
-      </div>
+      
 
       <div className="delivery">
         <h2 className="delivery-title">Регион и условия доставки продуктов</h2>
@@ -73,7 +69,7 @@ module.exports = function Delivery({ categories, deliveries, email }) {
           <table
             id="delivery_table"
             className="table"
-            style={{ border: '2px solid black' }}
+            style={{ border: "2px solid black" }}
           >
             {email ? (
               <thead>
@@ -100,7 +96,7 @@ module.exports = function Delivery({ categories, deliveries, email }) {
                       <td>{el.order_price}</td>
                       <td>{el.delivery_price}</td>
                       <td>
-                        {' '}
+                        {" "}
                         <button
                           type="button"
                           className="btn usual-btn"
@@ -138,9 +134,9 @@ module.exports = function Delivery({ categories, deliveries, email }) {
             )}
           </table>
 
-          <div style={{ width: '30%' }}>
+          <div style={{ width: "30%" }}>
             <p className="newFeedback" />
-            <form id="deliveryForm" style={{ display: 'none' }}>
+            <form id="deliveryForm" style={{ display: "none" }}>
               <div className="mb-3">
                 <label htmlFor="exampleInputPassword1" className="form-label">
                   Cтоимость заказа
@@ -185,6 +181,7 @@ module.exports = function Delivery({ categories, deliveries, email }) {
         ) : (
           <div />
         )}
+      </div>
       </div>
     </Layout>
   );
