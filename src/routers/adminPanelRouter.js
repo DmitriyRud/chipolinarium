@@ -5,8 +5,9 @@ const renderTemplate = require('../lib/renderTemplate');
 const AdminPanel = require('../views/AdminPanel');
 const { User } = require('../../db/models');
 const { Category } = require('../../db/models');
+const { isNoAuth } = require('../middlewares/isAuth');
 
-router.get('/', async (req, res) => {
+router.get('/', isNoAuth, async (req, res) => {
   try {
     const categories = await Category.findAll({ raw: true });
     renderTemplate(AdminPanel, { categories }, res);
