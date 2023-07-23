@@ -92,7 +92,7 @@ module.exports = function Delivery({ categories, deliveries, email }) {
               <tbody>
                 {deliveries.length ? (
                   deliveries.map((el) => (
-                    <tr id={`tr-${el.id}`} key={el.id}>
+                    <tr id={`tr-${el.id}`} key={el.id} style={{fontSize: '12px'}}>
                       <td>{el.order_price}</td>
                       <td>{el.delivery_price}</td>
                       <td>

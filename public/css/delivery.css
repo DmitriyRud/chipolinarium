@@ -8,6 +8,7 @@
 
 .table {
   margin: 2rem 0;
+  
 }
 tr,
 td,
@@ -71,5 +72,8 @@ th {
   }
   .delivery-container{
     font-size: 16px;
+  }
+  .usual-btn{
+    font-size: 12px;
   }
 }
