@@ -70,11 +70,7 @@ button {
 }
 
 .card_container_feedback {
-  /* border: 2px solid black; */
   border-radius: 5px;
-  /* min-width: 300px;
-  margin-bottom: 3rem;
-  padding: 3rem; */
   text-align: center;
   width: 106.5%;
 }
@@ -167,10 +163,8 @@ button {
 }
 .Manager_container {
   width: 100%;
+  margin: 1rem;
 }
-/* .div_button_feedback {
-  display: flex;
-} */
 
 @media (min-width: 768px) and (max-width: 1400px) {
   .category_create_container,
@@ -181,6 +175,9 @@ button {
   .flex_feedback_admin,
   .Manager_container {
     width: 75%;
+  }
+  .card_container_feedback {
+    width: 102.5%;
   }
   .update-form {
     width: 71%;
@@ -201,6 +198,9 @@ button {
     width: 105%;
     margin-left: -1rem;
   }
+  .Manager_container {
+    margin: 0rem;
+  }
 
   .category_create_container,
   .create_item_container {
@@ -220,6 +220,7 @@ button {
   }
   .div_button_feedback {
     display: flex;
+    justify-content: space-between;
   }
   .card_container_feedback button {
     display: flex;

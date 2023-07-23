@@ -197,8 +197,8 @@ cardFeedback.addEventListener('click', async (e) => {
                 <h5 class="card-title">${resultEdit.name}</h5>
                 <p class="card-text">${resultEdit.body}</p>
               </div>
-          
-              <div className="buttons-feedback">
+        
+              <div class="div_button_feedback">
                   <button
                     id="${resultEdit.id}"
                     type="button"
@@ -220,7 +220,8 @@ cardFeedback.addEventListener('click', async (e) => {
                   >
                     Изменить отзыв
                   </button>
-                </div>
+              
+                <div>
                 `;
             divEditContainer.innerHTML = newCardEdit;
             const editFormResult = document.getElementById('feedBackFormEdit');
@@ -290,8 +291,8 @@ updateForm.addEventListener('submit', async (event) => {
   ) {
     message.innerText = 'Поля не могут быть пустыми!';
   } else if (
-    res.oldEmail.match(emailPattern) ||
-    res.newEmail.match(emailPattern)
+    res.oldEmail.match(emailPattern) === null ||
+    res.newEmail.match(emailPattern) === null
   ) {
     message.innerText = 'Некорректный email!';
   } else {
