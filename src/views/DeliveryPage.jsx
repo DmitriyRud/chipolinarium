@@ -138,7 +138,7 @@ module.exports = function Delivery({ categories, deliveries, email }) {
             )}
           </table>
 
-          <div style={{ width: '30%' }}>
+          <div>
             <p className="newFeedback" />
             <form id="deliveryForm" style={{ display: 'none' }}>
               <div className="mb-3">

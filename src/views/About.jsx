@@ -19,10 +19,11 @@ module.exports = function About({ categories }) {
           <div className="item-inner">
             <p className="item-inner-text inner-text">
               Наша команда талантливых шеф-поваров и кулинаров разработала
-              уникальные рецепты для каждой категории нашего ассортимента. <br/>Мы
-              тщательно подбирали самые лучшие сочетания ингредиентов и приправ,
-              чтобы создать блюда с богатым и насыщенным вкусом. <br/> Наша цель -
-              удивить вас разнообразием и качеством наших салатов.
+              уникальные рецепты для каждой категории нашего ассортимента.{' '}
+              <br />
+              Мы тщательно подбирали самые лучшие сочетания ингредиентов и
+              приправ, чтобы создать блюда с богатым и насыщенным вкусом. <br />{' '}
+              Наша цель - удивить вас разнообразием и качеством наших салатов.
             </p>
             <div className="item__img">
               <img className="item-image" src="/image/cook.jpg" />
@@ -32,7 +33,7 @@ module.exports = function About({ categories }) {
         <div className="item">
           <h3>Контроль качества производства</h3>
           <div className="item-inner">
-            <div className="item__img">
+            <div className="item__img2">
               <img className="item-image" src="/image/control.jpeg" />
             </div>
             <div className="item-inner-text">
