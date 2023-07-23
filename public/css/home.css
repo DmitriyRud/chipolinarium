@@ -174,19 +174,7 @@ min-width: 20rem;
 
 
 
-/* @media (max-width: 900px) {
-  .slide1-title h2 {
-    font-size: 95px;
-  }
-  .slide1-title p {
-    font-size: 55px;
-  }
-}
-@media (max-width: 700px) {
-  .slide2-item {
-    font-size: 45px;
-  }
-} */
+
 @media (max-width: 900px) {
   .home-title-text {
     font-size: 28px;
@@ -254,4 +242,8 @@ min-width: 20rem;
     height: 4rem;
   }
 }
-
+@media (max-width: 365px) {
+  .advantaged-descr{
+    height: 5rem;
+  }
+}
