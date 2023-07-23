@@ -11,7 +11,7 @@ module.exports = function Catalog({ categories, email }) {
       {email ? (
         <div id={categories.id} className="container category-container">
           <div className="allItems-container container">
-            <a href="/accountPanel" className="btn btn-card">
+            <a href="/accountPanel" className="btn btn-card btn-seeItems">
               {' '}
               Добавить новую категорию
             </a>

@@ -17,6 +17,12 @@ th {
 
 .usual-btn {
   background-color: var(--color-dark-green);
+  color: white;
+  margin-right: 1rem;
+}
+.usual-btn:hover{
+  background-color: var(--color-chipollino);
+  color: black;
 }
 
 .delivery-container {
@@ -58,12 +64,12 @@ th {
 }
 @media (max-width: 500px) {
   .delivery-title{
-    font-size: 16px;
+    font-size: 20px;
   }
   .delivery-title {
     margin-bottom: 0.5rem;
   }
   .delivery-container{
-    font-size: 12px;
+    font-size: 16px;
   }
 }

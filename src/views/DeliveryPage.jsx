@@ -134,7 +134,7 @@ module.exports = function Delivery({ categories, deliveries, email }) {
             )}
           </table>
 
-          <div style={{ width: "30%" }}>
+          <div>
             <p className="newFeedback" />
             <form id="deliveryForm" style={{ display: "none" }}>
               <div className="mb-3">
@@ -163,10 +163,10 @@ module.exports = function Delivery({ categories, deliveries, email }) {
                 />
               </div>
 
-              <button type="submit" className="btn addFormBtn">
+              <button type="submit" className="btn usual-btn addFormBtn">
                 Отправить
               </button>
-              <button type="submit" className="btn  closeFormBtn">
+              <button type="submit" className="btn  usual-btn closeFormBtn">
                 Закрыть форму
               </button>
             </form>

@@ -205,6 +205,8 @@ button {
   .Manager_container {
     width: 120%;
   }
+  .Manager_container{
+    margin-left: 1rem;}
   .update-form {
     width: 100%;
   }
