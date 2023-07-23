@@ -6,4 +6,11 @@ function isAuth(req, res, next) {
   }
 }
 
-module.exports = isAuth;
+function isNoAuth(req, res, next) {
+  if (!req.session.email) {
+    next();
+  } else {
+    res.redirect('/accountPanel');
+  }
+}
+module.exports = { isAuth, isNoAuth };

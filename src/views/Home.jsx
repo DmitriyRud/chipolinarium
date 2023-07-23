@@ -4,6 +4,7 @@ const Layout = require('./Layout');
 module.exports = function Home({ categories }) {
   return (
     <Layout categories={categories}>
+      <link type="image/png" sizes="32x32" rel="icon" href="/image/favicon.png"></link>
       <script defer src="/js/requestPriceHome.js" />
       <link
         rel="stylesheet"
@@ -92,7 +93,7 @@ module.exports = function Home({ categories }) {
                   <input
                     className="form-price__input form-control"
                     name="email"
-                    placeholder="Введите Ваше email"
+                    placeholder="Введите Ваш email"
                   />
                 </div>
                 <button className="price-btn btn" type="submit">

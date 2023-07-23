@@ -10,7 +10,9 @@ module.exports = function Login({ categories }) {
         <form id="logForm" name="logName">
           <h2>Войдите на сайт</h2>
           <hr />
+
           <p className="paragraph"></p>
+          <h3 className="logMsg"> </h3>
           <label htmlFor="email" className="form-label">
             email
           </label>
@@ -37,7 +39,7 @@ module.exports = function Login({ categories }) {
           </button>
         </form>
         <hr />
-        <h3 className="logMsg"> </h3>
+        
       </div>
     </Layout>
   );

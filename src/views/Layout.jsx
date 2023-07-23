@@ -241,7 +241,7 @@ module.exports = function Layout({ children, categories }) {
                     <span>📞 +7 (495) 7951054</span>
                   </a>
                 </div>
-                <div className="email_contact">
+                 <div className="email_contact">
                   <h4 className="footer-title">Пишите нам:</h4>
                   <span>inmarcoplus@mail.ru</span>
                 </div>

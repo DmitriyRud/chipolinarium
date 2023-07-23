@@ -10,8 +10,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-top: 4rem;
-  padding-top: 3rem;
+  
+  padding-top: 5rem;
 }
 .card {
   width: 20rem;
@@ -89,4 +89,9 @@
 }
 #btnSend {
   border: 1px solid black;
+}
+@media (max-width: 900px){
+  .containerCategory{
+    padding-top: 0rem;
+  }
 }

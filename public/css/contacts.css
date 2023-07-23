@@ -5,11 +5,6 @@
   margin: 0 1rem;
 }
 
-/* .container {
-  display: flex;
-  justify-content: space-around;
-  /* padding: 2rem 0 0 2rem; */
-/* } */
 .contacts_container {
   display: flex;
   padding: 2rem 0 0 3rem;
@@ -28,11 +23,52 @@
   list-style: none;
   padding-left: 0;
 }
-
+@media (max-width: 1340px) {
+  .contacts {
+    margin-right: 0;;
+  }
+}
+@media (max-width: 1119px) {
+  .contacts {
+  max-width: 35rem;
+}
+}
+@media (max-width: 800px) {
+  .map {
+    width: 28rem;
+    margin-right: 7rem;
+  }
+}
 @media (max-width: 650px) {
   .map {
-    width: 20rem;
+    width: 21rem;
     margin-right: 7rem;
     height: 20rem;
+  }
+  .contacts {
+ margin-right: 2rem;
+  max-width: 25rem;
+}
+}
+@media (max-width: 450px){
+  .contacts {
+    font-size: 14px;
+    margin-right: 2rem;
+    max-width: 30rem;
+  }
+  .map {
+    width: 22rem;
+    margin-right: 4rem;
+    
+  }
+}
+@media (max-width: 435px){
+  .contacts {
+    margin-right: 0rem;
+    max-width: 22rem;
+  }
+  .map {
+    width: 18rem;
+    margin-right: 4rem;
   }
 }
