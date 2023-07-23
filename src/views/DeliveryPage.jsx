@@ -135,6 +135,8 @@ module.exports = function Delivery({ categories, deliveries, email }) {
           </table>
 
 
+
+
           <div>
 
             <p className="newFeedback" />
@@ -165,10 +167,10 @@ module.exports = function Delivery({ categories, deliveries, email }) {
                 />
               </div>
 
-              <button type="submit" className="btn addFormBtn">
+              <button type="submit" className="btn usual-btn addFormBtn">
                 Отправить
               </button>
-              <button type="submit" className="btn  closeFormBtn">
+              <button type="submit" className="btn  usual-btn closeFormBtn">
                 Закрыть форму
               </button>
             </form>
