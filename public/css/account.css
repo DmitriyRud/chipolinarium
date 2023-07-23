@@ -197,6 +197,11 @@ button {
 }
 
 @media (max-width: 768px) {
+  .forms_container {
+    width: 105%;
+    margin-left: -1rem;
+  }
+
   .category_create_container,
   .create_item_container {
     width: 100%;
@@ -211,7 +216,7 @@ button {
     width: 100%;
   }
   .updateAdmin-btn {
-    width: 100%;
+    width: 95%;
   }
   .div_button_feedback {
     display: flex;
@@ -225,6 +230,15 @@ button {
   }
   .account_admin_container {
     margin-left: 1rem;
-    margin-right: 1rem;
+    margin-right: 0.3rem;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  .flex_feedback_admin {
+    margin-left: -2rem;
   }
 }
