@@ -75,8 +75,3 @@ container.addEventListener('click', async (event) => {
     }
   }
 });
-
-// closeFormBtn.addEventListener('click', (event) => {
-//   feedBackForm.style.display = 'none';
-//   feedback.style.display = 'block';
-// });

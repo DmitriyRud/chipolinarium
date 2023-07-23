@@ -70,7 +70,12 @@ module.exports = function Items({ categories, email, items }) {
                         name="newItem"
                         className="form_catalog"
                       >
-                        <select name="categoryName" id="">
+                        <label htmlFor="categoryName">Категория:</label>
+                        <select
+                          name="categoryName"
+                          id=""
+                          className="form-control"
+                        >
                           {categories.length ? (
                             categories.map((category) =>
                               category.id === item.category_id ? (
@@ -89,25 +94,32 @@ module.exports = function Items({ categories, email, items }) {
                         </select>
                         <br />
                         <label htmlFor="pic_input">Фото:</label>
-                        <input id="pic_input" type="file" name="photoItem" />
-
+                        <input
+                          id="pic_input"
+                          type="file"
+                          name="photoItem"
+                          className="form-control"
+                        />
+                        <br />
                         <label htmlFor="pic_input">Название:</label>
-                        <br></br>
+                        <br />
                         <input
                           id="titleItem"
                           type="text"
                           name="name"
                           value={item.name}
+                          className="form-control"
                         />
-
+                        <br />
                         <label htmlFor="pic_input">Описание товара:</label>
                         <textarea
                           id="titleCategory"
                           type="text"
                           name="description"
                           value={item.description}
+                          className="form-control"
                         />
-
+                        <br />
                         <button
                           type="button"
                           className="btn sendEditItem endCategory"

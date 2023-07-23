@@ -80,28 +80,33 @@ module.exports = function Catalog({ categories, email }) {
                       name="newCategory"
                       className="form_catalog"
                     >
-                      <label htmlFor="pic_input" style={{ color: 'white' }}>
-                        Фото:
-                      </label>
-                      <input id="pic_input" type="file" name="photo" />
+                      <label htmlFor="pic_input">Фото:</label>
+                      <input
+                        id="pic_input"
+                        type="file"
+                        name="photo"
+                        className="form-control"
+                      />
+                      <br />
+                      <label htmlFor="title">Название:</label>
 
-                      <label htmlFor="title">Название</label>
-                      <br></br>
                       <input
                         id="title"
                         type="text"
                         name="title"
                         value={category.title}
+                        className="form-control"
                       />
-
-                      <label htmlFor="description">Описание товара</label>
-                      <input
+                      <br />
+                      <label htmlFor="description">Описание товара:</label>
+                      <textarea
                         id="description"
                         type="text"
                         name="description"
                         value={category.description}
+                        className="form-control"
                       />
-
+                      <br />
                       <button
                         type="button"
                         className="btn sendCategory"
