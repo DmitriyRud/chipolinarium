@@ -11,16 +11,16 @@
 
 .sendFormBtn,
 .closeFormBtn {
-  color: var(--color-form-text);
-  background-color: var(--color-chipollino);
+  color: var(--color-button);
+  background-color: var(--color-dark-green);
 }
 .feedback_container {
   width: 100%;
 }
 .sendFormBtn:hover,
 .closeFormBtn:hover {
-  color: var(--color-form-text);
-  background-color: #5a6241;
+  background-color: var(--color-chipollino);
+  color: var(--color-text);
 }
 
 .sendFormBtn {
@@ -30,6 +30,19 @@
   margin: 0 0 3rem 1rem;
 }
 
-/* .card {
-  width: 70%;
-} */
+.newFeedback {
+  color: brown;
+}
+
+@media (max-width: 768px) {
+  .main_feedback_container {
+    padding: 1rem;
+  }
+  #feedbackBtn {
+    width: 100%;
+  }
+  .div_buttons_feedback {
+    display: flex;
+    justify-content: space-between;
+  }
+}

@@ -255,7 +255,7 @@ dialog {
 }
 
 @media (max-width: 900px) {
-  .logo{
+  .logo {
     width: 30%;
   }
   .header_container {
@@ -271,36 +271,36 @@ dialog {
     padding-top: 2 rem;
     padding-bottom: 1rem;
   }
-  .contact_header{
+  .contact_header {
     margin-top: 1rem;
   }
 }
 
 @media (max-width: 678px) {
-  .logo{
+  .logo {
     width: 30%;
   }
-  .button_price{
-    width: 80%;
+  .button_price {
+    width: 100%;
   }
-  footer{
+  footer {
     font-size: 12px;
-   }
-   .footer-title{
+  }
+  .footer-title {
     font-size: 14px;
-   }
+  }
 }
 @media (max-width: 500px) {
-  .logo{
+  .logo {
     width: 40%;
   }
- footer{
-  font-size: 12px;
- }
- .footer-title{
-  font-size: 14px;
- }
- .footer-logo_image {
-  width: 120%;
-}
+  footer {
+    font-size: 12px;
+  }
+  .footer-title {
+    font-size: 14px;
+  }
+  .footer-logo_image {
+    width: 120%;
+  }
 }

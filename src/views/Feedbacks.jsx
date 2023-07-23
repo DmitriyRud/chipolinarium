@@ -61,13 +61,14 @@ module.exports = function Feedback({ categories, feedbacks }) {
                 placeholder="Ваше мнение о нас..."
               />
             </div>
-
-            <button id="1" type="submit" className="btn sendFormBtn">
-              Отправить
-            </button>
-            <button type="submit" className="btn closeFormBtn">
-              Закрыть форму
-            </button>
+            <div className="div_buttons_feedback">
+              <button id="1" type="submit" className="btn sendFormBtn">
+                Отправить
+              </button>
+              <button type="submit" className="btn closeFormBtn">
+                Закрыть форму
+              </button>
+            </div>
           </form>
         </div>
 
