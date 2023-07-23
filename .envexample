@@ -1,6 +1,6 @@
-PORT=3000
-DB_URL=postgres://postgres:postgres@localhost:5432/chipolinarium
-SESSION_SECRET=rdvgfhjfcu8sfjifd
-COOKIE_NAME=name
+PORT=****
+DB_URL=***://***:***@localhost:5432/***
+SESSION_SECRET=***
+COOKIE_NAME=***
 EMAIL=************@***.com
 PASSWORD=***********

@@ -201,7 +201,9 @@ button {
   .Manager_container {
     margin: 0rem;
   }
-
+.update-container{
+  margin: 0;
+}
   .category_create_container,
   .create_item_container {
     width: 100%;
