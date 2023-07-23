@@ -25,9 +25,9 @@ managerForm.addEventListener('submit', async (event) => {
       });
       const result = await response.json();
       if (result.email) {
-      managerMessage.innerText = 'Почта менеджера успешно добавлена';
-      managerEmail.value = '';
-      const newManagerEmail = `
+        managerMessage.innerText = 'Почта менеджера успешно добавлена';
+        managerEmail.value = '';
+        const newManagerEmail = `
       <li> ${result.email} <button id=${result.id} type="button" class="deleteManagerBtn btn-close"
       aria-label="Close"></button></li>
       `;
