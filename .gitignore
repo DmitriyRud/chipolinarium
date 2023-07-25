@@ -133,3 +133,5 @@ sessions
 
 *.DS_Store
 ._*
+
+certs
