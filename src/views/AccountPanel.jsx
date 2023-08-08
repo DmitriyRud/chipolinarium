@@ -104,7 +104,9 @@ module.exports = function AccountPanel({ categories, feedbacks, managers }) {
               <select name="categoryName" id="" className="form-control">
                 {categories.length ? (
                   categories.map((category) => (
-                    <option value={category.title}>{category.title}</option>
+                    <option key={`opt-${category.id}`} value={category.title}>
+                      {category.title}
+                    </option>
                   ))
                 ) : (
                   <span> </span>
@@ -151,6 +153,7 @@ module.exports = function AccountPanel({ categories, feedbacks, managers }) {
               {feedbacks.length ? (
                 feedbacks.map((feedback) => (
                   <div
+                    key={`fback-${feedback.id}`}
                     id={`card-${feedback.id}`}
                     className="card_container_feedback"
                   >
@@ -197,14 +200,14 @@ module.exports = function AccountPanel({ categories, feedbacks, managers }) {
           <ul className="managerEmailList">
             {managers.length ? (
               managers.map((manager) => (
-                <li>
+                <li key={`manager-${manager.id}`}>
                   {manager.email}
                   <button
                     id={manager.id}
                     type="button"
                     className="deleteManagerBtn btn-close"
                     aria-label="Close"
-                  ></button>
+                  />
                 </li>
               ))
             ) : (

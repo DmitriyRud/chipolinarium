@@ -1,25 +1,25 @@
-require("@babel/register");
-require("dotenv").config();
+require('@babel/register');
+require('dotenv').config();
 
-const express = require("express");
-const https = require("https");
-const http = require("http");
-const fs = require("fs");
-const morgan = require("morgan");
-const path = require("path");
-const session = require("express-session");
-const FileStore = require("session-file-store")(session);
-const { isAuth } = require("./src/middlewares/isAuth");
+const express = require('express');
+const https = require('https');
+const http = require('http');
+const fs = require('fs');
+const morgan = require('morgan');
+const path = require('path');
+const session = require('express-session');
+const FileStore = require('session-file-store')(session);
+const { isAuth } = require('./src/middlewares/isAuth');
 
-const indexRouter = require("./src/routers/indexRouter");
-const contactsRouter = require("./src/routers/contactsRouter");
-const feedBackRouter = require("./src/routers/feedbackRouter");
-const accountPanelRouter = require("./src/routers/accountPanelRouter");
-const deliveryRouter = require("./src/routers/deliveryRouter");
-const catalogRouter = require("./src/routers/catalogRouter");
-const modalRouter = require("./src/routers/modalRouter");
-const aboutRouter = require("./src/routers/aboutRouter");
-const adminPanel = require("./src/routers/adminPanelRouter");
+const indexRouter = require('./src/routers/indexRouter');
+const contactsRouter = require('./src/routers/contactsRouter');
+const feedBackRouter = require('./src/routers/feedbackRouter');
+const accountPanelRouter = require('./src/routers/accountPanelRouter');
+const deliveryRouter = require('./src/routers/deliveryRouter');
+const catalogRouter = require('./src/routers/catalogRouter');
+const modalRouter = require('./src/routers/modalRouter');
+const aboutRouter = require('./src/routers/aboutRouter');
+const adminPanel = require('./src/routers/adminPanelRouter');
 
 const sessionConfig = {
   name: process.env.COOKIE_NAME,
@@ -35,18 +35,18 @@ const sessionConfig = {
 const app = express();
 const { PORT, HTTPS_PORT } = process.env;
 
-app.use(morgan("dev"));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(morgan('dev'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(session(sessionConfig));
-app.use("/uploads", express.static("uploads"));
+app.use('/uploads', express.static('uploads'));
 
 // Add middleware to redirect HTTP requests to HTTPS
 app.use((req, res, next) => {
-  if (!req.secure && req.protocol !== "https") {
+  if (!req.secure && req.protocol !== 'https') {
     const { host } = req.headers;
-    const parts = host.split(":");
+    const parts = host.split(':');
     const hostname = parts[0];
     res.redirect(`https://${hostname}${req.url}`);
   } else {
@@ -54,24 +54,24 @@ app.use((req, res, next) => {
   }
 });
 
-app.use("/", indexRouter);
-app.use("/contacts", contactsRouter);
-app.use("/feedback", feedBackRouter);
-app.use("/accountPanel", isAuth, accountPanelRouter);
-app.use("/delivery", deliveryRouter);
-app.use("/catalog", catalogRouter);
-app.use("/about", aboutRouter);
-app.use("/adminPanel", adminPanel);
-app.use("/modalpice", modalRouter);
+app.use('/', indexRouter);
+app.use('/contacts', contactsRouter);
+app.use('/feedback', feedBackRouter);
+app.use('/accountPanel', isAuth, accountPanelRouter);
+app.use('/delivery', deliveryRouter);
+app.use('/catalog', catalogRouter);
+app.use('/about', aboutRouter);
+app.use('/adminPanel', adminPanel);
+app.use('/modalpice', modalRouter);
 
-app.get("/404", (req, res) => {
-  res.send("Page not found");
+app.get('/404', (req, res) => {
+  res.send('Page not found');
 });
 
 // HTTPS server configuration
 const httpsOptions = {
-  key: fs.readFileSync(path.join(__dirname, "/certs/privkey.pem")),
-  cert: fs.readFileSync(path.join(__dirname, "/certs/fullchain.pem")),
+  key: fs.readFileSync(path.join(__dirname, '/certs/privkey.pem')),
+  cert: fs.readFileSync(path.join(__dirname, '/certs/fullchain.pem')),
 };
 
 // Create the HTTPS server

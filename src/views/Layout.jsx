@@ -70,10 +70,22 @@ module.exports = function Layout({ children, categories }) {
               </div>
               <div className="contact_header">
                 <a href="tel:+74957951054" className="phone_link">
-                  <p className="contact_header__text">Позвоните нам:</p>
                   <p className="contact_header__text">📞 +7(495)7951054</p>
                 </a>
-                <p className="contact_header__text">inmarcoplus@mail.ru</p>
+                <a href="tel:+79686361473" className="phone_link">
+                  <p className="contact_header__text">📞 +7(968)6361473</p>
+                </a>
+                <a href="https://wa.me/79686361472" className="whatsapp_link">
+                  <img src="./image/whatsapp24.png" alt="whatsapp" />
+                  +7(968)6361472
+                </a>
+                <a
+                  href="mailto: &#x69;&#x6e;&#x6d;&#x61;&#x72;&#x63;&#x6f;&#x70;&#x6c;&#x75;&#x73;&#x40;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x72;&#x75;"
+                  className="contact_header__text"
+                >
+                  ✉️
+                  &#x69;&#x6e;&#x6d;&#x61;&#x72;&#x63;&#x6f;&#x70;&#x6c;&#x75;&#x73;&#x40;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x72;&#x75;
+                </a>
                 <button type="button" className=" btn button_price">
                   Узнать цены
                 </button>
@@ -201,7 +213,7 @@ module.exports = function Layout({ children, categories }) {
                   />
                 </a>
                 <ul className="supply_links">
-                  <a href="/">
+                  <a href="/contacts">
                     <li className="supplies_item">Снабжение ресторанов</li>
                   </a>
                   <a href="/delivery">
@@ -225,7 +237,10 @@ module.exports = function Layout({ children, categories }) {
                 <ul className="category_list">
                   {categories.length ? (
                     categories.map((category) => (
-                      <a href={`/catalog/${category.id}`}>
+                      <a
+                        key={`${category.id}-catitem`}
+                        href={`/catalog/${category.id}`}
+                      >
                         <li className="category_lists">{category.title}</li>
                       </a>
                     ))
@@ -238,12 +253,25 @@ module.exports = function Layout({ children, categories }) {
                 <div className="sales_department">
                   <h4 className="footer-title">Отдел продаж:</h4>
                   <a href="tel:+74957951054" className="phone_link">
-                    <span>📞 +7 (495) 7951054</span>
+                    <p className="contact_header__text">📞 +7(495)7951054</p>
+                  </a>
+                  <a href="tel:+79686361473" className="phone_link">
+                    <p className="contact_header__text">📞 +7(968)6361473</p>
+                  </a>
+                  <a href="https://wa.me/79686361472" className="whatsapp_link">
+                    <img src="./image/whatsapp24.png" alt="whatsapp" />
+                    +7(968)6361472
                   </a>
                 </div>
-                 <div className="email_contact">
+                <div className="email_contact">
                   <h4 className="footer-title">Пишите нам:</h4>
-                  <span>inmarcoplus@mail.ru</span>
+                  <a
+                    href="mailto: &#x69;&#x6e;&#x6d;&#x61;&#x72;&#x63;&#x6f;&#x70;&#x6c;&#x75;&#x73;&#x40;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x72;&#x75;"
+                    className="contact_header__text"
+                  >
+                    ✉️
+                    &#x69;&#x6e;&#x6d;&#x61;&#x72;&#x63;&#x6f;&#x70;&#x6c;&#x75;&#x73;&#x40;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x72;&#x75;
+                  </a>
                 </div>
               </div>
             </div>

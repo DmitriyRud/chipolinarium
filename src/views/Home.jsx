@@ -4,7 +4,12 @@ const Layout = require('./Layout');
 module.exports = function Home({ categories }) {
   return (
     <Layout categories={categories}>
-      <link type="image/png" sizes="32x32" rel="icon" href="/image/favicon.png"></link>
+      <link
+        type="image/png"
+        sizes="32x32"
+        rel="icon"
+        href="/image/favicon.png"
+      ></link>
       <script defer src="/js/requestPriceHome.js" />
       <link
         rel="stylesheet"
@@ -18,7 +23,6 @@ module.exports = function Home({ categories }) {
         href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap"
         rel="stylesheet"
       />
-      <script defer src="/js/map.js" />
       <div>
         <div className="swiper container">
           <div className="swiper-wrapper">
@@ -61,9 +65,9 @@ module.exports = function Home({ categories }) {
               другого предприятия по оптовым ценам
             </h2>
             <div className="home-title-description">
-              Компания "Чиполинарий" осуществляет снабжение солениями и салатами
-              ресторанов, кафе, гостиниц, столовых, баров, комбинатов питания по
-              Москве и Московской области
+              Компания "Инмарко Плюс" осуществляет снабжение солениями и
+              салатами ресторанов, кафе, гостиниц, столовых, баров, комбинатов
+              питания по Москве и Московской области
             </div>
           </div>
           <div className="home-price">
@@ -107,7 +111,7 @@ module.exports = function Home({ categories }) {
             <div className="advantages-inner">
               <div className="advantages-item">
                 <div className="advantages-img">
-                  <img src="/image/assortiment.png" />
+                  <img src="/image/assortiment.png" alt="assortment" />
                 </div>
                 <h5 className="advantages-title">Обширный ассортимент</h5>
                 <div className="advantaged-descr">
@@ -119,7 +123,7 @@ module.exports = function Home({ categories }) {
               </div>
               <div className="advantages-item">
                 <div className="advantages-img">
-                  <img src="/image/delivery.png" />
+                  <img src="/image/delivery.png" alt="delievery" />
                 </div>
                 <h5 className="advantages-title">УДОБНАЯ ДОСТАВКА</h5>
                 <div className="advantaged-descr">
@@ -132,7 +136,7 @@ module.exports = function Home({ categories }) {
               </div>
               <div className="advantages-item">
                 <div className="advantages-img">
-                  <img src="/image/trust.png" />
+                  <img src="/image/trust.png" alt="partners" />
                 </div>
                 <h5 className="advantages-title">Нам доверяют</h5>
                 <div className="advantaged-descr">
@@ -148,7 +152,8 @@ module.exports = function Home({ categories }) {
             <iframe
               src="https://yandex.ru/map-widget/v1/?ll=39.711247%2C54.959259&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgozNjUzODI5ODI0EqwB0KDQvtGB0YHQuNGPLCDQnNC-0YHQutC-0LLRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwg0LPQvtGA0L7QtNGB0LrQvtC5INC-0LrRgNGD0LMg0JvRg9GF0L7QstC40YbRiywg0YHQtdC70L4g0J3QuNC20L3QtS3QnNCw0YHQu9C-0LLQviwg0JzQvtC70L7QtNGR0LbQvdCw0Y8g0YPQu9C40YbQsCwgMTHQkCIKDWZ5HUIVVVVbQg%2C%2C&z=8.97"
               frameBorder="1"
-              allowfullscreen="true"
+              allowFullScreen="true"
+              title="YandexMap"
             />
           </div>
         </div>

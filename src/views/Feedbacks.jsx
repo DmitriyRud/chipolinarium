@@ -75,7 +75,7 @@ module.exports = function Feedback({ categories, feedbacks }) {
         <div className="feedback_container">
           {feedbacks.length ? (
             feedbacks.map((feedback) => (
-              <div className="card" key={feedback.id}>
+              <div className="card" key={`fb-${feedback.id}`}>
                 <div className="card-body">
                   <h5 className="card-title">{feedback.name}</h5>
                   <p className="card-text">{feedback.body}</p>

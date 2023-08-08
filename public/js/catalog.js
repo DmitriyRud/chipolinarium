@@ -15,15 +15,10 @@ containerCategory.addEventListener('click', async (event) => {
       event.target.closest('.card').remove();
     }
   } else if (event.target.classList.contains('editBtn')) {
-    const cardHidden = document.getElementById(
-      `card-hidden-${event.target.dataset.editCategory}`
-    );
-
     const hiddenForm = document.getElementById(
       `hide-form-${event.target.dataset.editCategory}`
     );
 
-    cardHidden.style.display = 'none';
     hiddenForm.style.display = 'block';
   } else if (event.target.dataset.sendEditCategory) {
     const editCategoryForm = document.getElementById(
@@ -50,14 +45,9 @@ containerCategory.addEventListener('click', async (event) => {
         const result = await response.json();
 
         if (result.msg) {
-          const cardHidden = document.getElementById(
-            `card-hidden-${event.target.dataset.sendEditCategory}`
-          );
-
           const hiddenForm = document.getElementById(
             `hide-form-${event.target.dataset.sendEditCategory}`
           );
-          cardHidden.style.display = 'block';
           hiddenForm.style.display = 'none';
           const imageCategory = document.getElementById(
             `card-img-top-${event.target.dataset.sendEditCategory}`

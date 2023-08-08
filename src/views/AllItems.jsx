@@ -9,7 +9,7 @@ module.exports = function AllItems({ categories, email, items }) {
       <script defer src="/js/modalHeader.js" />
       {email ? (
         <div className="container">
-          <div className="containerCategory" style={{margin:'0'}}>
+          <div className="containerCategory" style={{ margin: '0' }}>
             {items.length ? (
               items.map((item) => (
                 <div className="card" key={`${item.id}item`}>
@@ -40,7 +40,7 @@ module.exports = function AllItems({ categories, email, items }) {
           <div className="containerCategory">
             {items.length ? (
               items.map((item) => (
-                <div className="card" key={`${item.id}item`}>
+                <div className="card" key={`item-${item.id}`}>
                   <img src={item.image} className="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">{item.name}</h5>
